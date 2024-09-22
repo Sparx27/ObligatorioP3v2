@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/JUjGfBrCy21egRIgI7SLEu5kQ6GTSkGqdr6puwJORWPXDwBL4Pi9wFCzLxFklCTdPdFM3+vx4jm93s4/kf1FQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\LogicaNegocio\\LogicaNegocio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

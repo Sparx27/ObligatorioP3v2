@@ -1,0 +1,37 @@
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.deps.json
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfo.cs
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.sourcelink.json
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\refint\LogicaNegocio.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\ref\LogicaNegocio.dll
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.deps.json
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.dll
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfoInputs.cache
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfo.cs
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.sourcelink.json
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.dll
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\refint\LogicaNegocio.dll
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\cri_1\OneDrive\Escritorio\ObligatorioP3_1\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\ref\LogicaNegocio.dll
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.deps.json
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.dll
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\bin\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.AssemblyInfo.cs
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.sourcelink.json
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.dll
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\refint\LogicaNegocio.dll
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\ref\LogicaNegocio.dll
+C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaNegocio\obj\Debug\net8.0\LogicaNegocio.csproj.AssemblyReference.cache

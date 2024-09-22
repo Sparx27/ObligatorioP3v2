@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="row align-items-center justify-content-center pt-5">
+    <figure class="col-8 col-sm-6 col-md-3 mt-3">
+        <img src="~/images/snorlax.jpg" alt="snorlax" class="w-100 rounded-2" />
+    </figure>
+    <div class="col-12 text-center text-md-start col-md-5">
+        @if (ViewBag.Message != null)
+        {
+            <p class="fs-3">
+                <span class="text-danger">@(ViewBag.Message.code):</span>
+                @ViewBag.Message.message
+            </p>
+        }
+        else
+        {
+            <p class="fs-3">
+                <span class="text-danger">Error 401:</span>
+                Un Snorlax bloquea tu paso
+            </p>
+        }
+        @Html.ActionLink("Volver", "Index", "Home", new { }, new { @class = "link-danger text-decoration-none fs-3" })
+    </div>
+</section>

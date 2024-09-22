@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\views\\usuario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\usuarios\\updateusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\usuarios\\updateusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\models\\usuario\\usuarioupdatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\models\\usuario\\usuarioupdatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\models\\usuario\\usuarioinsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\models\\usuario\\usuarioinsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obp2\\obligatoriop3\\solobligatoriop3\\mvc\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADYAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T17:19:41.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\UpdateUsuario.cs",
+              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Usuarios\\UpdateUsuario.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\UpdateUsuario.cs",
+              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Usuarios\\UpdateUsuario.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwDwAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:42:00.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Edit.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Edit.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuario\\Edit.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADgAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T01:21:29.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "MVC\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "MVC\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAACQBAAAAAAAAAAApwDQBAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:26:07.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UsuarioInsertVM.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
+              "RelativeDocumentMoniker": "MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
+              "RelativeToolTip": "MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T03:49:04.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioUpdateVM.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioUpdateVM.cs",
+              "RelativeDocumentMoniker": "MVC\\Models\\Usuario\\UsuarioUpdateVM.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioUpdateVM.cs",
+              "RelativeToolTip": "MVC\\Models\\Usuario\\UsuarioUpdateVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T03:49:01.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Details.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Details.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuario\\Details.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T03:19:36.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Create.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Create.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuario\\Create.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T03:32:20.675Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
