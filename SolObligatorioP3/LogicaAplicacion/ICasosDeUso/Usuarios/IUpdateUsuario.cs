@@ -10,6 +10,6 @@ namespace LogicaAplicacion.ICasosDeUso.Usuarios
     public interface IUpdateUsuario
     {
         UsuarioUpdateDTO Ejecutar(int id, UsuarioUpdateDTO usuarioUpdateDTO);
-        UsuarioUpdateDTO Ejecutar(int id, string contrasena);
+        UsuarioUpdateDTO Ejecutar(int id, string contrasena, string contrasenaAnterior);
     }
 }

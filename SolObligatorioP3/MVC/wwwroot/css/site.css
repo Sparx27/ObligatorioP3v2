@@ -49,3 +49,7 @@ button:focus {
     background-color: #dc3546 !important;
     color: white;
 }
+
+.link {
+    cursor: pointer !important;
+}

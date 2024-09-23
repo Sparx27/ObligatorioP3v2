@@ -53,6 +53,7 @@ namespace Compartido.Mappers
                 Nombre = u.Nombre,
                 Id = u.Id,
                 RolUsuario = u.RolUsuario.ToString(),
+                FechaRegistro = u.FechaRegistro.ToString("dd/MM/yyyy")
             });
 
             return usuariosDTOs;

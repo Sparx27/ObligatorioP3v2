@@ -45,7 +45,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         }
 
-        public UsuarioUpdateDTO Ejecutar(int id, string contrasena)
+        public UsuarioUpdateDTO Ejecutar(int id, string contrasena, string contrasenaAnterior)
         {
             ValidarUsuario.Contrasena(contrasena);
 
@@ -53,6 +53,16 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             if (actualizarUsuario == null)
             {
                 throw new UsuarioException("No se encontró el usuario que intenta actualizar");
+            }
+
+            if(contrasenaAnterior != actualizarUsuario.Contrasena.Valor)
+            {
+                throw new UsuarioException("La contraseña actual que ingresó es incorrecta");
+            }
+
+            if(contrasenaAnterior == contrasena)
+            {
+                throw new UsuarioException("La nueva contraseña que intenta ingresar es igual a la actual");
             }
 
             actualizarUsuario.Contrasena = new RUsuarioContrasena(contrasena);

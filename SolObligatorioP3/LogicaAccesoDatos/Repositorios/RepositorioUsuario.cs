@@ -29,7 +29,8 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Delete(Usuario item)
         {
-            throw new NotImplementedException();
+            _context.Remove(item);
+            _context.SaveChanges();
         }
 
         public List<Usuario> GetAll()

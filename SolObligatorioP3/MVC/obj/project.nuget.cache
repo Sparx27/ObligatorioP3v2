@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9cA3XFHoXKzBpg17pI2XHzsb3xfrhUI/czicEckDNfeR5s92HQUx02jXWkugCJA+c5CpQzq6z36a8+97oITMvg==",
+  "dgSpecHash": "q0QpFBIiHT5UM5hz0k4OJ5lgkhXrN57M4iEjtEaI1L8oMOqs6COt8NCmvmdYx6OpkxkZrTGxvMkE6vHUZBvbyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\obp2\\ObligatorioP3\\SolObligatorioP3\\MVC\\MVC.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\MVC\\MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

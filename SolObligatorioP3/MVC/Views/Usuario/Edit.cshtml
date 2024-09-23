@@ -48,6 +48,7 @@
 
     <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
         <form asp-action="CambiarContrasena" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h2 class="text-danger text-center mb-4">Cambiar Contraseña</h2>
             @if (TempData["ErrorContrasena"] != null)
             {
                 <p class="alert alert-danger text-center">@TempData["ErrorContrasena"]</p>
@@ -61,8 +62,12 @@
             <input type="hidden" asp-for="Id" />
 
             <div class="form-group">
-                <label for="contrasena" class="control-label mb-1">Cambiar Contraseña</label>
-                <input id="contrasena" name="contrasena" class="form-control" />
+                <label for="contrasenaAnterior" class="control-label mb-1">Contraseña Actual</label>
+                <input id="contrasenaAnterior" name="contrasenaAnterior" class="form-control" type="password" />
+            </div>
+            <div class="form-group">
+                <label for="contrasena" class="control-label mb-1">Nueva Contraseña</label>
+                <input id="contrasena" name="contrasena" class="form-control" type="password" />
             </div>
             <div class="form-group mt-3">
                 <input type="submit" value="Guardar cambio" class="btn btn-danger w-100" />

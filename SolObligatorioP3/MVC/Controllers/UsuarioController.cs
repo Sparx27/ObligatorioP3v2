@@ -16,12 +16,14 @@ namespace MVC.Controllers
         private IAltaUsuario _altaUsuario;
         private IFindAllUsuarios _findAllUsuarios;
         private IUpdateUsuario _updateUsuario;
+        private IDeleteUsuario _deleteUsuario;
         public UsuarioController(
             ILoginUsuario loginUsuario, 
             IGetByIdUsuario getByIdUsuario, 
             IAltaUsuario altaUsuario, 
             IFindAllUsuarios findAllUsuarios,
-            IUpdateUsuario updateUsuario
+            IUpdateUsuario updateUsuario,
+            IDeleteUsuario deleteUsuario
         )
         {
             _loginUsuario = loginUsuario;
@@ -29,6 +31,7 @@ namespace MVC.Controllers
             _altaUsuario = altaUsuario;
             _findAllUsuarios = findAllUsuarios;
             _updateUsuario = updateUsuario;
+            _deleteUsuario = deleteUsuario;
         }
 
 
@@ -275,7 +278,7 @@ namespace MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CambiarContrasena(int id, string contrasena)
+        public ActionResult CambiarContrasena(int id, string contrasena, string contrasenaAnterior)
         {
             int? idLogueado = HttpContext.Session.GetInt32("idLogueado");
 
@@ -299,7 +302,7 @@ namespace MVC.Controllers
                     try
                     {
                         // Intento cambiar la contraseña
-                        UsuarioUpdateDTO usuarioActualizado = _updateUsuario.Ejecutar(id, contrasena);
+                        UsuarioUpdateDTO usuarioActualizado = _updateUsuario.Ejecutar(id, contrasena, contrasenaAnterior);
 
                         TempData["MessageContrasena"] = "Contraseña actualizada correctamente";
                         return RedirectToAction("Edit", new { Id = id });
@@ -324,22 +327,26 @@ namespace MVC.Controllers
         // GET: UsuarioController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
+            if (HttpContext.Session.GetString("rolLogueado") == "Administrador")
+            {
+                try
+                {
+                    _deleteUsuario.Ejecutar(id);
+                    TempData["MessageDelete"] = "Usuario eliminado con éxito";
+                }
+                catch(UsuarioException uex)
+                {
+                    TempData["MessageDelete"] = uex.Message;
+                }
+                catch(Exception ex)
+                {
+                    TempData["MessageDelete"] = ex.Message;
+                }
+                return RedirectToAction("ListaUsuarios");
+                
+            }
 
-        // POST: UsuarioController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Error");
         }
 
         [HttpGet("Usuario/Lista-Usuarios")]

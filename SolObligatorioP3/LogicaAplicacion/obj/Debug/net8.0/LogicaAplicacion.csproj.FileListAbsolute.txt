@@ -58,3 +58,23 @@ C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaAplicacion\obj\D
 C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\refint\LogicaAplicacion.dll
 C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.pdb
 C:\Users\Dell\Desktop\obp2\ObligatorioP3\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\ref\LogicaAplicacion.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.deps.json
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\Compartido.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaAccesoDatos.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaNegocio.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\Compartido.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaAccesoDatos.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\bin\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.AssemblyReference.cache
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfo.cs
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.sourcelink.json
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAp.7CDA08B3.Up2Date
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\refint\LogicaAplicacion.dll
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAplicacion\obj\Debug\net8.0\ref\LogicaAplicacion.dll

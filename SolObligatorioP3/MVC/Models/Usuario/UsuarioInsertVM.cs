@@ -15,6 +15,7 @@ namespace MVC.Models.Usuario
         [Required(ErrorMessage = "La contraseña es requerida")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\.;,!]).{6,}$",
             ErrorMessage = "La contraseña debe contener al menos 6 caracteres y al menos una mayúscula, minúscula, dígito y [. ; , !]")]
+        [DataType(DataType.Password)]
         public string? Contrasena { get; set; }
 
         [DisplayName("Rol de usuario")]

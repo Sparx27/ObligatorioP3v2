@@ -39,6 +39,7 @@ builder.Services.AddScoped<IGetByIdUsuario, GetByIdUsuario>();
 builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
 builder.Services.AddScoped<IFindAllUsuarios, FindAllUsuarios>();
 builder.Services.AddScoped<IUpdateUsuario, UpdateUsuario>();
+builder.Services.AddScoped<IDeleteUsuario, DeleteUsuario>();
 #endregion
 
 #region Atleta
