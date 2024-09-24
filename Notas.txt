@@ -1,1 +1,2 @@
 En el usuario habría que tener un estado para el borrado lógico (baja)
+Verificar la relación en el enum, que tenga el rombo sin relleno y sea de * a 1 desde el usuario al ROL
