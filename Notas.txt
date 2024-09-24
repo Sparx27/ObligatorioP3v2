@@ -1,3 +1,4 @@
 En el usuario habría que tener un estado para el borrado lógico (baja)
 Verificar la relación en el enum, que tenga el rombo sin relleno y sea de * a 1 desde el usuario al ROL
 En el alta de usuario falta guardar el administrador que registró al usuario, agregar el id del admin para guardarlo
+Sacar la lista de Atletas de la clase Evento
