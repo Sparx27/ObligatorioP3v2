@@ -3,3 +3,4 @@ Verificar la relación en el enum, que tenga el rombo sin relleno y sea de * a 1
 En el alta de usuario falta guardar el administrador que registró al usuario, agregar el id del admin para guardarlo
 Sacar la lista de Atletas de la clase Evento
 UsuarioController agregar la fecha de registro tambien para cuando el usuario ve sus datos
+Crear datos para las tablas y generar los scripts para no estar creando nuevos datas cada vez
