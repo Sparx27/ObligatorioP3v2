@@ -3,63 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\puntajeevenetoatleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\puntajeevenetoatleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\valueobjects\\disciplina\\rdisciplinanombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\valueobjects\\disciplina\\rdisciplinanombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Usuarios.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaplicacion\\icasosdeuso\\usuarios\\ialtausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\icasosdeuso\\usuarios\\ialtausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\usuarios\\altausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\usuarios\\altausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaccesodatos\\repositorios\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\repositorios\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\compartido\\mappers\\usuariomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|solutionrelative:compartido\\mappers\\usuariomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\compartido\\dtos\\usuarios\\usuarioinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|solutionrelative:compartido\\dtos\\usuarios\\usuarioinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\models\\usuario\\usuariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\models\\usuario\\usuariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\models\\usuario\\usuarioinsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\models\\usuario\\usuarioinsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\views\\usuario\\listausuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\listausuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\views\\usuario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -69,197 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PuntajeEvenetoAtleta.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\PuntajeEvenetoAtleta.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\PuntajeEvenetoAtleta.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\PuntajeEvenetoAtleta.cs",
-              "RelativeToolTip": "LogicaNegocio\\Entidades\\PuntajeEvenetoAtleta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAcAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "20240925111659_RDisciplinaNombre.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs",
+              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs",
+              "RelativeToolTip": "LogicaAccesoDatos\\Migrations\\20240925111659_RDisciplinaNombre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T11:01:48.344Z",
+              "WhenOpened": "2024-09-25T11:16:59.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Evento.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Evento.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Evento.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Evento.cs",
-              "RelativeToolTip": "LogicaNegocio\\Entidades\\Evento.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABaAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RDisciplinaNombre.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "RelativeDocumentMoniker": "LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "RelativeToolTip": "LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T11:01:38.661Z",
+              "WhenOpened": "2024-09-25T11:11:37.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.Usuarios [Datos]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Usuarios.sql",
-              "ToolTip": "dbo.Usuarios [Datos]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-09-25T11:01:08.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Usuario.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Usuario.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Usuario.cs",
-              "RelativeToolTip": "LogicaNegocio\\Entidades\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Disciplina.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
+              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Disciplina.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
+              "RelativeToolTip": "LogicaNegocio\\Entidades\\Disciplina.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:55:37.006Z",
+              "WhenOpened": "2024-09-25T11:11:10.333Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IAltaUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\ICasosDeUso\\Usuarios\\IAltaUsuario.cs",
-              "RelativeDocumentMoniker": "LogicaAplicacion\\ICasosDeUso\\Usuarios\\IAltaUsuario.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\ICasosDeUso\\Usuarios\\IAltaUsuario.cs",
-              "RelativeToolTip": "LogicaAplicacion\\ICasosDeUso\\Usuarios\\IAltaUsuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:55:32.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AltaUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:54:32.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RepositorioUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
-              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
-              "RelativeToolTip": "LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:54:24.315Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UsuarioMapper.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\Compartido\\Mappers\\UsuarioMapper.cs",
-              "RelativeDocumentMoniker": "Compartido\\Mappers\\UsuarioMapper.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\Compartido\\Mappers\\UsuarioMapper.cs",
-              "RelativeToolTip": "Compartido\\Mappers\\UsuarioMapper.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:53:42.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UsuarioInsertDTO.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\Compartido\\DTOs\\Usuarios\\UsuarioInsertDTO.cs",
-              "RelativeDocumentMoniker": "Compartido\\DTOs\\Usuarios\\UsuarioInsertDTO.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\Compartido\\DTOs\\Usuarios\\UsuarioInsertDTO.cs",
-              "RelativeToolTip": "Compartido\\DTOs\\Usuarios\\UsuarioInsertDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:53:21.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UsuarioVM.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioVM.cs",
-              "RelativeDocumentMoniker": "MVC\\Models\\Usuario\\UsuarioVM.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioVM.cs",
-              "RelativeToolTip": "MVC\\Models\\Usuario\\UsuarioVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-23T13:01:58.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "MVC\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "MVC\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAADsBAAAAAAAAAAAAAEkBAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T16:26:07.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UsuarioInsertVM.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
-              "RelativeDocumentMoniker": "MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
-              "RelativeToolTip": "MVC\\Models\\Usuario\\UsuarioInsertVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-23T13:02:09.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\Edit.cshtml",
-              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\Edit.cshtml",
-              "RelativeToolTip": "MVC\\Views\\Usuario\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-23T13:05:58.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\Details.cshtml",
-              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Details.cshtml",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\Details.cshtml",
-              "RelativeToolTip": "MVC\\Views\\Usuario\\Details.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-23T12:50:24.997Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ListaUsuarios.cshtml",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
-              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
-              "RelativeToolTip": "MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAmwE4AAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-23T12:10:15.557Z"
             }
           ]
         }
