@@ -8,13 +8,11 @@ namespace LogicaNegocio.Entidades
 {
     public class PuntajeEvenetoAtleta
     {
-        public Evento Evento { get; set; }
         public Atleta Atleta { get; set; }
         public decimal Puntaje { get; set; }
         public PuntajeEvenetoAtleta() { }
-        public PuntajeEvenetoAtleta(Evento evento, Atleta atleta, decimal puntaje)
+        public PuntajeEvenetoAtleta(Atleta atleta, decimal puntaje)
         {
-            Evento = evento;
             Atleta = atleta;
             Puntaje = puntaje;
         }

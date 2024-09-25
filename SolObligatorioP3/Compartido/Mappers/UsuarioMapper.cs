@@ -41,7 +41,9 @@ namespace Compartido.Mappers
                 Email = new RUsuarioEmail(usuarioInsertDto.Email),
                 Nombre = usuarioInsertDto.Nombre,
                 Contrasena = new RUsuarioContrasena(usuarioInsertDto.Contrasena),
-                RolUsuario =  usuarioInsertDto.RolUsuario == 0 ? Rol.Administrador : Rol.Digitador
+                RolUsuario =  usuarioInsertDto.RolUsuario == 0 ? Rol.Administrador : Rol.Digitador,
+                IdAdminRegistro = usuarioInsertDto.IdAdminRegistro
+                
             };
         }
 

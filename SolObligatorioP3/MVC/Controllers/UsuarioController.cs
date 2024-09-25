@@ -112,6 +112,7 @@ namespace MVC.Controllers
                         Nombre = usuarioDTO.Nombre,
                         Id = id,
                         RolUsuario = usuarioDTO.RolUsuario,
+                        FechaRegistro = usuarioDTO.FechaRegistro
                     };
                     return View(usuarioVM);
                 }
@@ -161,7 +162,9 @@ namespace MVC.Controllers
                         Email = usuarioInsertVM.Email,
                         Contrasena = usuarioInsertVM.Contrasena,
                         Nombre = usuarioInsertVM.Nombre,
-                        RolUsuario = usuarioInsertVM.RolUsuario
+                        RolUsuario = usuarioInsertVM.RolUsuario,
+                        IdAdminRegistro= (int)(HttpContext.Session.GetInt32("idLogueado"))
+                        
                     };
 
                     _altaUsuario.Ejecutar(usuarioNuevo);

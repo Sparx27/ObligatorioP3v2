@@ -14,7 +14,6 @@ namespace LogicaNegocio.Entidades
         public string NombrePrueba { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
-        private List<Atleta> _liAtletas = new List<Atleta>();
         private List<PuntajeEvenetoAtleta> _liPuntajes = new List<PuntajeEvenetoAtleta>();
 
         public Evento() { }

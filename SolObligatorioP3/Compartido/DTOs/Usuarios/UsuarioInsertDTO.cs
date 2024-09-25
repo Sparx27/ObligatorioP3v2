@@ -11,6 +11,7 @@ namespace Compartido.DTOs.Usuarios
         public string Email { get; set; }
         public string Contrasena { get; set; }
         public int RolUsuario { get; set; }
+        public int IdAdminRegistro { get; set; }
         public string? Nombre { get; set; }
     }
 }
