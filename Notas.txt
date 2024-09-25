@@ -1,8 +1,8 @@
 En el usuario habría que tener un estado para el borrado lógico (baja)
 Verificar la relación en el enum, que tenga el rombo sin relleno y sea de * a 1 desde el usuario al ROL
-En el alta de usuario falta guardar el administrador que registró al usuario, agregar el id del admin para guardarlo
-Sacar la lista de Atletas de la clase Evento
-UsuarioController agregar la fecha de registro tambien para cuando el usuario ve sus datos
+En el alta de usuario falta guardar el administrador que registró al usuario, agregar el id del admin para guardarlo - hecho
+Sacar la lista de Atletas de la clase Evento - hecho
+UsuarioController agregar la fecha de registro tambien para cuando el usuario ve sus datos - hecho
 Crear datos para las tablas y generar los scripts para no estar creando nuevos datas cada vez
 Los scripts que tienen que haber serán: usuarios administradores y atletas
 El nombre de la disciplina lleva un value object, ya que tiene validacion de minimo 10 caracteres y maximo 50
