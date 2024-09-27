@@ -5,6 +5,7 @@ using LogicaAccesoDatos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,9 +13,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogicaAccesoDatos.Migrations
 {
     [DbContext(typeof(JuegosOlimpicosDBContext))]
-    partial class JuegosOlimpicosDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240926224545_ClaseAsociacion")]
+    partial class ClaseAsociacion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,9 +57,6 @@ namespace LogicaAccesoDatos.Migrations
                     b.Property<int>("AnioIntegracion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AtletaId")
-                        .HasColumnType("int");
-
                     b.ComplexProperty<Dictionary<string, object>>("Nombre", "LogicaNegocio.Entidades.Disciplina.Nombre#RDisciplinaNombre", b1 =>
                         {
                             b1.IsRequired();
@@ -67,8 +67,6 @@ namespace LogicaAccesoDatos.Migrations
                         });
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AtletaId");
 
                     b.ToTable("Disciplinas");
                 });
@@ -129,24 +127,6 @@ namespace LogicaAccesoDatos.Migrations
                     b.ToTable("Paises");
                 });
 
-            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEvenetoAtleta", b =>
-                {
-                    b.Property<int>("AtletaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EventoId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Puntaje")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("AtletaId", "EventoId");
-
-                    b.HasIndex("EventoId");
-
-                    b.ToTable("PuntajeEvenetoAtleta");
-                });
-
             modelBuilder.Entity("LogicaNegocio.Entidades.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -182,13 +162,6 @@ namespace LogicaAccesoDatos.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("LogicaNegocio.Entidades.Disciplina", b =>
-                {
-                    b.HasOne("LogicaNegocio.Entidades.Atleta", null)
-                        .WithMany("LiDisciplinas")
-                        .HasForeignKey("AtletaId");
-                });
-
             modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>
                 {
                     b.HasOne("LogicaNegocio.Entidades.Disciplina", "Disciplina")
@@ -198,23 +171,6 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Disciplina");
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEvenetoAtleta", b =>
-                {
-                    b.HasOne("LogicaNegocio.Entidades.Atleta", "Atleta")
-                        .WithMany()
-                        .HasForeignKey("AtletaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LogicaNegocio.Entidades.Evento", null)
-                        .WithMany("LiPuntajes")
-                        .HasForeignKey("EventoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Atleta");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Usuario", b =>
@@ -242,16 +198,6 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.Navigation("Email")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.Atleta", b =>
-                {
-                    b.Navigation("LiDisciplinas");
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>
-                {
-                    b.Navigation("LiPuntajes");
                 });
 #pragma warning restore 612, 618
         }

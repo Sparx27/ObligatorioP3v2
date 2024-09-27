@@ -18,9 +18,9 @@ namespace MVC.Controllers
         private IUpdateUsuario _updateUsuario;
         private IDeleteUsuario _deleteUsuario;
         public UsuarioController(
-            ILoginUsuario loginUsuario, 
-            IGetByIdUsuario getByIdUsuario, 
-            IAltaUsuario altaUsuario, 
+            ILoginUsuario loginUsuario,
+            IGetByIdUsuario getByIdUsuario,
+            IAltaUsuario altaUsuario,
             IFindAllUsuarios findAllUsuarios,
             IUpdateUsuario updateUsuario,
             IDeleteUsuario deleteUsuario
@@ -38,10 +38,10 @@ namespace MVC.Controllers
         // GET: UsuarioController
         public ActionResult Index()
         {
-            int? usuarioId = HttpContext.Session.GetInt32("idLogueado");
+            int? usuarioId = GetIdLogueado();
             if (usuarioId != null)
             {
-                return RedirectToAction("Details", new { id = usuarioId});
+                return RedirectToAction("Details", new { id = usuarioId });
             }
 
             return View();
@@ -50,19 +50,16 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Index(string email, string password)
         {
-            SiNoHaySesion();
-
             try
             {
-                UsuarioDTO res  = _loginUsuario.Ejecutar(email, password);
+                UsuarioDTO res = _loginUsuario.Ejecutar(email, password);
                 HttpContext.Session.SetInt32("idLogueado", res.Id);
                 HttpContext.Session.SetString("rolLogueado", res.RolUsuario);
-                return RedirectToAction("Details", new { id= res.Id } );
+                return RedirectToAction("Details", new { id = res.Id });
             }
             catch (UsuarioException uex)
             {
                 ViewBag.ErrorMessage = uex.Message;
-                
             }
             catch (Exception ex)
             {
@@ -81,10 +78,9 @@ namespace MVC.Controllers
         // GET: UsuarioController/Details/5
         public ActionResult Details(int id)
         {
-            SiNoHaySesion(401, "Por favor, inicie sesión para continuar");
             try
             {
-                if(HttpContext.Session.GetString("rolLogueado") == "Administrador")
+                if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
                 {
                     UsuarioDTO usuarioDTO = _getByIdUsuario.Ejecutar(id);
                     UsuarioVM usuarioVM = new UsuarioVM
@@ -99,9 +95,9 @@ namespace MVC.Controllers
                 }
 
                 // Caso de que no sea administrador
-                if(id != HttpContext.Session.GetInt32("idLogueado"))
+                if (id != GetIdLogueado())
                 {
-                    return RedirectToAction("Index", "Error", new { code=401, message="No tiene permisos para ver esta información" });
+                    return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
                 }
                 else
                 {
@@ -117,7 +113,7 @@ namespace MVC.Controllers
                     return View(usuarioVM);
                 }
             }
-            catch(UsuarioException uex)
+            catch (UsuarioException uex)
             {
                 ViewBag.ErrorMessage = uex.Message;
             }
@@ -125,20 +121,18 @@ namespace MVC.Controllers
             {
                 ViewBag.ErrorMessage = ex.Message;
             }
-           
+
             return View();
         }
 
         // GET: UsuarioController/Create
         public ActionResult Create()
         {
-            if (HttpContext.Session.GetString("rolLogueado") == "Administrador")
+            if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
             {
-
                 ViewBag.Roles = GetUsuarioRoles();
                 return View();
             }
-
             return RedirectToAction("Index", "Error");
         }
 
@@ -147,7 +141,7 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(UsuarioInsertVM usuarioInsertVM)
         {
-            if (HttpContext.Session.GetString("rolLogueado") == "Administrador")
+            if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
             {
                 ViewBag.Roles = GetUsuarioRoles();
 
@@ -163,8 +157,8 @@ namespace MVC.Controllers
                         Contrasena = usuarioInsertVM.Contrasena,
                         Nombre = usuarioInsertVM.Nombre,
                         RolUsuario = usuarioInsertVM.RolUsuario,
-                        IdAdminRegistro= (int)(HttpContext.Session.GetInt32("idLogueado"))
-                        
+                        IdAdminRegistro = (int)GetIdLogueado()
+
                     };
 
                     _altaUsuario.Ejecutar(usuarioNuevo);
@@ -194,12 +188,12 @@ namespace MVC.Controllers
         public ActionResult Edit(int id)
         {
             // Lo primero chequear si hay sesion
-            int? idLogueado = HttpContext.Session.GetInt32("idLogueado");
+            int? idLogueado = GetIdLogueado();
 
-            if(idLogueado != null)
+            if (idLogueado != null)
             {
                 // Si es administrador o digitador con mismo id al que intenta modificar
-                if (HttpContext.Session.GetString("rolLogueado") == "Administrador" || idLogueado == id)
+                if (GetRolLogueado() == "Administrador" || idLogueado == id)
                 {
                     try
                     {
@@ -217,11 +211,11 @@ namespace MVC.Controllers
 
                         return View(vm);
                     }
-                    catch(UsuarioException uex)
+                    catch (UsuarioException uex)
                     {
                         ViewBag.ErrorMessage = uex.Message;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         ViewBag.ErrorMessage = ex.Message;
                     }
@@ -237,7 +231,7 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, UsuarioUpdateVM usuarioUpdateVM)
         {
-            int? idLogueado = HttpContext.Session.GetInt32("idLogueado");
+            int? idLogueado = GetIdLogueado();
 
             if (idLogueado != null)
             {
@@ -248,8 +242,8 @@ namespace MVC.Controllers
                     Email = usuarioUpdateVM.Email,
                     Nombre = usuarioUpdateVM.Nombre
                 };
-                                                                                       // En caso de ser un digitador
-                if (HttpContext.Session.GetString("rolLogueado") == "Administrador" || idLogueado == id)
+                // En caso de ser un digitador
+                if (GetRolLogueado() == "Administrador" || idLogueado == id)
                 {
                     try
                     {
@@ -265,11 +259,11 @@ namespace MVC.Controllers
                         ViewBag.Message = "Actualizado correctamente";
                         return View(vm);
                     }
-                    catch(UsuarioException uex)
+                    catch (UsuarioException uex)
                     {
                         ViewBag.ErrorMessage = uex.Message;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         ViewBag.ErrorMessage = ex.Message;
                     }
@@ -283,25 +277,47 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CambiarContrasena(int id, string contrasena, string contrasenaAnterior)
         {
-            int? idLogueado = HttpContext.Session.GetInt32("idLogueado");
+            int? idLogueado = GetIdLogueado();
+            string? rolLogueado = GetRolLogueado();
 
-            if(idLogueado != null)
+            if (idLogueado != null)
             {
-                if (HttpContext.Session.GetString("rolLogueado") == "Administrador" || id == idLogueado)
+                // Obtengo los datos
+                // No se tira excepcion aca porque el metodo getById ya lo hace si no lo encuentra
+                UsuarioDTO usuarioDTO = _getByIdUsuario.Ejecutar(id);
+
+                UsuarioUpdateVM vm = new UsuarioUpdateVM
                 {
-                    // Obtengo los datos
-                    // No se tira excepcion aca porque el metodo getById ya lo hace si no lo encuentra
-                    UsuarioDTO usuarioDTO = _getByIdUsuario.Ejecutar(id);
+                    Email = usuarioDTO.Email,
+                    Id = usuarioDTO.Id,
+                    Nombre = usuarioDTO.Nombre
+                };
 
-                    UsuarioUpdateVM vm = new UsuarioUpdateVM
+                ViewBag.Roles = GetUsuarioRoles();
+
+                if (rolLogueado == "Administrador")
+                {
+                    try
                     {
-                        Email = usuarioDTO.Email,
-                        Id = usuarioDTO.Id,
-                        Nombre = usuarioDTO.Nombre
-                    };
+                        // Intento cambiar la contraseña
+                        // El admin puede cambiar la constraseña sin necesidad de escribir la actual, sobreescribe 
+                        UsuarioUpdateDTO usuarioActualizado = _updateUsuario.Ejecutar(id, contrasena);
 
-                    ViewBag.Roles = GetUsuarioRoles();
-
+                        TempData["MessageContrasena"] = "Contraseña actualizada correctamente";
+                        return RedirectToAction("Edit", new { Id = id });
+                    }
+                    catch (UsuarioException uex)
+                    {
+                        TempData["ErrorContrasena"] = uex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        TempData["ErrorContrasena"] = ex.Message;
+                    }
+                    return RedirectToAction("Edit", new { Id = id });
+                }
+                if (id == idLogueado)
+                {
                     try
                     {
                         // Intento cambiar la contraseña
@@ -310,11 +326,11 @@ namespace MVC.Controllers
                         TempData["MessageContrasena"] = "Contraseña actualizada correctamente";
                         return RedirectToAction("Edit", new { Id = id });
                     }
-                    catch(UsuarioException uex)
+                    catch (UsuarioException uex)
                     {
                         TempData["ErrorContrasena"] = uex.Message;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         TempData["ErrorContrasena"] = ex.Message;
                     }
@@ -325,39 +341,34 @@ namespace MVC.Controllers
             return RedirectToAction("Index", "Error");
         }
 
-        
 
         // GET: UsuarioController/Delete/5
         public ActionResult Delete(int id)
         {
-            if (HttpContext.Session.GetString("rolLogueado") == "Administrador")
+            if (GetRolLogueado() == "Administrador" && GetIdLogueado != null)
             {
                 try
                 {
                     _deleteUsuario.Ejecutar(id);
                     TempData["MessageDelete"] = "Usuario eliminado con éxito";
                 }
-                catch(UsuarioException uex)
+                catch (UsuarioException uex)
                 {
                     TempData["MessageDelete"] = uex.Message;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     TempData["MessageDelete"] = ex.Message;
                 }
                 return RedirectToAction("ListaUsuarios");
-                
             }
-
             return RedirectToAction("Index", "Error");
         }
 
         [HttpGet("Usuario/Lista-Usuarios")]
-        public ActionResult ListaUsuarios ()
+        public ActionResult ListaUsuarios()
         {
-            SiNoHaySesion();
-
-            if (HttpContext.Session.GetString("rolLogueado") == "Administrador")
+            if (GetRolLogueado() == "Administrador" && GetIdLogueado != null)
             {
                 IEnumerable<UsuarioVM> listaUsuarios =
                     _findAllUsuarios.Ejecutar().Select(u => new UsuarioVM()
@@ -373,23 +384,6 @@ namespace MVC.Controllers
             return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
-        public ActionResult? SiNoHaySesion()
-        {
-            if (HttpContext.Session.GetInt32("idLogueado") == null)
-            {
-                return RedirectToAction("Index", "Error");
-            }
-            return null;
-        }
-        public ActionResult? SiNoHaySesion(int code, string message)
-        {
-            if (HttpContext.Session.GetInt32("idLogueado") == null)
-            {
-                return RedirectToAction("Index", "Error", new { httpCode = code,  message });
-            }
-            return null;
-        }
-
         public IEnumerable<UsuarioRolVM> GetUsuarioRoles()
         {
             // Primero se obtienen los valores del enum Rol
@@ -403,8 +397,18 @@ namespace MVC.Controllers
             });
         }
 
+        public int? GetIdLogueado()
+        {
+            return HttpContext.Session.GetInt32("idLogueado");
+        }
 
-                
+        public string? GetRolLogueado()
+        {
+            return HttpContext.Session.GetString("rolLogueado");
+        }
+
+
+
 
 
     }

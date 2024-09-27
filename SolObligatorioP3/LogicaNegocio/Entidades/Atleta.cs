@@ -13,7 +13,7 @@ namespace LogicaNegocio.Entidades
         public int Id { get; set; }
         public string Nombre { get; set; }
         public Sexo Sexo { get; set; }
-        private List<Disciplina> _liDisciplinas = new List<Disciplina>();
+        public List<Disciplina> LiDisciplinas { get; set; }
 
         public Atleta() { }
         public Atleta(int id, string nombre, Sexo sexo)

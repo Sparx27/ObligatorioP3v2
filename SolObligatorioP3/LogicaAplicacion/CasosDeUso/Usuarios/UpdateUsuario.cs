@@ -45,6 +45,22 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         }
 
+        public UsuarioUpdateDTO Ejecutar(int id, string contrasena)
+        {
+            ValidarUsuario.Contrasena(contrasena);
+
+            Usuario actualizarUsuario = _repositorioUsuario.GetById(id);
+            if (actualizarUsuario == null)
+            {
+                throw new UsuarioException("No se encontró el usuario que intenta actualizar");
+            }
+
+            actualizarUsuario.Contrasena = new RUsuarioContrasena(contrasena);
+
+            _repositorioUsuario.Update(actualizarUsuario);
+            return UsuarioMapper.UsuarioToUpdateDTO(actualizarUsuario);
+        }
+
         public UsuarioUpdateDTO Ejecutar(int id, string contrasena, string contrasenaAnterior)
         {
             ValidarUsuario.Contrasena(contrasena);
