@@ -133,7 +133,7 @@ namespace MVC.Controllers
                 ViewBag.Roles = GetUsuarioRoles();
                 return View();
             }
-            return RedirectToAction("Index", "Error");
+            return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
         // POST: UsuarioController/Create
@@ -223,7 +223,7 @@ namespace MVC.Controllers
                 }
             }
             // Si no cumplio ninguno de esos escenarios
-            return RedirectToAction("Index", "Error");
+            return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
         // POST: UsuarioController/Edit/5
@@ -242,7 +242,7 @@ namespace MVC.Controllers
                     Email = usuarioUpdateVM.Email,
                     Nombre = usuarioUpdateVM.Nombre
                 };
-                // En caso de ser un digitador
+                // En caso de ser o Administrador un digitador con mismo id
                 if (GetRolLogueado() == "Administrador" || idLogueado == id)
                 {
                     try
@@ -270,7 +270,7 @@ namespace MVC.Controllers
                     return View(usuarioUpdateVM); // VM que llega por parametro al Edit
                 }
             }
-            return RedirectToAction("Index", "Error");
+            return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
         [HttpPost]
@@ -338,7 +338,7 @@ namespace MVC.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Error");
+            return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
 
@@ -362,7 +362,7 @@ namespace MVC.Controllers
                 }
                 return RedirectToAction("ListaUsuarios");
             }
-            return RedirectToAction("Index", "Error");
+            return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
         }
 
         [HttpGet("Usuario/Lista-Usuarios")]

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ONT6Qo1f8dnuepEMSnC9/ztFtGU+3U4C/HnBmKRrVwOXqdVGmGUDvZhFnNWJWcCgArzWrfx3+YsXuCstHMIPYw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\Compartido\\Compartido.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
