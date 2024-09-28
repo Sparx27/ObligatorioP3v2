@@ -12,6 +12,7 @@ namespace LogicaNegocio.ValueObjects.Disciplina
     public record RDisciplinaNombre
     {
         [Required]
+        [StringLength(50, MinimumLength = 10)]
         public string Valor { get; set; }
 
         public RDisciplinaNombre(string valor)

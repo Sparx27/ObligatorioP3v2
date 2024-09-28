@@ -23,6 +23,21 @@ namespace LogicaAccesoDatos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AtletaDisciplina", b =>
+                {
+                    b.Property<int>("LiAtletasId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LiDisciplinasId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LiAtletasId", "LiDisciplinasId");
+
+                    b.HasIndex("LiDisciplinasId");
+
+                    b.ToTable("AtletaDisciplina");
+                });
+
             modelBuilder.Entity("LogicaNegocio.Entidades.Atleta", b =>
                 {
                     b.Property<int>("Id")
@@ -31,14 +46,23 @@ namespace LogicaAccesoDatos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaisId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Sexo")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaisId");
 
                     b.ToTable("Atletas");
                 });
@@ -54,21 +78,17 @@ namespace LogicaAccesoDatos.Migrations
                     b.Property<int>("AnioIntegracion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AtletaId")
-                        .HasColumnType("int");
-
                     b.ComplexProperty<Dictionary<string, object>>("Nombre", "LogicaNegocio.Entidades.Disciplina.Nombre#RDisciplinaNombre", b1 =>
                         {
                             b1.IsRequired();
 
                             b1.Property<string>("Valor")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)");
                         });
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AtletaId");
 
                     b.ToTable("Disciplinas");
                 });
@@ -182,11 +202,30 @@ namespace LogicaAccesoDatos.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("LogicaNegocio.Entidades.Disciplina", b =>
+            modelBuilder.Entity("AtletaDisciplina", b =>
                 {
                     b.HasOne("LogicaNegocio.Entidades.Atleta", null)
-                        .WithMany("LiDisciplinas")
-                        .HasForeignKey("AtletaId");
+                        .WithMany()
+                        .HasForeignKey("LiAtletasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LogicaNegocio.Entidades.Disciplina", null)
+                        .WithMany()
+                        .HasForeignKey("LiDisciplinasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LogicaNegocio.Entidades.Atleta", b =>
+                {
+                    b.HasOne("LogicaNegocio.Entidades.Pais", "Pais")
+                        .WithMany()
+                        .HasForeignKey("PaisId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pais");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>
@@ -242,11 +281,6 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.Navigation("Email")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.Atleta", b =>
-                {
-                    b.Navigation("LiDisciplinas");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>

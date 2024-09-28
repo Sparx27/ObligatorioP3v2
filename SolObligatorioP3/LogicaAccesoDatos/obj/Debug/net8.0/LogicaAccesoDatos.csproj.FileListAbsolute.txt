@@ -70,3 +70,21 @@ C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolOb
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.pdb
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.genruntimeconfig.cache
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\Obligatorio1P3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\ref\LogicaAccesoDatos.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaAccesoDatos.deps.json
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaAccesoDatos.runtimeconfig.json
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaAccesoDatos.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaAccesoDatos.pdb
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaNegocio.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\bin\Debug\net8.0\LogicaNegocio.pdb
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.csproj.AssemblyReference.cache
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.AssemblyInfoInputs.cache
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.AssemblyInfo.cs
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.sourcelink.json
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAc.5A0EF2D8.Up2Date
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\refint\LogicaAccesoDatos.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.pdb
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\LogicaAccesoDatos.genruntimeconfig.cache
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\SolObligatorioP3\LogicaAccesoDatos\obj\Debug\net8.0\ref\LogicaAccesoDatos.dll

@@ -6,3 +6,37 @@ UsuarioController agregar la fecha de registro tambien para cuando el usuario ve
 Crear datos para las tablas y generar los scripts para no estar creando nuevos datas cada vez
 Los scripts que tienen que haber serán: usuarios administradores y atletas
 El nombre de la disciplina lleva un value object, ya que tiene validacion de minimo 10 caracteres y maximo 50
+
+1- Usuario rol digitador puede asignar al atleta a una o mas disciplinas en las que competirán 
+El Atleta puede participar en muchas disciplinas, una disciplina puede tener muchos atletas.
+Se creo la clase AtletaDisciplina para poder guardar 
+
+Casos de uso:
+	No es necesario implementar el caso de uso de alta atleta ya que se cargan directo en la base, si 	lo hacemos no está demás pero no es obligatorio
+
+	FindAllAtletas, si se debe implementar para mostrar el listado de atletas. Agregar el 	ordenamiento.
+
+	GetByIdAtleta, este caso de uso debe traer todos los datos del atleta incluido la lista de 	disciplinas en las que participa
+
+	Agregar atleta a disciplina -- ver si no corresponde agregar el caso de uso en la clase 	AtletaDisciplina ya que será ahí que será que esté con los ID de las dos clases como PK
+	
+
+Para agregar un atleta a una disciplina agregamos una nueva fila a la tabla AtletaDisciplina pasándole el ID del atleta y el ID de la disciplina, que para la tabla AtletaDisciplina serán las FK y juntas serán la PK.
+
+
+2- Al momento de de ver el listado de atletas se debe mostrar de la siguiente forma.
+Debemos tener la lista de atletas ordenada primero por país, luego por apellido y nombre de forma alfabetica A-Z
+Al momento de entrar al atleta debemos mostrar todos los datos del atleta incluyendo las disciplinas en las que está registrado. Y tenemos que tener un botón que nos lleve a otra vista o un modal que nos permita agregarlo a una nueva disciplina
+Se debe controlar que no se le agregue a una disciplina que ya está.
+
+No se consideran equipos, pero si nos da el tiempo lo podemos ir considerando.
+
+Disciplinas
+1- Hay que hacer el caso de uso para el Alta.
+Alta con los datos solicitados y las validaciones necesarias.
+Entre 10 y 50 Caracteres
+Codigo? Ver con la profe el tema del código si es diferente al ID
+Nombre debe ser Unique
+El listado de las disciplinas debe mostrarse ordenado alfabéticamente en forma ascedente
+
+
