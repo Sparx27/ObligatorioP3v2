@@ -566,10 +566,7 @@
           "LogicaNegocio": "1.0.0"
         },
         "runtime": {
-          "Compartido.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Compartido.dll": {}
         }
       },
       "LogicaAccesoDatos/1.0.0": {
@@ -578,10 +575,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "runtime": {
-          "LogicaAccesoDatos.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "LogicaAccesoDatos.dll": {}
         }
       },
       "LogicaNegocio/1.0.0": {
@@ -589,10 +583,7 @@
           "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
         },
         "runtime": {
-          "LogicaNegocio.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "LogicaNegocio.dll": {}
         }
       }
     }
