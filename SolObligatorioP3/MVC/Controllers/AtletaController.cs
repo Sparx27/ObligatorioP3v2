@@ -12,10 +12,12 @@ namespace MVC.Controllers
     {
         private readonly IFindAllAtletas _findAllAtletas;
         private readonly IGetByIdAtleta _getByIdAtleta;
-        public AtletaController(IFindAllAtletas findAllAtletas, IGetByIdAtleta getByIdAtleta)
+        private readonly IAgregarDisciplina _agregarDisciplina;
+        public AtletaController(IFindAllAtletas findAllAtletas, IGetByIdAtleta getByIdAtleta, IAgregarDisciplina agregarDisciplina)
         {
             _findAllAtletas = findAllAtletas;
             _getByIdAtleta = getByIdAtleta;
+            _agregarDisciplina = agregarDisciplina;
         }
 
 
@@ -66,7 +68,7 @@ namespace MVC.Controllers
             }
             catch (AtletaException aex)
             {
-                return RedirectToAction("Index", "Error", new {code=404, message = aex.Message});
+                return RedirectToAction("Index", "Error", new { code = 404, message = aex.Message });
             }
             catch (Exception ex)
             {
@@ -136,6 +138,33 @@ namespace MVC.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult AgregarDisciplina(int? id, int? idDisciplina)
+        {
+            try
+            {
+                _agregarDisciplina.Ejecutar(id, idDisciplina);
+                TempData["Message"] = "Atleta registrado correctamente en la disciplina";
+
+            }
+            catch (AtletaException aex)
+            {
+                TempData["ErrorMessage"] = aex.Message;
+             
+            }
+            catch (DisciplinaException dex)
+            {
+                TempData["ErrorMessage"] = dex.Message;
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Algo no sucedió correctamente";
+
+            }
+
+            return RedirectToAction("Details");
         }
     }
 }

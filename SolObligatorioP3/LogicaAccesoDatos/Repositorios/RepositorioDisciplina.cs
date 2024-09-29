@@ -1,4 +1,5 @@
 ﻿using LogicaNegocio.Entidades;
+using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,12 @@ namespace LogicaAccesoDatos.Repositorios
 {
     internal class RepositorioDisciplina : IRepositorioDisciplina
     {
-        private List<Disciplina> _liDisciplinas = new List<Disciplina>();
+        private readonly JuegosOlimpicosDBContext _context;
+
+        public RepositorioDisciplina(JuegosOlimpicosDBContext context)
+        {
+            _context = context;
+        }
         public void Add(Disciplina item)
         {
             throw new NotImplementedException();
@@ -28,7 +34,14 @@ namespace LogicaAccesoDatos.Repositorios
 
         public Disciplina GetById(int id)
         {
-            throw new NotImplementedException();
+            Disciplina disciplina = _context.Disciplinas.FirstOrDefault(d => d.Id == id);
+
+            if (disciplina == null)
+            {
+                throw new DisciplinaException("Disciplina no encontrada por id");
+            }
+
+            return disciplina;
         }
 
         public void Update(Disciplina item)

@@ -1,17 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\",
+  "WorkspaceRootPath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio1p3v2\\solobligatoriop3\\mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\atletas\\agregardisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\atletas\\agregardisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio1p3v2\\solobligatoriop3\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio1p3v2\\solobligatoriop3\\logicanegocio\\entidades\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaccesodatos\\repositorios\\repositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\repositorios\\repositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,44 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RepositorioDisciplina.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "RelativeToolTip": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACgAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:59:52.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
-              "RelativeDocumentMoniker": "MVC\\Views\\Atleta\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
-              "RelativeToolTip": "MVC\\Views\\Atleta\\Details.cshtml",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAAAFoAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-29T19:48:51.378Z",
+              "Title": "AgregarDisciplina.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Atletas\\AgregarDisciplina.cs",
+              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Atletas\\AgregarDisciplina.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Atletas\\AgregarDisciplina.cs",
+              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Atletas\\AgregarDisciplina.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T21:33:13.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "AtletaController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
               "RelativeDocumentMoniker": "MVC\\Controllers\\AtletaController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
               "RelativeToolTip": "MVC\\Controllers\\AtletaController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDoAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAwKUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T18:40:06.637Z"
+              "WhenOpened": "2024-09-29T18:40:06.637Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Atleta.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
               "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Atleta.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
               "RelativeToolTip": "LogicaNegocio\\Entidades\\Atleta.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T18:39:56.06Z"
+              "WhenOpened": "2024-09-29T18:39:56.06Z",
+              "EditorCaption": ""
             }
           ]
         }
