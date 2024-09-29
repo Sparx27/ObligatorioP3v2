@@ -9,5 +9,6 @@ namespace LogicaNegocio.IRepositorios
 {
     public interface IRepositorioAtleta : IRepositorio<Atleta>
     {
+        public void GuardarCambios();
     }
 }

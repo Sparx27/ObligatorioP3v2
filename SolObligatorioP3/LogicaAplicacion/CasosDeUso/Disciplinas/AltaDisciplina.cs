@@ -1,6 +1,8 @@
 ﻿using Compartido.DTOs.Disciplinas;
+using Compartido.Mappers;
 using LogicaAccesoDatos;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,14 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
 {
     public class AltaDisciplina : IAltaDisciplina
     {
-        private JuegosOlimpicosDBContext _context;
-        public AltaDisciplina(JuegosOlimpicosDBContext context)
+        private IRepositorioDisciplina _repositorioDisciplina;
+        public AltaDisciplina(IRepositorioDisciplina repositorioDisciplina)
         {
-            _context = context;
+            _repositorioDisciplina = repositorioDisciplina;
         }
 
-        public void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO)
-        {
-            throw new NotImplementedException();
-        }
+        public void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO) =>
+            _repositorioDisciplina.Add(DisciplinaMapper.InsertDTOToDisciplina(disciplinaInsertDTO));
+
     }
 }

@@ -19,8 +19,10 @@ namespace LogicaAccesoDatos.Repositorios
         }
         public void Add(Disciplina item)
         {
-            throw new NotImplementedException();
+            _context.Disciplinas.Add(item);
+            _context.SaveChanges();
         }
+
 
         public void Delete(Disciplina item)
         {

@@ -1,10 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Compartido.DTOs.Disciplinas;
+using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Disciplina;
 
 namespace MVC.Controllers
 {
     public class DisciplinaController : Controller
     {
+        private readonly IAltaDisciplina _altaDisciplina;
+
+        public DisciplinaController(IAltaDisciplina altaDisciplina)
+        {
+            _altaDisciplina = altaDisciplina;
+        }
         // GET: DisciplinaController
         public ActionResult Index()
         {
@@ -26,11 +35,20 @@ namespace MVC.Controllers
         // POST: DisciplinaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(DisciplinaInsertVM disciplinaInsertVM)
         {
+            
             try
             {
-                return RedirectToAction(nameof(Index));
+                DisciplinaInsertDTO disciplina = new DisciplinaInsertDTO
+                {
+                    Nombre = disciplinaInsertVM.Nombre,
+                    AnioIntegracion = disciplinaInsertVM.AnioIntegracion
+                };
+                _altaDisciplina.Ejecutar(disciplina);
+                TempData["Message"] = "Disciplina creada correctamente";
+
+                return RedirectToAction("Create");
             }
             catch
             {

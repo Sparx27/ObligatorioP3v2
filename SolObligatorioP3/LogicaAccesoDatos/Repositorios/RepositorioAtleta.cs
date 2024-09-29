@@ -56,5 +56,10 @@ namespace LogicaAccesoDatos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+        public void GuardarCambios()
+        {
+            _context.SaveChanges();
+        }
     }
 }

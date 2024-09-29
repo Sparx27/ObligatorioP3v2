@@ -102,6 +102,7 @@
 
                     <div class="modal-body pb-0">
                         <form method="post" asp-action="AgregarDisciplina">
+                            <input type="hidden" name="id" value="@Model.Id"/>
                             <div class="form-control">
                                 <label for="idDisciplina" class="form-label"></label>
                                 <select id="idDisciplina" name="idDisciplina" class="form-select">

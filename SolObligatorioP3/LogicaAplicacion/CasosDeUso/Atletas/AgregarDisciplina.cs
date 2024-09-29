@@ -43,6 +43,7 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
             Disciplina disciplinaAgregar = _repositorioDisciplina.GetById(idDisciplina.Value);
 
             atleta.LiDisciplinas.Add(disciplinaAgregar);
+            _repositorioAtleta.GuardarCambios();
         }
     }
 }

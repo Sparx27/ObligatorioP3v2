@@ -1,5 +1,7 @@
 ﻿using Compartido.DTOs.Disciplinas;
 using LogicaNegocio.Entidades;
+using LogicaNegocio.ExcepcionesEntidades;
+using LogicaNegocio.ValueObjects.Disciplina;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,22 @@ namespace Compartido.Mappers
             });
 
             return disciplinasListaDTO;
+        }
+
+        public static Disciplina InsertDTOToDisciplina(DisciplinaInsertDTO disciplinaInsertDTO)
+        {
+            if(disciplinaInsertDTO == null)
+            {
+                throw new DisciplinaException("Discplina insert vacia en mapper");
+            }
+
+            Disciplina res = new Disciplina
+            {
+                Nombre = new RDisciplinaNombre(disciplinaInsertDTO.Nombre),
+                AnioIntegracion = disciplinaInsertDTO.AnioIntegracion,
+            };
+
+            return res;
         }
 
     }
