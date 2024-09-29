@@ -31,6 +31,7 @@ builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
 builder.Services.AddScoped<IRepositorioAtleta, RepositorioAtleta>();
 builder.Services.AddScoped<IRepositorioEvento, RepositorioEvento>();
 builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
+builder.Services.AddScoped<IRepositorioDisciplina, RepositorioDisciplina>();
 
 // Casos de uso
 #region Usuario
@@ -49,9 +50,15 @@ builder.Services.AddScoped<IGetByIdAtleta, GetByIdAtleta>();
 builder.Services.AddScoped<IAgregarDisciplina, AgregarDisciplina>();
 #endregion
 
-builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();
+#region Disciplina
+builder.Services.AddScoped<IFindAllDisciplinas, FindAllDisciplinas>();
+#endregion
+
+
+
 builder.Services.AddScoped<IAltaEvento, AltaEvento>();
 builder.Services.AddScoped<IAltaPais, AltaPais>();
+
 
 var app = builder.Build();
 

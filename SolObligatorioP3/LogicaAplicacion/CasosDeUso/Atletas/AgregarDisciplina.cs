@@ -20,9 +20,9 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
             _repositorioDisciplina = repositorioDisciplina;
         }
 
-        public void Ejecutar(int? id, int? idDisciplina)
+        public void Ejecutar(int id, int? idDisciplina)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 throw new AtletaException("Id de atleta incorrecto");
             }
@@ -31,7 +31,7 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
                 throw new AtletaException("Id de disciplina incorrecto");
             }
 
-            Atleta atleta = _repositorioAtleta.GetById(id.Value);
+            Atleta atleta = _repositorioAtleta.GetById(id);
 
             Disciplina tieneDisciplina = atleta.LiDisciplinas.FirstOrDefault(d => d.Id == idDisciplina);
 
@@ -43,7 +43,6 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
             Disciplina disciplinaAgregar = _repositorioDisciplina.GetById(idDisciplina.Value);
 
             atleta.LiDisciplinas.Add(disciplinaAgregar);
-
         }
     }
 }

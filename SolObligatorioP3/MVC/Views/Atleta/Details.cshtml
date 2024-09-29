@@ -83,12 +83,52 @@
             @if (Context.Session.GetString("rolLogueado") == "Digitador")
             {
                 <div class="mb-3">
-                    <a asp-action="AgregarDisciplina" class="text-success d-block">Registrar en Disciplina</a>
+                    <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-disciplina">Registrar en disciplina</p>
+                    
                 </div>
                 <a asp-action="Index" class="text-success">Volver a la lista</a>
                 
             }
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal-disciplina" tabindex="-1" aria-labelledby="atletaModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar atleta en disciplina</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body pb-0">
+                        <form method="post" asp-action="AgregarDisciplina">
+                            <div class="form-control">
+                                <label for="idDisciplina" class="form-label"></label>
+                                <select id="idDisciplina" name="idDisciplina" class="form-select">
+                                    @foreach(var d in ViewBag.Disciplinas)
+                                    {
+                                        <option value="@d.Id">@d.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <input type="submit" value="Registrar" class="btn btn-success"
+                            </div>
+                        </form>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
 @*         <div>
             <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
             @if (Context.Session.GetString("rolLogueado") == "Administrador")
@@ -96,5 +136,3 @@
                 <a asp-action="ListaUsuarios" class="text-success">Lista Usuarios</a>
             }
         </div> *@
-    </div>
-</section>

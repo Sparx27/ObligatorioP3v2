@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LogicaAccesoDatos.Repositorios
 {
-    internal class RepositorioDisciplina : IRepositorioDisciplina
+    public class RepositorioDisciplina : IRepositorioDisciplina
     {
         private readonly JuegosOlimpicosDBContext _context;
 
@@ -27,10 +27,7 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Disciplina> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Disciplina> GetAll() => _context.Disciplinas.ToList();
 
         public Disciplina GetById(int id)
         {

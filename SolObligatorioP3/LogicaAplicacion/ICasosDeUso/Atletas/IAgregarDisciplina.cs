@@ -8,6 +8,6 @@ namespace LogicaAplicacion.ICasosDeUso.Atletas
 {
     public interface IAgregarDisciplina
     {
-        void Ejecutar(int? id, int? idDisciplina);
+        void Ejecutar(int id, int? idDisciplina);
     }
 }
