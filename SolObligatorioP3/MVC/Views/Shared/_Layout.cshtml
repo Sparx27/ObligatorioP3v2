@@ -49,7 +49,16 @@
                             }
                             else // Caso Usuario Digitador
                             {
-                                
+                                <li class="nav-item">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Atletas
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Atleta" asp-action="Index">Lista de atletas</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
                             }
 
                             // General a ambos tipos de Usuario

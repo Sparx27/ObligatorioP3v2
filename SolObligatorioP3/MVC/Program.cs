@@ -44,11 +44,12 @@ builder.Services.AddScoped<IDeleteUsuario, DeleteUsuario>();
 
 #region Atleta
 builder.Services.AddScoped<IAltaAtleta, AltaAtleta>();
+builder.Services.AddScoped<IFindAllAtletas, FindAllAtletas>();
+#endregion
+
 builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();
 builder.Services.AddScoped<IAltaEvento, AltaEvento>();
 builder.Services.AddScoped<IAltaPais, AltaPais>();
-builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
-#endregion
 
 var app = builder.Build();
 

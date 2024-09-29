@@ -18,7 +18,7 @@
         </p>
 
         <table class="table mt-4">
-            <thead class="thead-usuarios">
+            <thead class="thead-rojo">
                 <tr>
                     <th class="py-3">
                         @Html.DisplayNameFor(model => model.Id)
@@ -41,19 +41,19 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="py-3">
+                        <td class="pt-4">
                             @Html.DisplayFor(modelItem => item.Id)
                         </td>
-                        <td class="py-3">
+                        <td class="pt-4">
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
-                        <td class="py-3">
+                        <td class="pt-4">
                             @Html.DisplayFor(modelItem => item.RolUsuario)
                         </td>
-                        <td class="py-3">
+                        <td class="pt-4">
                             @Html.DisplayFor(modelItem => item.Nombre)
                         </td>
-                        <td class="py-3">
+                        <td class="pt-4">
                             <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
                                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "text-success" })
                                 @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "text-success" })

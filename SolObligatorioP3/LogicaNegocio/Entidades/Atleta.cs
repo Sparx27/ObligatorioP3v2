@@ -16,8 +16,10 @@ namespace LogicaNegocio.Entidades
         public string Apellido { get; set; }
         public Sexo Sexo { get; set; }
         public Pais Pais { get; set; }
+
         [ForeignKey("Pais")]
         public int PaisId { get; set; }
+        
         public List<Disciplina> LiDisciplinas { get; set; }
 
         public Atleta() { }

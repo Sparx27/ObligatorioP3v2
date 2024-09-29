@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MVC.Models.Atleta.AtletaListaVM>
+
+@{
+    ViewData["Title"] = "Lista Atletas";
+}
+
+<div class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Lista Atletas</h1>
+
+@*         @if (TempData["MessageDelete"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["MessageDelete"]</p>
+        } *@
+
+@*         <p class="mb-4 mt-3">
+            <a asp-action="Create" class="text-success">Dar alta a nuevo usuario</a>
+        </p> *@
+
+        <table class="table mt-4">
+            <thead class="thead-rojo">
+                <tr>
+                    <th class="py-3 d-none">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Apellido)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Sexo)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.NombrePais)
+                    </th>
+                    <th class="py-3">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="pt-4 d-none">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td class="pt-4">
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td class="pt-4">
+                            @Html.DisplayFor(modelItem => item.Apellido)
+                        </td>
+                        <td class="pt-4">
+                            @Html.DisplayFor(modelItem => item.Sexo)
+                        </td>
+                        <td class="pt-4">
+                            @Html.DisplayFor(modelItem => item.NombrePais)
+                        </td>
+                        <td class="pt-4">
+                            <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "text-success" })
+                                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "text-success" })
+                                <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-@item.Id">Eliminar</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+       @*  @foreach (var item in Model)
+        {
+            <!-- Modal -->
+            <div class="modal fade" id="modal-@item.Id" tabindex="-1" aria-labelledby="usuarioModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body pb-0">
+                            <table class="table table-borderless">
+                                <tbody>
+        <td>
+        @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.NombrePais)
+        </td>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        } *@
+    </div>
+</div>

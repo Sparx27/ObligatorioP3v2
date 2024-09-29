@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.IRepositorios;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,12 @@ namespace LogicaAccesoDatos.Repositorios
 {
     public class RepositorioAtleta : IRepositorioAtleta
     {
-        private List<Atleta> _liAtletas = new List<Atleta>();
+        private readonly JuegosOlimpicosDBContext _context;
+        public RepositorioAtleta(JuegosOlimpicosDBContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Atleta item)
         {
             throw new NotImplementedException();
@@ -21,10 +27,13 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Atleta> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Atleta> GetAll() => 
+            _context.Atletas
+                .Include(a => a.Pais)
+                .OrderBy(a => a.Pais.Nombre)
+                .ThenBy(a => a.Apellido)
+                .ThenBy(a => a.Nombre)
+                .ToList();
 
         public Atleta GetById(int id)
         {

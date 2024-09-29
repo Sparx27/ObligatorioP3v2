@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,11 @@ namespace LogicaNegocio.Entidades
     [PrimaryKey(nameof(AtletaId), nameof(DisciplinaId))]
     public class AtletaDisciplina
     {
+        [ForeignKey("Atleta")]
         public int AtletaId { get; set; }
-        public Atleta Atleta { get; set; }
+        [ForeignKey("Disciplina")]
         public int DisciplinaId { get; set; }
+        public Atleta Atleta { get; set; }
         public Disciplina Disciplina { get; set; }
 
         public AtletaDisciplina() { }

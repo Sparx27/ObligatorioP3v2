@@ -1,14 +1,39 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LogicaAplicacion.ICasosDeUso.Atletas;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Atleta;
 
 namespace MVC.Controllers
 {
     public class AtletaController : Controller
     {
+        private readonly IFindAllAtletas _findAllAtletas;
+        public AtletaController(IFindAllAtletas findAllAtletas)
+        {
+            _findAllAtletas = findAllAtletas;
+        }
+
+
         // GET: AtletaController
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<AtletaListaVM> res = null;
+            try
+            {
+                 res = _findAllAtletas.Ejectuar().Select(a => new AtletaListaVM
+                {
+                    Id = a.Id,
+                    Nombre = a.Nombre,
+                    Apellido = a.Apellido,
+                    NombrePais = a.NombrePais,
+                    Sexo = a.Sexo,
+                });
+            }
+            catch (Exception ex)
+            {
+                RedirectToAction("Index", "Error");
+            }
+            return View(res);
         }
 
         // GET: AtletaController/Details/5
