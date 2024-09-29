@@ -1,5 +1,6 @@
 ﻿using Compartido.DTOs.Atletas;
 using LogicaNegocio.Entidades;
+using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.Enums;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,26 @@ namespace Compartido.Mappers
                 NombrePais = a.Pais.Nombre,
                 Sexo = a.Sexo.ToString(),
             });
+        }
+
+        public static AtletaDTO AtletaToDTO(Atleta atleta)
+        {
+            if(atleta == null)
+            {
+                throw new AtletaException("Atleta vacío en mapper");
+            }
+
+            AtletaDTO res = new AtletaDTO
+            {
+                Id = atleta.Id,
+                Nombre = atleta.Nombre,
+                Apellido = atleta.Apellido,
+                NombrePais = atleta.Pais.Nombre,
+                Sexo = atleta.Sexo.ToString(),
+                DisciplinasAtleta = DisciplinaMapper.DisciplinasToListaDTO(atleta.LiDisciplinas)
+            };
+
+            return res;
         }
     }
 }

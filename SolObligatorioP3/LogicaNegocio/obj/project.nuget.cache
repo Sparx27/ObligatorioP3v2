@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DdrTH6/scuSyix1T/bFzHCHScn3YAVItyhSC/p1YkbJzZYJmF5rBNqiTtznPn9Xv2OkcCF9zs2NY25niuSZ78g==",
+  "dgSpecHash": "dpi6uOCiaZE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\Obligatorio1P3v2\\SolObligatorioP3\\LogicaNegocio\\LogicaNegocio.csproj",
+  "projectFilePath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\LogicaNegocio.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
+    "C:\\Users\\cri_1\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
   ],
   "logs": []
 }

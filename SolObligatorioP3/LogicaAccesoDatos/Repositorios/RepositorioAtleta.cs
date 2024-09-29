@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicaNegocio.ExcepcionesEntidades;
 
 namespace LogicaAccesoDatos.Repositorios
 {
@@ -37,7 +38,18 @@ namespace LogicaAccesoDatos.Repositorios
 
         public Atleta GetById(int id)
         {
-            throw new NotImplementedException();
+            Atleta atleta = _context.Atletas
+                                .Include(a => a.Pais)
+                                .Include(a => a.LiDisciplinas)
+                                .FirstOrDefault(a => a.Id == id);
+
+            if(atleta == null)
+            {
+                throw new AtletaException("Atleta no encontrado por id");
+            }
+
+            return atleta;          
+             
         }
 
         public void Update(Atleta item)

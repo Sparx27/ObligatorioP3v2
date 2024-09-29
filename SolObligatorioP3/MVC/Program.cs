@@ -45,6 +45,7 @@ builder.Services.AddScoped<IDeleteUsuario, DeleteUsuario>();
 #region Atleta
 builder.Services.AddScoped<IAltaAtleta, AltaAtleta>();
 builder.Services.AddScoped<IFindAllAtletas, FindAllAtletas>();
+builder.Services.AddScoped<IGetByIdAtleta, GetByIdAtleta>();
 #endregion
 
 builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();

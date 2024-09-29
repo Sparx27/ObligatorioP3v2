@@ -3,26 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicanegocio\\entidades\\atletadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\atletadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Atletas.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Paises.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\solobligatoriop3\\logicaaccesodatos\\migrations\\20240927235417_atletadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\migrations\\20240927235417_atletadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,73 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20240927235417_AtletaDisciplina.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Migrations\\20240927235417_AtletaDisciplina.cs",
-              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Migrations\\20240927235417_AtletaDisciplina.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaAccesoDatos\\Migrations\\20240927235417_AtletaDisciplina.cs",
-              "RelativeToolTip": "LogicaAccesoDatos\\Migrations\\20240927235417_AtletaDisciplina.cs",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Atleta\\Details.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Atleta\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T00:23:37.453Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AtletaDisciplina.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\AtletaDisciplina.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\AtletaDisciplina.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\AtletaDisciplina.cs",
-              "RelativeToolTip": "LogicaNegocio\\Entidades\\AtletaDisciplina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T23:35:23.335Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-29T19:48:51.378Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Disciplina.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Disciplina.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
-              "RelativeToolTip": "LogicaNegocio\\Entidades\\Disciplina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAeAAAAAAAAAA==",
+              "Title": "AtletaController.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
+              "RelativeDocumentMoniker": "MVC\\Controllers\\AtletaController.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
+              "RelativeToolTip": "MVC\\Controllers\\AtletaController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowCAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T23:24:45.455Z"
+              "WhenOpened": "2024-09-29T18:40:06.637Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbo.Paises.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Paises.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Paises.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-09-27T22:54:08.577Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.Atletas.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Atletas.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Atletas.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-09-27T22:52:01.589Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Atleta.cs",
               "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
               "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Atleta.cs",
               "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Atleta.cs",
               "RelativeToolTip": "LogicaNegocio\\Entidades\\Atleta.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBcAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T22:42:56.69Z",
+              "WhenOpened": "2024-09-29T18:39:56.06Z",
               "EditorCaption": ""
             }
           ]
