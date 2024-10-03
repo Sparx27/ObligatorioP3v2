@@ -12,7 +12,7 @@ namespace LogicaNegocio.ValueObjects.Usuario
     public record RUsuarioContrasena
     {
         [Required]
-        public string Valor { get; set; }
+        public string Valor { get; init; }
         public RUsuarioContrasena(string valor)
         {
             Valor = valor;

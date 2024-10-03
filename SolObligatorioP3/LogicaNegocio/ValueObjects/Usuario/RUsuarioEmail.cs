@@ -13,7 +13,7 @@ namespace LogicaNegocio.ValueObjects.Usuario
     {
         [Required]
         [MaxLength(255)]
-        public string Valor { get; set; }
+        public string Valor { get; init; }
         public RUsuarioEmail(string valor)
         {
             Valor = valor;

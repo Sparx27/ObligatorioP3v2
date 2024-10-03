@@ -13,7 +13,7 @@ namespace LogicaNegocio.ValueObjects.Disciplina
     {
         [Required]
         [StringLength(50, MinimumLength = 10)]
-        public string Valor { get; set; }
+        public string Valor { get; init; }
 
         public RDisciplinaNombre(string valor)
         {

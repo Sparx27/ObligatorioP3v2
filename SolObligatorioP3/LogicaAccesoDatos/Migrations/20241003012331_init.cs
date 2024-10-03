@@ -12,6 +12,20 @@ namespace LogicaAccesoDatos.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Disciplinas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AnioIntegracion = table.Column<int>(type: "int", nullable: false),
+                    Nombre_Valor = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Disciplinas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Paises",
                 columns: table => new
                 {
@@ -46,6 +60,28 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Eventos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DisciplinaId = table.Column<int>(type: "int", nullable: false),
+                    NombrePrueba = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FchInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FchFin = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eventos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Eventos_Disciplinas_DisciplinaId",
+                        column: x => x.DisciplinaId,
+                        principalTable: "Disciplinas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Atletas",
                 columns: table => new
                 {
@@ -68,42 +104,24 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Disciplinas",
+                name: "AtletaDisciplina",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnioIntegracion = table.Column<int>(type: "int", nullable: false),
-                    AtletaId = table.Column<int>(type: "int", nullable: true),
-                    Nombre_Valor = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    LiAtletasId = table.Column<int>(type: "int", nullable: false),
+                    LiDisciplinasId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Disciplinas", x => x.Id);
+                    table.PrimaryKey("PK_AtletaDisciplina", x => new { x.LiAtletasId, x.LiDisciplinasId });
                     table.ForeignKey(
-                        name: "FK_Disciplinas_Atletas_AtletaId",
-                        column: x => x.AtletaId,
+                        name: "FK_AtletaDisciplina_Atletas_LiAtletasId",
+                        column: x => x.LiAtletasId,
                         principalTable: "Atletas",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Eventos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DisciplinaId = table.Column<int>(type: "int", nullable: false),
-                    NombrePrueba = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FchInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FchFin = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Eventos", x => x.Id);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Eventos_Disciplinas_DisciplinaId",
-                        column: x => x.DisciplinaId,
+                        name: "FK_AtletaDisciplina_Disciplinas_LiDisciplinasId",
+                        column: x => x.LiDisciplinasId,
                         principalTable: "Disciplinas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -135,14 +153,14 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AtletaDisciplina_LiDisciplinasId",
+                table: "AtletaDisciplina",
+                column: "LiDisciplinasId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Atletas_PaisId",
                 table: "Atletas",
                 column: "PaisId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Disciplinas_AtletaId",
-                table: "Disciplinas",
-                column: "AtletaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Eventos_DisciplinaId",
@@ -165,22 +183,25 @@ namespace LogicaAccesoDatos.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AtletaDisciplina");
+
+            migrationBuilder.DropTable(
                 name: "PuntajeEvenetoAtleta");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Eventos");
-
-            migrationBuilder.DropTable(
-                name: "Disciplinas");
-
-            migrationBuilder.DropTable(
                 name: "Atletas");
 
             migrationBuilder.DropTable(
+                name: "Eventos");
+
+            migrationBuilder.DropTable(
                 name: "Paises");
+
+            migrationBuilder.DropTable(
+                name: "Disciplinas");
         }
     }
 }
