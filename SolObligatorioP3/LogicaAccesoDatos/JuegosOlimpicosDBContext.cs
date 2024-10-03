@@ -10,13 +10,17 @@ namespace LogicaAccesoDatos
 {
     public class JuegosOlimpicosDBContext : DbContext
     {
-        public DbSet<Usuario> Usuarios {  get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Atleta> Atletas { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Pais> Paises { get; set; }
 
-        public JuegosOlimpicosDBContext(DbContextOptions opt) : base(opt) { }
+        public JuegosOlimpicosDBContext(DbContextOptions opt) : base(opt)
+        {
+            //Se ejecuta el método para cargar los datos desde el principio
+            InicializarDatos();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +28,31 @@ namespace LogicaAccesoDatos
             .OwnsOne(u => u.Email)
             .HasIndex(e => e.Valor)
             .IsUnique();
+        }
+        private void InicializarDatos()
+        {
+            //Consultar si las tablas ya tienen datos, en caso de estar vacías se cargan datos
+            if (!Usuarios.Any())
+            {
+                EjecutarScript("Usuarios_Admin.sql");
+            }
+            if (!Paises.Any())
+            {
+                EjecutarScript("Paises.sql");
+            }
+            if (!Atletas.Any())
+            {
+                EjecutarScript("Atletas.sql");
+            }
+        }
+        private void EjecutarScript(string nombreScript)
+        {
+            //Ruta relativa para acceder a los scripts 
+            string rutaCompleta = Path.Combine(Directory.GetCurrentDirectory(), "..", "ScriptsDatos", nombreScript);
+            //Leer el archivo
+            string sql = File.ReadAllText(rutaCompleta);
+            //Ejecutar el archivo en la base
+            Database.ExecuteSqlRaw(sql);
         }
     }
 }
