@@ -18,8 +18,13 @@ namespace LogicaAccesoDatos
 
         public JuegosOlimpicosDBContext(DbContextOptions opt) : base(opt)
         {
-            //Se ejecuta el método para cargar los datos desde el principio
-            InicializarDatos();
+            //Pregunta si la base está creada
+            if (Database.EnsureCreated())
+            {
+                //Se ejecuta el método para cargar los datos desde el principio
+                InicializarDatos();
+            }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
