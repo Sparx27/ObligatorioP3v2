@@ -30,9 +30,14 @@ namespace LogicaAccesoDatos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>()
-            .OwnsOne(u => u.Email)
-            .HasIndex(e => e.Valor)
-            .IsUnique();
+                .OwnsOne(u => u.Email)
+                .HasIndex(e => e.Valor)
+                .IsUnique();
+
+            modelBuilder.Entity<Disciplina>()
+                .OwnsOne(d => d.Nombre)
+                .HasIndex(n => n.Valor)
+                .IsUnique();
         }
         private void InicializarDatos()
         {

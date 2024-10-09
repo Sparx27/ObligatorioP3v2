@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogicaAccesoDatos.Migrations
 {
     [DbContext(typeof(JuegosOlimpicosDBContext))]
-    [Migration("20241003012331_init")]
+    [Migration("20241009112126_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -80,16 +80,6 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.Property<int>("AnioIntegracion")
                         .HasColumnType("int");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Nombre", "LogicaNegocio.Entidades.Disciplina.Nombre#RDisciplinaNombre", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Valor")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)");
-                        });
 
                     b.HasKey("Id");
 
@@ -229,6 +219,33 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Pais");
+                });
+
+            modelBuilder.Entity("LogicaNegocio.Entidades.Disciplina", b =>
+                {
+                    b.OwnsOne("LogicaNegocio.ValueObjects.Disciplina.RDisciplinaNombre", "Nombre", b1 =>
+                        {
+                            b1.Property<int>("DisciplinaId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Valor")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)");
+
+                            b1.HasKey("DisciplinaId");
+
+                            b1.HasIndex("Valor")
+                                .IsUnique();
+
+                            b1.ToTable("Disciplinas");
+
+                            b1.WithOwner()
+                                .HasForeignKey("DisciplinaId");
+                        });
+
+                    b.Navigation("Nombre")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>

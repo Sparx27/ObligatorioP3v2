@@ -47,5 +47,8 @@ namespace LogicaAccesoDatos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+        public Disciplina? GetByNombre(string nombre) =>
+             _context.Disciplinas.FirstOrDefault(disiplina => disiplina.Nombre.Valor == nombre);
     }
 }

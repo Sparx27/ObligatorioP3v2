@@ -1,5 +1,6 @@
 ﻿using Compartido.DTOs.Disciplinas;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using LogicaNegocio.ExcepcionesEntidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Disciplina;
@@ -50,9 +51,16 @@ namespace MVC.Controllers
 
                 return RedirectToAction("Create");
             }
-            catch
+            catch (DisciplinaException dex)
             {
+                ViewBag.ErrorMessage = dex.Message;
                 return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+
             }
         }
 

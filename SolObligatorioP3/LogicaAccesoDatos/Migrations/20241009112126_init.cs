@@ -17,8 +17,8 @@ namespace LogicaAccesoDatos.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AnioIntegracion = table.Column<int>(type: "int", nullable: false),
-                    Nombre_Valor = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Nombre_Valor = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    AnioIntegracion = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -161,6 +161,12 @@ namespace LogicaAccesoDatos.Migrations
                 name: "IX_Atletas_PaisId",
                 table: "Atletas",
                 column: "PaisId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Disciplinas_Nombre_Valor",
+                table: "Disciplinas",
+                column: "Nombre_Valor",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Eventos_DisciplinaId",

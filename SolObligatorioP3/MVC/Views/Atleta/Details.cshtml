@@ -1,15 +1,31 @@
 ﻿@model MVC.Models.Atleta.AtletaVM
-
+@using MVC.Models.Disciplina
+@{
+    IEnumerable<DisciplinaListaVM> listDisciplinas = ViewBag.Disciplinas;
+}
 @{
     ViewData["Title"] = "Detalles Atleta";
 }
 
 
 <section class="row pb-4 mt-5">
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success text-center">@TempData["Message"]</p>
+    }
     <div class="col-12">
-        
+       
 
         <h1>Detalles</h1>
+
 
         <div>
             <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
@@ -84,10 +100,9 @@
             {
                 <div class="mb-3">
                     <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-disciplina">Registrar en disciplina</p>
-                    
                 </div>
                 <a asp-action="Index" class="text-success">Volver a la lista</a>
-                
+
             }
         </div>
 
@@ -100,27 +115,38 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div class="modal-body pb-0">
-                        <form method="post" asp-action="AgregarDisciplina">
-                            <input type="hidden" name="id" value="@Model.Id"/>
-                            <div class="form-control">
-                                <label for="idDisciplina" class="form-label"></label>
-                                <select id="idDisciplina" name="idDisciplina" class="form-select">
-                                    @foreach(var d in ViewBag.Disciplinas)
-                                    {
-                                        <option value="@d.Id">@d.Nombre</option>
-                                    }
-                                </select>
-                            </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <input type="submit" value="Registrar" class="btn btn-success"
-                            </div>
-                        </form>
+                    <div class="modal-body pb-0">
+
+
+
+
+                        @if (listDisciplinas.Count() == 0)
+                        {
+                            <p>Aún no existen disciplinas</p>
+                        }
+                        else
+                        {
+                            <form method="post" asp-action="AgregarDisciplina">
+                                <input type="hidden" name="id" value="@Model.Id" />
+                                <div class="form-control">
+                                    <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
+                                    <select id="idDisciplina" name="idDisciplina" class="form-select">
+                                        @foreach (var d in ViewBag.Disciplinas)
+                                        {
+                                            <option value="@d.Id">@d.Nombre</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <input type="submit" value="Registrar" class="btn btn-success" />
+                                </div>
+                            </form>
+                        }
                     </div>
 
-                    
                 </div>
             </div>
         </div>

@@ -2,6 +2,9 @@
 using Compartido.Mappers;
 using LogicaAccesoDatos;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using LogicaAplicacion.Validadores;
+using LogicaNegocio.Entidades;
+using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
@@ -19,8 +22,19 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
             _repositorioDisciplina = repositorioDisciplina;
         }
 
-        public void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO) =>
+        public void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO)
+        {
+            Disciplina? BuscarSiExiste = _repositorioDisciplina.GetByNombre(disciplinaInsertDTO.Nombre);
+            if (BuscarSiExiste != null)
+            {
+                throw new DisciplinaException("Ya existe una disciplina con ese nombre");                
+            }
+
+            ValidarDisciplina.Nombre(disciplinaInsertDTO.Nombre);
+
             _repositorioDisciplina.Add(DisciplinaMapper.InsertDTOToDisciplina(disciplinaInsertDTO));
+        }
+            
 
     }
 }

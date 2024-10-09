@@ -9,5 +9,6 @@ namespace LogicaNegocio.IRepositorios
 {
     public interface IRepositorioDisciplina : IRepositorio<Disciplina>
     {
+        public Disciplina? GetByNombre(string nombre);
     }
 }
