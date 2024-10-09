@@ -53,6 +53,7 @@ builder.Services.AddScoped<IAgregarDisciplina, AgregarDisciplina>();
 #region Disciplina
 builder.Services.AddScoped<IFindAllDisciplinas, FindAllDisciplinas>();
 builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();
+builder.Services.AddScoped<IDeleteDisciplina, DeleteDisciplina>();
 #endregion
 
 

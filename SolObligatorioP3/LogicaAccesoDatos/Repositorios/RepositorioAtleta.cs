@@ -41,7 +41,7 @@ namespace LogicaAccesoDatos.Repositorios
             Atleta atleta = _context.Atletas
                                 .Include(a => a.Pais)
                                 .Include(a => a.LiDisciplinas)
-                                .FirstOrDefault(a => a.Id == id);
+                                .SingleOrDefault(a => a.Id == id);
 
             if(atleta == null)
             {

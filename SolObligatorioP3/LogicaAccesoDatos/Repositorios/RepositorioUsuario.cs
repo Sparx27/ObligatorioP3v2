@@ -39,10 +39,10 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
         public Usuario? GetById(int id) => 
-            _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
+            _context.Usuarios.SingleOrDefault(usuario => usuario.Id == id);
 
         public Usuario? GetByEmail(string email) => 
-            _context.Usuarios.FirstOrDefault(usuario => usuario.Email.Valor == email);
+            _context.Usuarios.SingleOrDefault(usuario => usuario.Email.Valor == email);
 
         public void Update(Usuario item)
         {
@@ -51,6 +51,6 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
         public Usuario? LoginUsuario(string email, string password) =>
-            _context.Usuarios.FirstOrDefault(usuario => usuario.Email.Valor == email && usuario.Contrasena.Valor == password);
+            _context.Usuarios.SingleOrDefault(usuario => usuario.Email.Valor == email && usuario.Contrasena.Valor == password);
     }
 }

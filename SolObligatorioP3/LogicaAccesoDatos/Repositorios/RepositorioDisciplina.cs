@@ -26,14 +26,20 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Delete(Disciplina item)
         {
-            throw new NotImplementedException();
+            _context.Disciplinas.Remove(item);
+            _context.SaveChanges();
         }
 
-        public List<Disciplina> GetAll() => _context.Disciplinas.ToList();
+        public List<Disciplina> GetAll() => 
+            _context.Disciplinas
+                .AsEnumerable()
+                .OrderBy(d => d.Nombre.Valor)
+                .ToList();
+        // NOTA: AsEnumerable porque Nombre es un ValueObject
 
         public Disciplina GetById(int id)
         {
-            Disciplina disciplina = _context.Disciplinas.FirstOrDefault(d => d.Id == id);
+            Disciplina disciplina = _context.Disciplinas.SingleOrDefault(d => d.Id == id);
 
             if (disciplina == null)
             {
@@ -49,6 +55,6 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
         public Disciplina? GetByNombre(string nombre) =>
-             _context.Disciplinas.FirstOrDefault(disiplina => disiplina.Nombre.Valor == nombre);
+             _context.Disciplinas.SingleOrDefault(disiplina => disiplina.Nombre.Valor == nombre);
     }
 }

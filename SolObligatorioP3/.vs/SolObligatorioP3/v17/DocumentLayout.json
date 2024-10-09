@@ -3,44 +3,67 @@
   "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\disciplinas\\altadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\disciplinas\\altadisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Usuarios.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\usuarios\\altausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\usuarios\\altausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\atleta\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\atleta\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\usuario\\listausuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\usuario\\listausuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\disciplinas\\deletedisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\disciplinas\\deletedisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaccesodatos\\repositorios\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\repositorios\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaccesodatos\\repositorios\\repositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\repositorios\\repositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaccesodatos\\juegosolimpicosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94CA8B9E-069F-4A3E-9711-AD8E4CF7980F}|LogicaAccesoDatos\\LogicaAccesoDatos.csproj|solutionrelative:logicaaccesodatos\\juegosolimpicosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\entidades\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicanegocio\\irepositorios\\irepositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\irepositorios\\irepositoriodisciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\compartido\\mappers\\disciplinamapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D1DE4E-F3DA-44DD-88D4-22CB0998CB07}|Compartido\\Compartido.csproj|solutionrelative:compartido\\mappers\\disciplinamapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaplicacion\\casosdeuso\\disciplinas\\findalldisciplinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\casosdeuso\\disciplinas\\findalldisciplinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicaaplicacion\\icasosdeuso\\disciplinas\\ifindalldisciplinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC42DA80-4BB4-40AB-8465-B2DCBDDC5BC1}|LogicaAplicacion\\LogicaAplicacion.csproj|solutionrelative:logicaaplicacion\\icasosdeuso\\disciplinas\\ifindalldisciplinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\mvc\\models\\disciplina\\disciplinainsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19ED7CD8-0FBF-47EE-9F3D-BE7ECF9B4A79}|MVC\\MVC.csproj|solutionrelative:mvc\\models\\disciplina\\disciplinainsertvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|c:\\users\\dell\\desktop\\obl p3\\solobligatoriop3\\logicanegocio\\valueobjects\\disciplina\\rdisciplinanombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A20A411D-A50B-45DF-B935-F7638E7AAEF7}|LogicaNegocio\\LogicaNegocio.csproj|solutionrelative:logicanegocio\\valueobjects\\disciplina\\rdisciplinanombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,128 +73,212 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RepositorioDisciplina.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
-              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
-              "RelativeToolTip": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwDIAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:09:11.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AltaUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Usuarios\\AltaUsuario.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:08:45.052Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DisciplinaController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\DisciplinaController.cs",
-              "RelativeDocumentMoniker": "MVC\\Controllers\\DisciplinaController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\DisciplinaController.cs",
-              "RelativeToolTip": "MVC\\Controllers\\DisciplinaController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:08:23.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "JuegosOlimpicosDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\JuegosOlimpicosDBContext.cs",
-              "RelativeDocumentMoniker": "LogicaAccesoDatos\\JuegosOlimpicosDBContext.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\JuegosOlimpicosDBContext.cs",
-              "RelativeToolTip": "LogicaAccesoDatos\\JuegosOlimpicosDBContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:10:25.031Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IRepositorioDisciplina.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\IRepositorios\\IRepositorioDisciplina.cs",
-              "RelativeDocumentMoniker": "LogicaNegocio\\IRepositorios\\IRepositorioDisciplina.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\IRepositorios\\IRepositorioDisciplina.cs",
-              "RelativeToolTip": "LogicaNegocio\\IRepositorios\\IRepositorioDisciplina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:13:22.291Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AltaDisciplina.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\AltaDisciplina.cs",
-              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\AltaDisciplina.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\AltaDisciplina.cs",
-              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\AltaDisciplina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T11:00:05.402Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DisciplinaInsertVM.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Models\\Disciplina\\DisciplinaInsertVM.cs",
-              "RelativeDocumentMoniker": "MVC\\Models\\Disciplina\\DisciplinaInsertVM.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Models\\Disciplina\\DisciplinaInsertVM.cs",
-              "RelativeToolTip": "MVC\\Models\\Disciplina\\DisciplinaInsertVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T10:56:44.737Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Disciplina\\Create.cshtml",
               "RelativeDocumentMoniker": "MVC\\Views\\Disciplina\\Create.cshtml",
               "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Disciplina\\Create.cshtml",
               "RelativeToolTip": "MVC\\Views\\Disciplina\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-09T10:53:41.122Z"
+              "WhenOpened": "2024-10-09T17:03:46.079Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AtletaController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
-              "RelativeDocumentMoniker": "MVC\\Controllers\\AtletaController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\AtletaController.cs",
-              "RelativeToolTip": "MVC\\Controllers\\AtletaController.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAYwKsAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T10:46:02.131Z"
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Create.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Usuario\\Create.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuario\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-09T17:03:33.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Atleta\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Atleta\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Atleta\\Index.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Atleta\\Index.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-09T16:49:12.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Disciplina\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Disciplina\\Index.cshtml",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAAwDUAAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-09T13:11:37.783Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
-              "RelativeDocumentMoniker": "MVC\\Views\\Atleta\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Atleta\\Details.cshtml",
-              "RelativeToolTip": "MVC\\Views\\Atleta\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Title": "ListaUsuarios.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Usuario\\ListaUsuarios.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-09T10:38:19.782Z"
+              "WhenOpened": "2024-10-09T16:46:49.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAwEQAAACsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-09T16:36:02.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RepositorioUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
+              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
+              "RelativeToolTip": "LogicaAccesoDatos\\Repositorios\\RepositorioUsuario.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:57:32.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DeleteDisciplina.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\DeleteDisciplina.cs",
+              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\DeleteDisciplina.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\DeleteDisciplina.cs",
+              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\DeleteDisciplina.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:54:35.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.Usuarios [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JuegosOlimpicosDB/True/SqlTable/dbo.Usuarios.sql",
+              "ToolTip": "dbo.Usuarios [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-10-09T15:30:48.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DisciplinaController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\DisciplinaController.cs",
+              "RelativeDocumentMoniker": "MVC\\Controllers\\DisciplinaController.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\MVC\\Controllers\\DisciplinaController.cs",
+              "RelativeToolTip": "MVC\\Controllers\\DisciplinaController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAEwH8AAACKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:55:31.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FindAllDisciplinas.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\FindAllDisciplinas.cs",
+              "RelativeDocumentMoniker": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\FindAllDisciplinas.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\CasosDeUso\\Disciplinas\\FindAllDisciplinas.cs",
+              "RelativeToolTip": "LogicaAplicacion\\CasosDeUso\\Disciplinas\\FindAllDisciplinas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T13:10:15.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IFindAllDisciplinas.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\ICasosDeUso\\Disciplinas\\IFindAllDisciplinas.cs",
+              "RelativeDocumentMoniker": "LogicaAplicacion\\ICasosDeUso\\Disciplinas\\IFindAllDisciplinas.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAplicacion\\ICasosDeUso\\Disciplinas\\IFindAllDisciplinas.cs",
+              "RelativeToolTip": "LogicaAplicacion\\ICasosDeUso\\Disciplinas\\IFindAllDisciplinas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T13:09:57.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RepositorioDisciplina.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "RelativeDocumentMoniker": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "RelativeToolTip": "LogicaAccesoDatos\\Repositorios\\RepositorioDisciplina.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwB0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T13:38:26.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Disciplina.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
+              "RelativeDocumentMoniker": "LogicaNegocio\\Entidades\\Disciplina.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\Entidades\\Disciplina.cs",
+              "RelativeToolTip": "LogicaNegocio\\Entidades\\Disciplina.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:55:50.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DisciplinaMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\Compartido\\Mappers\\DisciplinaMapper.cs",
+              "RelativeDocumentMoniker": "Compartido\\Mappers\\DisciplinaMapper.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\Compartido\\Mappers\\DisciplinaMapper.cs",
+              "RelativeToolTip": "Compartido\\Mappers\\DisciplinaMapper.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T13:35:42.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RDisciplinaNombre.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "RelativeDocumentMoniker": "LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\Obl P3\\SolObligatorioP3\\LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "RelativeToolTip": "LogicaNegocio\\ValueObjects\\Disciplina\\RDisciplinaNombre.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:56:22.802Z",
+              "EditorCaption": ""
             }
           ]
         }

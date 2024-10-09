@@ -4,21 +4,46 @@ using LogicaNegocio.ExcepcionesEntidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Disciplina;
+using LogicaNegocio.ExcepcionesEntidades;
+using Compartido.Mappers;
 
 namespace MVC.Controllers
 {
     public class DisciplinaController : Controller
     {
         private readonly IAltaDisciplina _altaDisciplina;
+        private readonly IFindAllDisciplinas _findAllDisciplinas;
+        private readonly IDeleteDisciplina _deleteDisciplina;
 
-        public DisciplinaController(IAltaDisciplina altaDisciplina)
+        public DisciplinaController(
+            IAltaDisciplina altaDisciplina, 
+            IFindAllDisciplinas findAllDisciplinas, 
+            IDeleteDisciplina deleteDisciplina
+        )
         {
             _altaDisciplina = altaDisciplina;
+            _findAllDisciplinas = findAllDisciplinas;
+            _deleteDisciplina = deleteDisciplina;
         }
         // GET: DisciplinaController
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View(_findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM
+                {
+                    Id = d.Id,
+                    Nombre = d.Nombre
+                }));
+            }
+            catch(DisciplinaException dex)
+            {
+                return RedirectToAction("Index", "Error", new {code= 400, message =dex.Message });
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Index", "Error", new { code = 400, message = ex.Message });
+            }
         }
 
         // GET: DisciplinaController/Details/5
@@ -88,7 +113,22 @@ namespace MVC.Controllers
         // GET: DisciplinaController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                _deleteDisciplina.Ejecutar(id);
+                TempData["Message"] = "Disciplina eliminada correctamente";
+                return RedirectToAction("Index");
+            }
+            catch(DisciplinaException dex)
+            {
+                TempData["ErrorMessage"] = dex.Message;
+            }
+            catch(Exception ex)
+            {
+                TempData["ErrorMessage"] = "Algo no salió correctamente. Es posible que existan referencias de esta Disciplina en Atletas.";
+            }
+
+            return RedirectToAction("Index");
         }
 
         // POST: DisciplinaController/Delete/5

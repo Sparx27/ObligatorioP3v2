@@ -35,7 +35,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("LiDisciplinasId");
 
-                    b.ToTable("AtletaDisciplina");
+                    b.ToTable("AtletaDisciplina", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Atleta", b =>
@@ -64,7 +64,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("PaisId");
 
-                    b.ToTable("Atletas");
+                    b.ToTable("Atletas", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Disciplina", b =>
@@ -80,7 +80,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Disciplinas");
+                    b.ToTable("Disciplinas", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Evento", b =>
@@ -108,7 +108,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("DisciplinaId");
 
-                    b.ToTable("Eventos");
+                    b.ToTable("Eventos", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Pais", b =>
@@ -136,7 +136,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Paises");
+                    b.ToTable("Paises", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEvenetoAtleta", b =>
@@ -154,7 +154,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("EventoId");
 
-                    b.ToTable("PuntajeEvenetoAtleta");
+                    b.ToTable("PuntajeEvenetoAtleta", (string)null);
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Usuario", b =>
@@ -189,7 +189,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuarios", (string)null);
                 });
 
             modelBuilder.Entity("AtletaDisciplina", b =>
@@ -220,7 +220,7 @@ namespace LogicaAccesoDatos.Migrations
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Disciplina", b =>
                 {
-                    b.OwnsOne("LogicaNegocio.ValueObjects.Disciplina.RDisciplinaNombre", "Nombre", b1 =>
+                    b.OwnsOne("LogicaNegocio.Entidades.Disciplina.Nombre#LogicaNegocio.ValueObjects.Disciplina.RDisciplinaNombre", "Nombre", b1 =>
                         {
                             b1.Property<int>("DisciplinaId")
                                 .HasColumnType("int");
@@ -235,7 +235,7 @@ namespace LogicaAccesoDatos.Migrations
                             b1.HasIndex("Valor")
                                 .IsUnique();
 
-                            b1.ToTable("Disciplinas");
+                            b1.ToTable("Disciplinas", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("DisciplinaId");
@@ -275,7 +275,7 @@ namespace LogicaAccesoDatos.Migrations
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Usuario", b =>
                 {
-                    b.OwnsOne("LogicaNegocio.ValueObjects.Usuario.RUsuarioEmail", "Email", b1 =>
+                    b.OwnsOne("LogicaNegocio.Entidades.Usuario.Email#LogicaNegocio.ValueObjects.Usuario.RUsuarioEmail", "Email", b1 =>
                         {
                             b1.Property<int>("UsuarioId")
                                 .HasColumnType("int");
@@ -290,7 +290,7 @@ namespace LogicaAccesoDatos.Migrations
                             b1.HasIndex("Valor")
                                 .IsUnique();
 
-                            b1.ToTable("Usuarios");
+                            b1.ToTable("Usuarios", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("UsuarioId");

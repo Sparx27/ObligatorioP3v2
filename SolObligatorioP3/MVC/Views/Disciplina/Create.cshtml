@@ -1,17 +1,15 @@
 ﻿@model MVC.Models.Disciplina.DisciplinaInsertVM
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Alta Disciplina";
 }
 
-<h1>Create</h1>
+<<section class="row mt-5 pb-5">
 
-<h4>DisciplinaInsertVM</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
 
+        <form asp-action="Create" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Alta Disciplina</h1>
             @if (ViewBag.ErrorMessage != null)
             {
                 <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
@@ -25,28 +23,25 @@
                 <p class="alert alert-success text-center">@TempData["Message"]</p>
             }
 
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <label asp-for="Nombre" class="control-label mb-1"></label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnioIntegracion" class="control-label"></label>
+                <label asp-for="AnioIntegracion" class="control-label mb-1"></label>
                 <input asp-for="AnioIntegracion" class="form-control" />
                 <span asp-validation-for="AnioIntegracion" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Registrar" class="btn btn-danger w-100" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    </div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
