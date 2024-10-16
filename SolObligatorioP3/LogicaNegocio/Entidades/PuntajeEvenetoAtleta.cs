@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace LogicaNegocio.Entidades
         public int AtletaId { get; set; }
         public int EventoId { get; set; }
 
+        [ForeignKey("AtletaId")]
         public Atleta Atleta { get; set; }
         public PuntajeEvenetoAtleta() { }
         public PuntajeEvenetoAtleta(Atleta atleta, decimal puntaje)

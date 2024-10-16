@@ -1,6 +1,7 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.IRepositorios;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,16 @@ namespace LogicaAccesoDatos.Repositorios
                 .OrderBy(d => d.Nombre.Valor)
                 .ToList();
         // NOTA: AsEnumerable porque Nombre es un ValueObject
+
+        public List<Atleta> GetAtletasDisciplina(int idDisciplina)
+        {
+            Disciplina buscar = _context.Disciplinas
+                .Include(d => d.LiAtletas)
+                .ThenInclude(a => a.Pais)
+                .SingleOrDefault(d => d.Id == idDisciplina);
+            if (buscar == null) throw new DisciplinaException("Disciplina no encontrada con ese id");
+            return buscar.LiAtletas;
+        }
 
         public Disciplina GetById(int id)
         {

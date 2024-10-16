@@ -407,9 +407,5 @@ namespace MVC.Controllers
             return HttpContext.Session.GetString("rolLogueado");
         }
 
-
-
-
-
     }
 }
