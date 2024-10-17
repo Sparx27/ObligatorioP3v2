@@ -1,6 +1,8 @@
 ﻿using Compartido.DTOs.Disciplinas;
+using Compartido.DTOs.Eventos;
 using LogicaAplicacion.ICasosDeUso.Atletas;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using LogicaAplicacion.ICasosDeUso.Eventos;
 using LogicaNegocio.ExcepcionesEntidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +17,13 @@ namespace MVC.Controllers
     {
         private readonly IFindAtletasDisciplina _findAtletasDisciplina;
         private readonly IFindAllDisciplinas _findAllDisciplinas;
+        private readonly IAltaEvento _altaEvento;
 
-        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas)
+        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas, IAltaEvento altaEvento)
         {
             _findAtletasDisciplina = findAtletasDisciplina;
             _findAllDisciplinas = findAllDisciplinas;
+            _altaEvento = altaEvento;
         }
 
         // GET: EventoController
@@ -93,6 +97,19 @@ namespace MVC.Controllers
             {
                 try
                 {
+                    EventoInsertDTO evento = new EventoInsertDTO()
+                    {
+                        DisciplinaId = eventoInsertVM.DisciplinaId,
+                        FchInicio = eventoInsertVM.FchInicio,
+                        FchFin = eventoInsertVM.FchFin,
+                        NombrePrueba = eventoInsertVM.NombrePrueba,
+                        AtletasId = eventoInsertVM.AtletasId
+                    };
+
+                    _altaEvento.Ejecutar(evento);
+
+                    
+
                     return RedirectToAction(nameof(Index));
                 }
                 catch

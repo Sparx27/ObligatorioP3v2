@@ -13,5 +13,6 @@ namespace Compartido.DTOs.Eventos
         public string NombrePrueba { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
+        public int[] ? AtletasId { get; set; }
     }
 }
