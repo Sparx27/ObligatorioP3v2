@@ -53,3 +53,16 @@ button:focus {
 .link {
     cursor: pointer !important;
 }
+
+#grupo-atletas {
+    height: 300px;
+    padding: 0 10px;
+    overflow-y: scroll;
+}
+
+.atleta-label {
+    cursor: pointer !important;
+}
+.atleta-label input[type="checkbox"] {
+    cursor: pointer !important
+}

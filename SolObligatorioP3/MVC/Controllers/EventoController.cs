@@ -89,14 +89,18 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventoInsertVM eventoInsertVM)
         {
-            try
+            if(ManejoSession.GetIdLogueado(HttpContext) != null)
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: EventoController/Edit/5

@@ -53,6 +53,8 @@ namespace LogicaAccesoDatos
             if (!Atletas.Any())
             {
                 EjecutarScript("Atletas.sql");
+                EjecutarScript("Disciplinas.sql");
+                EjecutarScript("AtletasDisciplinas.sql");
             }
         }
         private void EjecutarScript(string nombreScript)

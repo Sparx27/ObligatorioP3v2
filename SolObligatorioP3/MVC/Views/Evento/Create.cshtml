@@ -1,58 +1,78 @@
 ﻿@model MVC.Models.Evento.EventoInsertVM
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Agregar Evento";
 }
 
-<h1>Create</h1>
+<section class="row mt-5 pb-5">
+    <div class="text-center">
+        <a asp-action="Index" class="link link-success">Volver a Seleccionar Disciplina</a>
+    </div>
 
-<h4>EventoInsertVM</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+
+        <form asp-action="Create" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Agregar Evento</h1>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <p class="alert alert-success text-center">@TempData["Message"]</p>
+            }
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DisciplinaId" class="control-label"></label>
-                <input asp-for="DisciplinaId" class="form-control" />
-                <span asp-validation-for="DisciplinaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NombrePrueba" class="control-label"></label>
+
+            <input asp-for="DisciplinaId" class="form-control" type="hidden" />
+
+            <div class="form-group mb-2">
+                <label asp-for="NombrePrueba" class="control-label mb-1"></label>
                 <input asp-for="NombrePrueba" class="form-control" />
                 <span asp-validation-for="NombrePrueba" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FchInicio" class="control-label"></label>
+
+            <div class="form-group mb-2">
+                <label asp-for="FchInicio" class="control-label mb-1"></label>
                 <input asp-for="FchInicio" class="form-control" />
                 <span asp-validation-for="FchInicio" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FchFin" class="control-label"></label>
+
+            <div class="form-group mb-2">
+                <label asp-for="FchFin" class="control-label mb-1"></label>
                 <input asp-for="FchFin" class="form-control" />
                 <span asp-validation-for="FchFin" class="text-danger"></span>
             </div>
-            <div>
-                @foreach (var a in Model.Atletas)
-                {
-                    <div>
-                        <input type="checkbox" name="AtletasId" value="@a.Id" id="atleta_@a.Id" />
-                        <label for="atleta_@a.Id">@a.Nombre</label>
-                    </div>
 
-                }
+            <div class="form-group mb-2">
+                <p class="mb-1">Agregar Atletas</p>
+
+                <div id="grupo-atletas">
+                    @foreach (var a in Model.Atletas)
+                    {
+                        <div>
+                            <label for="atleta_@a.Id" class="atleta-label">
+                                <div class="d-flex align-items-center gap-1 my-1">
+                                    <input type="checkbox" name="AtletasId" value="@a.Id" id="atleta_@a.Id" class="atletla-cb" style="width: 20px; height: 20px;" />
+                                    @a.Nombre
+                                </div>
+                            </label>
+                        </div>
+
+                    }
+                </div>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-danger w-100" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
