@@ -6,6 +6,7 @@ using MVC.Models.Usuario;
 using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.Enums;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using MVC.Utils;
 
 namespace MVC.Controllers
 {
@@ -38,8 +39,8 @@ namespace MVC.Controllers
         // GET: UsuarioController
         public ActionResult Index()
         {
-            int? usuarioId = GetIdLogueado();
-            if (usuarioId != null)
+            int? usuarioId = ManejoSession.GetIdLogueado(HttpContext);
+            if ( usuarioId!= null)
             {
                 return RedirectToAction("Details", new { id = usuarioId });
             }
@@ -80,7 +81,7 @@ namespace MVC.Controllers
         {
             try
             {
-                if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
+                if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" && ManejoSession.GetIdLogueado(HttpContext) != null)
                 {
                     UsuarioDTO usuarioDTO = _getByIdUsuario.Ejecutar(id);
                     UsuarioVM usuarioVM = new UsuarioVM
@@ -95,7 +96,7 @@ namespace MVC.Controllers
                 }
 
                 // Caso de que no sea administrador
-                if (id != GetIdLogueado())
+                if (id != ManejoSession.GetIdLogueado(HttpContext))
                 {
                     return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
                 }
@@ -128,7 +129,7 @@ namespace MVC.Controllers
         // GET: UsuarioController/Create
         public ActionResult Create()
         {
-            if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" && ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 ViewBag.Roles = GetUsuarioRoles();
                 return View();
@@ -141,7 +142,7 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(UsuarioInsertVM usuarioInsertVM)
         {
-            if (GetRolLogueado() == "Administrador" && GetIdLogueado() != null)
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" && ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 ViewBag.Roles = GetUsuarioRoles();
 
@@ -157,7 +158,7 @@ namespace MVC.Controllers
                         Contrasena = usuarioInsertVM.Contrasena,
                         Nombre = usuarioInsertVM.Nombre,
                         RolUsuario = usuarioInsertVM.RolUsuario,
-                        IdAdminRegistro = (int)GetIdLogueado()
+                        IdAdminRegistro = (int)ManejoSession.GetIdLogueado(HttpContext)
 
                     };
 
@@ -188,12 +189,12 @@ namespace MVC.Controllers
         public ActionResult Edit(int id)
         {
             // Lo primero chequear si hay sesion
-            int? idLogueado = GetIdLogueado();
+            int? idLogueado = ManejoSession.GetIdLogueado(HttpContext);
 
             if (idLogueado != null)
             {
                 // Si es administrador o digitador con mismo id al que intenta modificar
-                if (GetRolLogueado() == "Administrador" || idLogueado == id)
+                if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" || idLogueado == id)
                 {
                     try
                     {
@@ -231,7 +232,7 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, UsuarioUpdateVM usuarioUpdateVM)
         {
-            int? idLogueado = GetIdLogueado();
+            int? idLogueado = ManejoSession.GetIdLogueado(HttpContext);
 
             if (idLogueado != null)
             {
@@ -243,7 +244,7 @@ namespace MVC.Controllers
                     Nombre = usuarioUpdateVM.Nombre
                 };
                 // En caso de ser o Administrador un digitador con mismo id
-                if (GetRolLogueado() == "Administrador" || idLogueado == id)
+                if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" || idLogueado == id)
                 {
                     try
                     {
@@ -277,8 +278,8 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CambiarContrasena(int id, string contrasena, string contrasenaAnterior)
         {
-            int? idLogueado = GetIdLogueado();
-            string? rolLogueado = GetRolLogueado();
+            int? idLogueado = ManejoSession.GetIdLogueado(HttpContext);
+            string? rolLogueado = ManejoSession.GetRolLogueado(HttpContext);
 
             if (idLogueado != null)
             {
@@ -345,7 +346,7 @@ namespace MVC.Controllers
         // GET: UsuarioController/Delete/5
         public ActionResult Delete(int id)
         {
-            if (GetRolLogueado() == "Administrador" && GetIdLogueado != null)
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" && ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {
@@ -368,7 +369,7 @@ namespace MVC.Controllers
         [HttpGet("Usuario/Lista-Usuarios")]
         public ActionResult ListaUsuarios()
         {
-            if (GetRolLogueado() == "Administrador" && GetIdLogueado != null)
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Administrador" && ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 IEnumerable<UsuarioVM> listaUsuarios =
                     _findAllUsuarios.Ejecutar().Select(u => new UsuarioVM()
@@ -396,16 +397,5 @@ namespace MVC.Controllers
                 Name = r.ToString()
             });
         }
-
-        public int? GetIdLogueado()
-        {
-            return HttpContext.Session.GetInt32("idLogueado");
-        }
-
-        public string? GetRolLogueado()
-        {
-            return HttpContext.Session.GetString("rolLogueado");
-        }
-
     }
 }

@@ -9,7 +9,7 @@ namespace MVC.Models.Evento
         public string NombrePrueba { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
-        public int[] ? AtletasId { get; set; }
+        public int[] ? AtletasId { get; set; } 
         public IEnumerable<AtletaListaVM> Atletas { get; set; }
     }
 }

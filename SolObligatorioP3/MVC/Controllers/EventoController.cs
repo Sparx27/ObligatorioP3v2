@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Atleta;
 using MVC.Models.Disciplina;
 using MVC.Models.Evento;
+using MVC.Utils;
 
 namespace MVC.Controllers
 {
@@ -24,7 +25,7 @@ namespace MVC.Controllers
         // GET: EventoController
         public ActionResult Index()
         {
-            if(GetIdLogueado() != null)
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {
@@ -45,7 +46,7 @@ namespace MVC.Controllers
                 return View();
             }
             return RedirectToAction("Index", "Error");
-            
+
         }
 
         // GET: EventoController/Details/5
@@ -57,7 +58,7 @@ namespace MVC.Controllers
         // GET: EventoController/Create
         public ActionResult Create(int idDisciplina)
         {
-            if(GetIdLogueado() != null)
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {
@@ -70,7 +71,7 @@ namespace MVC.Controllers
                         NombrePais = a.NombrePais,
                         Sexo = a.Sexo
                     });
-
+                    EventoVM.DisciplinaId = idDisciplina;
                     EventoVM.Atletas = atletas;
                     return View(EventoVM);
                 }
@@ -81,13 +82,12 @@ namespace MVC.Controllers
             }
             return RedirectToAction("Index", "Error");
 
-            return View();
         }
 
         // POST: EventoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(EventoInsertVM eventoInsertVM)
         {
             try
             {
@@ -139,16 +139,6 @@ namespace MVC.Controllers
             {
                 return View();
             }
-        }
-
-        public int? GetIdLogueado()
-        {
-            return HttpContext.Session.GetInt32("idLogueado");
-        }
-
-        public string? GetRolLogueado()
-        {
-            return HttpContext.Session.GetString("rolLogueado");
         }
     }
 }
