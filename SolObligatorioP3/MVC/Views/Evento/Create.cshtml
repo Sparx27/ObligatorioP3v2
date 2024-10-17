@@ -1,0 +1,59 @@
+﻿@model MVC.Models.Evento.EventoInsertVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>EventoInsertVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DisciplinaId" class="control-label"></label>
+                <input asp-for="DisciplinaId" class="form-control" />
+                <span asp-validation-for="DisciplinaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombrePrueba" class="control-label"></label>
+                <input asp-for="NombrePrueba" class="form-control" />
+                <span asp-validation-for="NombrePrueba" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchInicio" class="control-label"></label>
+                <input asp-for="FchInicio" class="form-control" />
+                <span asp-validation-for="FchInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchFin" class="control-label"></label>
+                <input asp-for="FchFin" class="form-control" />
+                <span asp-validation-for="FchFin" class="text-danger"></span>
+            </div>
+            <div>
+                @foreach (var a in Model.Atletas)
+                {
+                    <div>
+                        <input type="checkbox" name="AtletasId" value="@a.Id" id="atleta_@a.Id" />
+                        <label for="atleta_@a.Id">@a.Nombre</label>
+                    </div>
+
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

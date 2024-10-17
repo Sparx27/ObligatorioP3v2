@@ -1,4 +1,6 @@
-﻿namespace MVC.Models.Evento
+﻿using MVC.Models.Atleta;
+
+namespace MVC.Models.Evento
 {
     public class EventoInsertVM
     {
@@ -7,5 +9,7 @@
         public string NombrePrueba { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
+        public int[] ? AtletasId { get; set; } 
+        public IEnumerable<AtletaListaVM> Atletas { get; set; }
     }
 }

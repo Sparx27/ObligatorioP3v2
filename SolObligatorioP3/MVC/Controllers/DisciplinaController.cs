@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Disciplina;
 using LogicaNegocio.ExcepcionesEntidades;
 using Compartido.Mappers;
+using MVC.Utils;
 
 namespace MVC.Controllers
 {
@@ -16,8 +17,8 @@ namespace MVC.Controllers
         private readonly IDeleteDisciplina _deleteDisciplina;
 
         public DisciplinaController(
-            IAltaDisciplina altaDisciplina, 
-            IFindAllDisciplinas findAllDisciplinas, 
+            IAltaDisciplina altaDisciplina,
+            IFindAllDisciplinas findAllDisciplinas,
             IDeleteDisciplina deleteDisciplina
         )
         {
@@ -28,22 +29,30 @@ namespace MVC.Controllers
         // GET: DisciplinaController
         public ActionResult Index()
         {
-            try
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
-                return View(_findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM
+                try
                 {
-                    Id = d.Id,
-                    Nombre = d.Nombre
-                }));
+                    return View(_findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM
+                    {
+                        Id = d.Id,
+                        Nombre = d.Nombre
+                    }));
+                }
+                catch (DisciplinaException dex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 400, message = dex.Message });
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 400, message = ex.Message });
+                }
             }
-            catch(DisciplinaException dex)
+            else
             {
-                return RedirectToAction("Index", "Error", new {code= 400, message =dex.Message });
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
-            catch(Exception ex)
-            {
-                return RedirectToAction("Index", "Error", new { code = 400, message = ex.Message });
-            }
+
         }
 
         // GET: DisciplinaController/Details/5
@@ -63,30 +72,38 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(DisciplinaInsertVM disciplinaInsertVM)
         {
-            
-            try
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
-                DisciplinaInsertDTO disciplina = new DisciplinaInsertDTO
+                try
                 {
-                    Nombre = disciplinaInsertVM.Nombre,
-                    AnioIntegracion = disciplinaInsertVM.AnioIntegracion
-                };
-                _altaDisciplina.Ejecutar(disciplina);
-                TempData["Message"] = "Disciplina creada correctamente";
+                    DisciplinaInsertDTO disciplina = new DisciplinaInsertDTO
+                    {
+                        Nombre = disciplinaInsertVM.Nombre,
+                        AnioIntegracion = disciplinaInsertVM.AnioIntegracion
+                    };
+                    _altaDisciplina.Ejecutar(disciplina);
+                    TempData["Message"] = "Disciplina creada correctamente";
 
-                return RedirectToAction("Create");
-            }
-            catch (DisciplinaException dex)
-            {
-                ViewBag.ErrorMessage = dex.Message;
-                return View();
-            }
-            catch (Exception ex)
-            {
-                ViewBag.ErrorMessage = ex.Message;
-                return View();
+                    return RedirectToAction("Create");
+                }
+                catch (DisciplinaException dex)
+                {
+                    ViewBag.ErrorMessage = dex.Message;
+                    return View();
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrorMessage = ex.Message;
+                    return View();
 
+                }
             }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+
+
         }
 
         // GET: DisciplinaController/Edit/5
@@ -113,22 +130,30 @@ namespace MVC.Controllers
         // GET: DisciplinaController/Delete/5
         public ActionResult Delete(int id)
         {
-            try
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
-                _deleteDisciplina.Ejecutar(id);
-                TempData["Message"] = "Disciplina eliminada correctamente";
+                try
+                {
+                    _deleteDisciplina.Ejecutar(id);
+                    TempData["Message"] = "Disciplina eliminada correctamente";
+                    return RedirectToAction("Index");
+                }
+                catch (DisciplinaException dex)
+                {
+                    TempData["ErrorMessage"] = dex.Message;
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = "Algo no salió correctamente. Es posible que existan referencias de esta Disciplina en Atletas.";
+                }
+
                 return RedirectToAction("Index");
             }
-            catch(DisciplinaException dex)
+            else
             {
-                TempData["ErrorMessage"] = dex.Message;
-            }
-            catch(Exception ex)
-            {
-                TempData["ErrorMessage"] = "Algo no salió correctamente. Es posible que existan referencias de esta Disciplina en Atletas.";
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
 
-            return RedirectToAction("Index");
         }
 
         // POST: DisciplinaController/Delete/5
