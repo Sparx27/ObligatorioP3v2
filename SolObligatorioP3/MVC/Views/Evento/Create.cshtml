@@ -52,17 +52,20 @@
                 <p class="mb-1">Agregar Atletas</p>
 
                 <div id="grupo-atletas">
-                    @foreach (var a in Model.Atletas)
+                    @if(Model.Atletas != null)
                     {
-                        <div>
-                            <label for="atleta_@a.Id" class="atleta-label">
-                                <div class="d-flex align-items-center gap-1 my-1">
-                                    <input type="checkbox" name="AtletasId" value="@a.Id" id="atleta_@a.Id" class="atletla-cb" style="width: 20px; height: 20px;" />
-                                    @a.Nombre
-                                </div>
-                            </label>
-                        </div>
+                        @foreach (var a in Model.Atletas)
+                        {
+                            <div>
+                                <label for="atleta_@a.Id" class="atleta-label">
+                                    <div class="d-flex align-items-center gap-1 my-1">
+                                        <input type="checkbox" name="AtletasId" value="@a.Id" id="atleta_@a.Id" class="atletla-cb" style="width: 20px; height: 20px;" />
+                                        @a.Nombre
+                                    </div>
+                                </label>
+                            </div>
 
+                        }
                     }
                 </div>
             </div>

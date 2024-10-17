@@ -3,6 +3,7 @@ using Compartido.DTOs.Eventos;
 using LogicaAplicacion.ICasosDeUso.Atletas;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
 using LogicaAplicacion.ICasosDeUso.Eventos;
+using LogicaNegocio.Entidades;
 using LogicaNegocio.ExcepcionesEntidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,9 +65,10 @@ namespace MVC.Controllers
         {
             if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
+                EventoInsertVM EventoVM = new EventoInsertVM();
+
                 try
                 {
-                    EventoInsertVM EventoVM = new EventoInsertVM();
                     IEnumerable<AtletaListaVM> atletas = _findAtletasDisciplina.Ejecutar(idDisciplina).Select(a => new AtletaListaVM()
                     {
                         Id = a.Id,
@@ -79,10 +81,15 @@ namespace MVC.Controllers
                     EventoVM.Atletas = atletas;
                     return View(EventoVM);
                 }
+                catch (EventoException eex)
+                {
+                    TempData["ErrorMessage"] = eex.Message;
+                }
                 catch (Exception ex)
                 {
-
+                    TempData["ErrorMessage"] = ex.Message;
                 }
+                return View(EventoVM);
             }
             return RedirectToAction("Index", "Error");
 
@@ -95,6 +102,8 @@ namespace MVC.Controllers
         {
             if(ManejoSession.GetIdLogueado(HttpContext) != null)
             {
+                
+
                 try
                 {
                     EventoInsertDTO evento = new EventoInsertDTO()
@@ -107,17 +116,40 @@ namespace MVC.Controllers
                     };
 
                     _altaEvento.Ejecutar(evento);
-
-                    
-
-                    return RedirectToAction(nameof(Index));
+                    TempData["Message"] = "Evento agregado con éxito";
+                    return RedirectToAction("Create", new { idDisciplina = eventoInsertVM.DisciplinaId });
                 }
-                catch
+                catch (EventoException eex) {
+                    TempData["ErrorMessage"] = eex.Message;
+                }
+                catch (Exception ex)
                 {
-                    return View();
+                    TempData["ErrorMessage"] = ex.Message;
                 }
+
+                EventoInsertVM EventoVM = new EventoInsertVM();
+                IEnumerable<AtletaListaVM> atletas;
+                try
+                {
+                    atletas = _findAtletasDisciplina.Ejecutar(eventoInsertVM.DisciplinaId).Select(a => new AtletaListaVM()
+                    {
+                        Id = a.Id,
+                        Nombre = a.Nombre,
+                        Apellido = a.Apellido,
+                        NombrePais = a.NombrePais,
+                        Sexo = a.Sexo
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error");
+                }
+                EventoVM.DisciplinaId = eventoInsertVM.DisciplinaId;
+                EventoVM.Atletas = atletas;
+
+                return View(EventoVM);
             }
-            return View();
+            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso"});
         }
 
         // GET: EventoController/Edit/5

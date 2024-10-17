@@ -9,5 +9,7 @@ namespace LogicaNegocio.IRepositorios
 {
     public interface IRepositorioEvento : IRepositorio<Evento>
     {
+        Evento GetByNombre(string nombre);
+        void Add(Evento e, int[] atletasId);
     }
 }

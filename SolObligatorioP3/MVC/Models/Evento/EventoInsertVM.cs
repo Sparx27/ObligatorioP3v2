@@ -16,12 +16,12 @@ namespace MVC.Models.Evento
         [Required(ErrorMessage = "La fecha de inicio es requerida")]
         [DisplayName("Fecha Inicio")]
         [DataType(DataType.Date)]
-        public DateTime FchInicio { get; set; }
+        public DateTime FchInicio { get; set; } = DateTime.Now;
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "La fecha de finalización es requerida")]
         [DisplayName("Fecha Finalización")]
-        public DateTime FchFin { get; set; }
+        public DateTime FchFin { get; set; } = DateTime.Now;
         public int[] ? AtletasId { get; set; } 
         public IEnumerable<AtletaListaVM> Atletas { get; set; }
     }
