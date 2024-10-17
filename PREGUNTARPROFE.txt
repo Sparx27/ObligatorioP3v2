@@ -1,0 +1,5 @@
+        public Disciplina? GetByNombre(string nombre) =>
+             _context.Disciplinas.SingleOrDefault(disiplina => disiplina.Nombre.Valor == nombre);
+
+En clase había que hacerle primero un .AsEnumerable para luego compara el valueobject.
+por que en este caos no?
