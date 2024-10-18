@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LogicaNegocio.Entidades
 {
     [PrimaryKey(nameof(AtletaId), nameof(EventoId))]
-    public class PuntajeEvenetoAtleta
+    public class PuntajeEventoAtleta
     {
         public decimal Puntaje { get; set; }
         public int AtletaId { get; set; }
@@ -17,8 +17,8 @@ namespace LogicaNegocio.Entidades
 
         [ForeignKey("AtletaId")]
         public Atleta Atleta { get; set; }
-        public PuntajeEvenetoAtleta() { }
-        public PuntajeEvenetoAtleta(Atleta atleta, decimal puntaje)
+        public PuntajeEventoAtleta() { }
+        public PuntajeEventoAtleta(Atleta atleta, decimal puntaje)
         {
             Atleta = atleta;
             Puntaje = puntaje;

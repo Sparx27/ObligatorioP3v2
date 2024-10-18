@@ -16,7 +16,7 @@ namespace LogicaNegocio.Entidades
         public int DisciplinaId { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
-        public List<PuntajeEvenetoAtleta> LiPuntajes { get; set; }
+        public List<PuntajeEventoAtleta> LiPuntajes { get; set; }
 
         [ForeignKey("DisciplinaId")]
         public Disciplina Disciplina { get; set; }

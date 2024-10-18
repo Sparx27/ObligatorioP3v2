@@ -19,12 +19,16 @@ namespace MVC.Controllers
         private readonly IFindAtletasDisciplina _findAtletasDisciplina;
         private readonly IFindAllDisciplinas _findAllDisciplinas;
         private readonly IAltaEvento _altaEvento;
+        private readonly IFindEventosFecha _findEventosFecha;
+        private readonly IFindById _findById;
 
-        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas, IAltaEvento altaEvento)
+        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas, IAltaEvento altaEvento, IFindEventosFecha findEventosFecha, IFindById findById)
         {
             _findAtletasDisciplina = findAtletasDisciplina;
             _findAllDisciplinas = findAllDisciplinas;
             _altaEvento = altaEvento;
+            _findEventosFecha = findEventosFecha;
+            _findById = findById;
         }
 
         // GET: EventoController
@@ -57,7 +61,29 @@ namespace MVC.Controllers
         // GET: EventoController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if(ManejoSession.GetIdLogueado(HttpContext) != null)
+            {
+                try
+                {
+                    EventoDTO eventoDTO = _findById.Ejecutar(id);
+                    EventoVM eventoVM = new EventoVM()
+                    {
+                        Id = eventoDTO.Id,
+                        FchInicio = eventoDTO.FchInicio,
+                        FchFin = eventoDTO.FchFin,
+                        NombrePrueba = eventoDTO.NombrePrueba,
+                        
+                    };
+                    return View(eventoVM);
+
+
+                }catch (Exception ex)
+                {
+
+                }
+                return View();
+            }
+            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
         }
 
         // GET: EventoController/Create
@@ -192,6 +218,37 @@ namespace MVC.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult ListEventosPorFecha(DateTime fecha)
+        {
+            if(ManejoSession.GetIdLogueado(HttpContext) != null)
+            {
+                try
+                {
+                    IEnumerable<EventoListaDTO> eventosFechaDTO = _findEventosFecha.Ejecutar(fecha);
+                    IEnumerable<EventoListaVM> eventosVM = eventosFechaDTO.Select(e => new EventoListaVM
+                    {
+                        EventoId = e.EventoId,
+                        NombrePrueba = e.NombrePrueba,
+                        FchInicio = e.FchInicio,
+                        FchFin = e.FchFin
+                    });
+                    return View(eventosVM);
+                }
+                catch (EventoException eex)
+                {
+                    TempData["ErrorMessage"] = eex.Message;
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = ex.Message;
+                }
+                return View();
+
+
+            }
+            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
         }
     }
 }

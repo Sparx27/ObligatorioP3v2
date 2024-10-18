@@ -19,7 +19,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between align-baseline pt-1">
                     <ul class="navbar-nav flex-grow-1 gap-2">
-                        @if(Context.Session.GetInt32("idLogueado") == null)
+                        @if (Context.Session.GetInt32("idLogueado") == null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white h5" asp-area="" asp-controller="Usuario" asp-action="Index">Iniciar Sesión</a>
@@ -33,11 +33,18 @@
                                    asp-route-id="@Context.Session.GetInt32("idLogueado")">Mis Datos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white h5" asp-area="" asp-controller="Evento" asp-action="Index"
-                                   asp-route-id="@Context.Session.GetInt32("idLogueado")">Agregar Evento</a>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Eventos
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Evento" asp-action="Index">Agregar evento</a></li>
+                                        <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Evento" asp-action="ListEventosPorFecha">Buscar evento</a></li>
+                                    </ul>
+                                </div>
                             </li>
 
-                            if(Context.Session.GetString("rolLogueado") == "Administrador")
+                            if (Context.Session.GetString("rolLogueado") == "Administrador")
                             {
                                 <li class="nav-item">
                                     <div class="dropdown">

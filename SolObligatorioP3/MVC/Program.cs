@@ -57,9 +57,13 @@ builder.Services.AddScoped<IDeleteDisciplina, DeleteDisciplina>();
 builder.Services.AddScoped<IFindAtletasDisciplina, FindAtletasDisciplina>();
 #endregion
 
-
-
+#region Evento
 builder.Services.AddScoped<IAltaEvento, AltaEvento>();
+builder.Services.AddScoped<IFindEventosFecha, FindEventosFecha>();
+builder.Services.AddScoped<IFindById, FindById>();
+#endregion
+
+
 builder.Services.AddScoped<IAltaPais, AltaPais>();
 
 
