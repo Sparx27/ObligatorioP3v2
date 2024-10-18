@@ -22,6 +22,21 @@ namespace LogicaAccesoDatos.Repositorios
             _dbContext.SaveChanges();
         }
 
+        public void Add(Evento item, int[] atletasId)
+        {
+            _dbContext.Eventos.Add(item);
+            _dbContext.SaveChanges();
+
+            item.LiPuntajes = atletasId.Select(id => new PuntajeEventoAtleta
+            {
+                EventoId = item.Id,
+                AtletaId = id,
+                Puntaje = -1 //-1 Para indicar el caso en que aún un Atleta no recibió un puntaje
+            }).ToList();
+
+            _dbContext.SaveChanges();
+        }
+
         public void Delete(Evento item)
         {
             throw new NotImplementedException();

@@ -65,8 +65,8 @@ namespace LogicaAccesoDatos.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DisciplinaId = table.Column<int>(type: "int", nullable: false),
                     NombrePrueba = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DisciplinaId = table.Column<int>(type: "int", nullable: false),
                     FchInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FchFin = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -128,7 +128,7 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PuntajeEvenetoAtleta",
+                name: "PuntajeEventoAtleta",
                 columns: table => new
                 {
                     AtletaId = table.Column<int>(type: "int", nullable: false),
@@ -137,15 +137,15 @@ namespace LogicaAccesoDatos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PuntajeEvenetoAtleta", x => new { x.AtletaId, x.EventoId });
+                    table.PrimaryKey("PK_PuntajeEventoAtleta", x => new { x.AtletaId, x.EventoId });
                     table.ForeignKey(
-                        name: "FK_PuntajeEvenetoAtleta_Atletas_AtletaId",
+                        name: "FK_PuntajeEventoAtleta_Atletas_AtletaId",
                         column: x => x.AtletaId,
                         principalTable: "Atletas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PuntajeEvenetoAtleta_Eventos_EventoId",
+                        name: "FK_PuntajeEventoAtleta_Eventos_EventoId",
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "Id",
@@ -174,8 +174,8 @@ namespace LogicaAccesoDatos.Migrations
                 column: "DisciplinaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PuntajeEvenetoAtleta_EventoId",
-                table: "PuntajeEvenetoAtleta",
+                name: "IX_PuntajeEventoAtleta_EventoId",
+                table: "PuntajeEventoAtleta",
                 column: "EventoId");
 
             migrationBuilder.CreateIndex(
@@ -192,7 +192,7 @@ namespace LogicaAccesoDatos.Migrations
                 name: "AtletaDisciplina");
 
             migrationBuilder.DropTable(
-                name: "PuntajeEvenetoAtleta");
+                name: "PuntajeEventoAtleta");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

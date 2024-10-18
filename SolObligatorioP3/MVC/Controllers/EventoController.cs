@@ -113,7 +113,7 @@ namespace MVC.Controllers
                 }
                 catch (Exception ex)
                 {
-                    TempData["ErrorMessage"] = ex.Message;
+                    TempData["ErrorMessage"] = "Algo no salió correctamente, por favor intente nuevamente";
                 }
                 return View(EventoVM);
             }
@@ -128,8 +128,6 @@ namespace MVC.Controllers
         {
             if(ManejoSession.GetIdLogueado(HttpContext) != null)
             {
-                
-
                 try
                 {
                     EventoInsertDTO evento = new EventoInsertDTO()

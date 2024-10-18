@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogicaAccesoDatos.Migrations
 {
     [DbContext(typeof(JuegosOlimpicosDBContext))]
-    [Migration("20241009112126_init")]
-    partial class init
+    [Migration("20241018231051_quitarNav")]
+    partial class quitarNav
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,7 +142,7 @@ namespace LogicaAccesoDatos.Migrations
                     b.ToTable("Paises");
                 });
 
-            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEvenetoAtleta", b =>
+            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEventoAtleta", b =>
                 {
                     b.Property<int>("AtletaId")
                         .HasColumnType("int");
@@ -157,7 +157,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("EventoId");
 
-                    b.ToTable("PuntajeEvenetoAtleta");
+                    b.ToTable("PuntajeEventoAtleta");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Usuario", b =>
@@ -259,7 +259,7 @@ namespace LogicaAccesoDatos.Migrations
                     b.Navigation("Disciplina");
                 });
 
-            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEvenetoAtleta", b =>
+            modelBuilder.Entity("LogicaNegocio.Entidades.PuntajeEventoAtleta", b =>
                 {
                     b.HasOne("LogicaNegocio.Entidades.Atleta", "Atleta")
                         .WithMany()
