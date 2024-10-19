@@ -74,5 +74,19 @@ namespace Compartido.Mappers
                 Puntaje = p.Puntaje,
             }).ToList();
         }
+
+        public static IEnumerable<AtletaEventoListaDTO> EventoToListaAtletaEventoDTO(List<Evento> lista)
+        {
+            if (lista == null) throw new EventoException("Lista de eventos vacía en mapper");
+
+            return lista.Select(e => new AtletaEventoListaDTO
+            {
+                Id = e.Id,
+                NombrePrueba = e.NombrePrueba,
+                NombreDisciplina = e.Disciplina.Nombre.Valor,
+                FchFin = e.FchFin,
+                FchInicio = e.FchInicio
+            });
+        }
     }
 }

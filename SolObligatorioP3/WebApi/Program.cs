@@ -1,3 +1,9 @@
+using LogicaAccesoDatos;
+using LogicaAccesoDatos.Repositorios;
+using LogicaAplicacion.CasosDeUso.Atletas;
+using LogicaAplicacion.ICasosDeUso.Atletas;
+using LogicaNegocio.IRepositorios;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi
 {
@@ -7,16 +13,28 @@ namespace WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Conección DB
+            builder.Services.AddDbContext<JuegosOlimpicosDBContext>(opt =>
+            {
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("dbconnection"));
+            });
+
+            // Repositorios 
+            builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
+            builder.Services.AddScoped<IRepositorioAtleta, RepositorioAtleta>();
+            builder.Services.AddScoped<IRepositorioEvento, RepositorioEvento>();
+            builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
+            builder.Services.AddScoped<IRepositorioDisciplina, RepositorioDisciplina>();
+
+            // Services
+            builder.Services.AddScoped<IEventosAtleta, EventosAtleta>();
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -24,7 +42,6 @@ namespace WebApi
             }
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

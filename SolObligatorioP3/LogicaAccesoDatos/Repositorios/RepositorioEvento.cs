@@ -67,5 +67,12 @@ namespace LogicaAccesoDatos.Repositorios
             _dbContext.Eventos.Update(item);
             _dbContext.SaveChanges();
         }
+
+        public List<Evento> GetEventosAtleta(int atletaId) =>
+            _dbContext.Eventos
+                .Include(e => e.Disciplina)
+                .Where(e => e.LiPuntajes.Any(p => p.AtletaId == atletaId))
+                .OrderBy(e => e.Disciplina.Nombre.Valor)
+                .ToList();
     }
 }

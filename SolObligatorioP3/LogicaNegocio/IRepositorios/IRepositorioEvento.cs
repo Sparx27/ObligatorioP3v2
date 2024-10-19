@@ -11,7 +11,7 @@ namespace LogicaNegocio.IRepositorios
     {
         Evento GetByNombre(string nombre);
         List<Evento> GetByFecha (DateTime fecha);
-
         void Add(Evento item, int[] atletasId);
+        List<Evento> GetEventosAtleta(int atletaId);
     }
 }

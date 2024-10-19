@@ -25,7 +25,6 @@ builder.Services.AddDbContext<JuegosOlimpicosDBContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("dbconnection"));
 });
 
-
 // Repositorios 
 builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
 builder.Services.AddScoped<IRepositorioAtleta, RepositorioAtleta>();
