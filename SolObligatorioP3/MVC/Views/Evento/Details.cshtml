@@ -42,13 +42,30 @@
 
     <div class="col-12">
         <div>
+            <form method="post" asp-action="Details">
+                <input type="hidden" value="@Model.Id" asp-for="Id" />
+                @foreach (var atleta in Model.LiAtletas)
+                {
+                    <div>
+                        <p>@atleta.Atleta.Nombre</p>
+                        <input asp-for="LiAtletas.Puntaje" placeholder="Puntaje Actual @atleta.Puntaje" type="number" />
 
-            @foreach(var atleta in Model.LiAtletas)
-            {
-                <p>@atleta.Atleta.Nombre</p>
-            }
+                    </div>
+
+
+
+                }
+                <input type="submit" value="Guardar cambios" />
+            </form>
+
+
         </div>
+
+
     </div>
+
+
+    <a asp-action="Details" asp>Guardar cambios</a>
 
 
     <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-disciplina">Registrar en disciplina</p>
@@ -57,50 +74,50 @@
         <a asp-action="Index" class="text-success">Volver</a>
     </div>
 
-       @*  <!-- Modal -->
-        <div class="modal fade" id="modal-disciplina" tabindex="-1" aria-labelledby="atletaModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger text-white">
-                        <h5 class="modal-title" id="exampleModalLabel">Registrar atleta en disciplina</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+    @*  <!-- Modal -->
+    <div class="modal fade" id="modal-disciplina" tabindex="-1" aria-labelledby="atletaModal" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header bg-danger text-white">
+    <h5 class="modal-title" id="exampleModalLabel">Registrar atleta en disciplina</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
 
 
-                    <div class="modal-body pb-0">
+    <div class="modal-body pb-0">
 
 
 
 
-                        @if (listDisciplinas.Count() == 0)
-                        {
-                            <p>Aún no existen disciplinas</p>
-                        }
-                        else
-                        {
-                            <form method="post" asp-action="AgregarDisciplina">
-                                <input type="hidden" name="id" value="@Model.Id" />
-                                <div class="form-control">
-                                    <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
-                                    <select id="idDisciplina" name="idDisciplina" class="form-select">
-                                        @foreach (var d in ViewBag.Disciplinas)
-                                        {
-                                            <option value="@d.Id">@d.Nombre</option>
-                                        }
-                                    </select>
-                                </div>
+    @if (listDisciplinas.Count() == 0)
+    {
+    <p>Aún no existen disciplinas</p>
+    }
+    else
+    {
+    <form method="post" asp-action="AgregarDisciplina">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-control">
+    <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
+    <select id="idDisciplina" name="idDisciplina" class="form-select">
+    @foreach (var d in ViewBag.Disciplinas)
+    {
+    <option value="@d.Id">@d.Nombre</option>
+    }
+    </select>
+    </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <input type="submit" value="Registrar" class="btn btn-success" />
-                                </div>
-                            </form>
-                        }
-                    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+    <input type="submit" value="Registrar" class="btn btn-success" />
+    </div>
+    </form>
+    }
+    </div>
 
-                </div>
-            </div>
-        </div> *@
+    </div>
+    </div>
+    </div> *@
 
     </div>
 </section>

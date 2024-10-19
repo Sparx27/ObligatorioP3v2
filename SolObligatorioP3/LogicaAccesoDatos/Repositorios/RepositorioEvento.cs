@@ -64,7 +64,8 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Update(Evento item)
         {
-            throw new NotImplementedException();
+            _dbContext.Eventos.Update(item);
+            _dbContext.SaveChanges();
         }
     }
 }

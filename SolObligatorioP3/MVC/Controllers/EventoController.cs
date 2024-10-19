@@ -1,4 +1,5 @@
-﻿using Compartido.DTOs.Disciplinas;
+﻿using Compartido.DTOs.Atletas;
+using Compartido.DTOs.Disciplinas;
 using Compartido.DTOs.Eventos;
 using LogicaAplicacion.ICasosDeUso.Atletas;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
@@ -94,6 +95,39 @@ namespace MVC.Controllers
                 return View();
             }
             return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(EventoVM eventoVM)
+        {
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
+            {
+                try
+                {
+                    EventoDTO eventoModificado = new EventoDTO()
+                    {
+                        Id = eventoVM.Id,
+                        LiAtletas = eventoVM.LiAtletas.Select(p => new PuntajeEventoAtletaDTO
+                        {
+                            Puntaje = p.Puntaje,
+                            Atleta = new AtletaDTO
+                            {
+                                Id = p.Atleta.Id,
+                            }
+                        })
+                    };
+
+                    return RedirectToAction("Details", new {id = eventoVM.Id});
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = ex.Message;
+                }
+                return RedirectToAction("Details", new { id = eventoVM.Id });
+            }
+            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
+
         }
 
         // GET: EventoController/Create
