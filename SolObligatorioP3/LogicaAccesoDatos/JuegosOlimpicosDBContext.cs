@@ -56,8 +56,6 @@ namespace LogicaAccesoDatos
                 EjecutarScript("Disciplinas.sql");
                 EjecutarScript("AtletasDisciplina.sql");
             }
-            
-
         }
         private void EjecutarScript(string nombreScript)
         {

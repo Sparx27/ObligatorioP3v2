@@ -17,15 +17,7 @@
     {
         <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
     }
-    @if (TempData["Message"] != null)
-    {
-        <p class="alert alert-success text-center">@TempData["Message"]</p>
-    }
-    <div class="col-12">
-       
-
         <h1>Detalles</h1>
-
 
         <div>
             <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
@@ -153,13 +145,3 @@
 
     </div>
 </section>
-
-
-
-@*         <div>
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
-            @if (Context.Session.GetString("rolLogueado") == "Administrador")
-            {
-                <a asp-action="ListaUsuarios" class="text-success">Lista Usuarios</a>
-            }
-        </div> *@

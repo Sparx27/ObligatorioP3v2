@@ -66,3 +66,7 @@ button:focus {
 .atleta-label input[type="checkbox"] {
     cursor: pointer !important
 }
+
+#formBuscarEvento {
+    width: fit-content !important;
+}

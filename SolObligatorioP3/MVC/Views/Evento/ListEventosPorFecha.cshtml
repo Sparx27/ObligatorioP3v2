@@ -4,67 +4,79 @@
     ViewData["Title"] = "Listado de eventos";
 }
 
-<h1>ListEventosPorFecha</h1>
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar Eventos por Fecha</h1>
 
-<form method="get" id="fecha" class="row g-5 justify-content-center">
-    <div class="col-auto">
-        <label class="col-form-label">Feccha</label>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+
+            <form method="get" id="formBuscarEvento" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-center">
+                    <div class="col-auto">
+                        <h2 class="fs-5">Seleccionar fecha</h2>
+                    </div>
+                    <div class="col-auto">
+                        <input type="date" name="fecha" id="fecha" class="form-control"
+                               value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" value="Buscar" class="btn btn-success text-white pb-2" />
+                    </div>
+            </form>
+
+
+        @if (Model.Count() != 0)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3 d-none">
+                            @Html.DisplayNameFor(model => model.EventoId)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombrePrueba)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.FchInicio)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.FchFin)
+                        </th>
+                        <th class="py-3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-3 d-none">
+                                @Html.DisplayFor(modelItem => item.EventoId)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombrePrueba)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.FchInicio)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.FchFin)
+                            </td>
+                            <td class="py-3">
+                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                    @Html.ActionLink("Detalle", "Details", new { id = item.EventoId }, new { @class = "text-success"})
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="fs-4 mt-3">Sin eventos</p>
+        }
     </div>
-    <div class="col-auto">
-        <input type="date" name="fecha" id="fecha" class="form-control"
-               value="@DateTime.Today.ToString("yyyy-MM-dd")" />
-    </div>
-
-    <div class="col-auto">
-        <input type="submit" value="Buscar" class="btn btn-primary" />
-    </div>
-
-</form>
-
-@if (Model.Count() != 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.EventoId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NombrePrueba)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FchInicio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FchFin)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EventoId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombrePrueba)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FchInicio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FchFin)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.EventoId }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-}
+</section>

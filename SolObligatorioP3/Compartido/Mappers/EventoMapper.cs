@@ -53,7 +53,12 @@ namespace Compartido.Mappers
                 Id = evento.Id,
                 FchInicio = evento.FchInicio,
                 FchFin = evento.FchFin,
-                NombrePrueba = evento.NombrePrueba
+                NombrePrueba = evento.NombrePrueba,
+                LiAtletas = evento.LiPuntajes.Select(p => new PuntajeEventoAtletaDTO
+                {
+                    Atleta = AtletaMapper.AtletaToPuntajeEventoDTO(p.Atleta),
+                    Puntaje = p.Puntaje
+                })
             };
 
             return eventoDto;

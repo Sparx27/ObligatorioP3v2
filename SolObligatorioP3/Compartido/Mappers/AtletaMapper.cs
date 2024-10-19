@@ -43,5 +43,24 @@ namespace Compartido.Mappers
 
             return res;
         }
+
+        public static AtletaDTO AtletaToPuntajeEventoDTO(Atleta atleta)
+        {
+            if (atleta == null)
+            {
+                throw new AtletaException("Atleta vacío en mapper");
+            }
+
+            AtletaDTO res = new AtletaDTO
+            {
+                Id = atleta.Id,
+                Nombre = atleta.Nombre,
+                Apellido = atleta.Apellido,
+                NombrePais = atleta.Pais.Nombre,
+                Sexo = atleta.Sexo.ToString()
+            };
+
+            return res;
+        }
     }
 }

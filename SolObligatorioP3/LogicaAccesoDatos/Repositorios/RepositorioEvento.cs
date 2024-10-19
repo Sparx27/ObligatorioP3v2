@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.IRepositorios;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,12 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public Evento GetById(int id) => _dbContext.Eventos.SingleOrDefault(e => e.Id == id);
+        public Evento GetById(int id) => 
+            _dbContext.Eventos
+                .Include(e => e.LiPuntajes)
+                .ThenInclude(p => p.Atleta)
+                .ThenInclude(a => a.Pais)
+                .SingleOrDefault(e => e.Id == id);
 
         public Evento GetByNombre(string nombre) => _dbContext.Eventos.SingleOrDefault(e => e.NombrePrueba == nombre);
 

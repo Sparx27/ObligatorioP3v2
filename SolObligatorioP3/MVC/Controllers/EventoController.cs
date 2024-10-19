@@ -72,12 +72,22 @@ namespace MVC.Controllers
                         FchInicio = eventoDTO.FchInicio,
                         FchFin = eventoDTO.FchFin,
                         NombrePrueba = eventoDTO.NombrePrueba,
-                        
+                        LiAtletas = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
+                        {
+                            Atleta = new AtletaVM
+                            {
+                                Id = p.Atleta.Id,
+                                Nombre = p.Atleta.Nombre,
+                                Apellido = p.Atleta.Apellido,
+                                NombrePais = p.Atleta.NombrePais,
+                                Sexo = p.Atleta.Sexo
+                            },
+                            Puntaje = p.Puntaje
+                        })
                     };
                     return View(eventoVM);
-
-
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
 
                 }
