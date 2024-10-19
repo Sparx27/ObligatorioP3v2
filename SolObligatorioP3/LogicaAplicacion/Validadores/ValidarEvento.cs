@@ -31,8 +31,8 @@ namespace LogicaAplicacion.Validadores
 
         public static void Puntajes(EventoUpdatePuntajesDTO eventoUpdatePuntajesDTO)
         {
-            if (eventoUpdatePuntajesDTO.LiAtletas.Any(p => p.Puntaje < 0))
-                throw new EventoException("Los puntajes no pueden ser menores a 0");
+            if (eventoUpdatePuntajesDTO.LiAtletas.Any(p => p.Puntaje < 1))
+                throw new EventoException("Los puntajes no pueden ser menores a 1");
         }
     }
 }

@@ -19,6 +19,7 @@ namespace MVC.Models.Evento
         [DisplayName("Fecha de finalización")]
         [DataType(DataType.Date)]
         public DateTime FchFin { get; set; }
+        [Required(ErrorMessage = "Los puntajes son requeridos")]
         public List<PuntajeEventoAtletaVM> LiPuntajes { get; set; }
     }
 }
