@@ -44,24 +44,23 @@
         <div>
             <form method="post" asp-action="Details">
                 <input type="hidden" value="@Model.Id" asp-for="Id" />
-                @foreach (var atleta in Model.LiAtletas)
+                @* @foreach(var PEA in Model.LiPuntajes)
+                {
+                    <p>@PEA.Atleta.Nombre</p>
+                    <input type="hidden" asp-for="PEA.Atleta.Id" />
+                    <input asp-for="LiPuntajes." placeholder="Puntaje Actual @PEA.Puntaje" type="number" />
+                } *@
+                @for (int i = 0; i < Model.LiPuntajes.Count(); i++)
                 {
                     <div>
-                        <p>@atleta.Atleta.Nombre</p>
-                        <input asp-for="LiAtletas.Puntaje" placeholder="Puntaje Actual @atleta.Puntaje" type="number" />
-
+                        <p>@Model.LiPuntajes[i].Atleta.Nombre</p>
+                        <input type="hidden" asp-for="LiPuntajes[i].Atleta.Id" />
+                        <input asp-for="LiPuntajes[i].Puntaje" placeholder="Puntaje Actual @Model.LiPuntajes[i].Puntaje" type="number" />
                     </div>
-
-
-
                 }
                 <input type="submit" value="Guardar cambios" />
             </form>
-
-
         </div>
-
-
     </div>
 
 

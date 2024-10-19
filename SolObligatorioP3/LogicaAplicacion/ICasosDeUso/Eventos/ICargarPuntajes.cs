@@ -9,6 +9,6 @@ namespace LogicaAplicacion.ICasosDeUso.Eventos
 {
     public interface ICargarPuntajes
     {
-        void Ejecutar(EventoDTO eventoModificado);
+        EventoDTO Ejecutar(EventoUpdatePuntajesDTO eventoUpdatePuntajesDTO);
     }
 }

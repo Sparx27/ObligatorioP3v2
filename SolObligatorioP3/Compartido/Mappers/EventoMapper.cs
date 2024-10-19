@@ -64,13 +64,13 @@ namespace Compartido.Mappers
             return eventoDto;
         }
 
-        public static List<PuntajeEventoAtleta> DtoListaModificadaToListaPuntaje(IEnumerable<PuntajeEventoAtletaDTO> listaModificada)
+        public static List<PuntajeEventoAtleta> DtoListaModificadaToListaPuntaje(IEnumerable<PEAUpdateDTO> listaModificada)
         {
             if (listaModificada == null) throw new EventoException("Lista de puntajes DTO vacía en mapper");
 
             return listaModificada.Select(p => new PuntajeEventoAtleta
             {
-                AtletaId = p.Atleta.Id,
+                AtletaId = p.AtletaId,
                 Puntaje = p.Puntaje,
             }).ToList();
         }

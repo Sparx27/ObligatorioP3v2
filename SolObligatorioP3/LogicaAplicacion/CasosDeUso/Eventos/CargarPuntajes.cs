@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicaNegocio.ExcepcionesEntidades;
 
 namespace LogicaAplicacion.CasosDeUso.Eventos
 {
@@ -19,13 +20,17 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             _repositorioEvento = repositorioEvento;
         }
 
-        public void Ejecutar(EventoDTO eventoModificado)
+        public EventoDTO Ejecutar(EventoUpdatePuntajesDTO eventoUpdatePuntajesDTO)
         {
-           Evento eventoAModificar = _repositorioEvento.GetById(eventoModificado.Id);
+            Evento eventoAModificar = _repositorioEvento.GetById(eventoUpdatePuntajesDTO.Id);
 
-            eventoAModificar.LiPuntajes = EventoMapper.DtoListaModificadaToListaPuntaje(eventoModificado.LiAtletas);
+            if (eventoAModificar == null) throw new EventoException("No se encontró un evento con ese Id");
+
+            eventoAModificar.LiPuntajes = EventoMapper.DtoListaModificadaToListaPuntaje(eventoUpdatePuntajesDTO.LiAtletas);
 
             _repositorioEvento.Update(eventoAModificar);
+
+            return EventoMapper.EventoToDTO(eventoAModificar);
         }
     }
 }

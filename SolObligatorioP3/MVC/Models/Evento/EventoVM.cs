@@ -15,6 +15,6 @@ namespace MVC.Models.Evento
         public DateTime FchInicio { get; set; }
         [DisplayName("Fecha de finalización")]
         public DateTime FchFin { get; set; }
-        public IEnumerable<PuntajeEventoAtletaVM> LiAtletas { get; set; }
+        public List<PuntajeEventoAtletaVM> LiPuntajes { get; set; }
     }
 }

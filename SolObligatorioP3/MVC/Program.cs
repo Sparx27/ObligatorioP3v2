@@ -61,6 +61,7 @@ builder.Services.AddScoped<IFindAtletasDisciplina, FindAtletasDisciplina>();
 builder.Services.AddScoped<IAltaEvento, AltaEvento>();
 builder.Services.AddScoped<IFindEventosFecha, FindEventosFecha>();
 builder.Services.AddScoped<IFindById, FindById>();
+builder.Services.AddScoped<ICargarPuntajes, CargarPuntajes>();
 #endregion
 
 

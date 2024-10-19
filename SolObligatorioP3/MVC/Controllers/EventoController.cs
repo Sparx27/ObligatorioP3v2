@@ -22,14 +22,16 @@ namespace MVC.Controllers
         private readonly IAltaEvento _altaEvento;
         private readonly IFindEventosFecha _findEventosFecha;
         private readonly IFindById _findById;
+        private readonly ICargarPuntajes _cargarPuntajes;
 
-        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas, IAltaEvento altaEvento, IFindEventosFecha findEventosFecha, IFindById findById)
+        public EventoController(IFindAtletasDisciplina findAtletasDisciplina, IFindAllDisciplinas findAllDisciplinas, IAltaEvento altaEvento, IFindEventosFecha findEventosFecha, IFindById findById, ICargarPuntajes cargarPuntajes)
         {
             _findAtletasDisciplina = findAtletasDisciplina;
             _findAllDisciplinas = findAllDisciplinas;
             _altaEvento = altaEvento;
             _findEventosFecha = findEventosFecha;
             _findById = findById;
+            _cargarPuntajes = cargarPuntajes;
         }
 
         // GET: EventoController
@@ -73,7 +75,7 @@ namespace MVC.Controllers
                         FchInicio = eventoDTO.FchInicio,
                         FchFin = eventoDTO.FchFin,
                         NombrePrueba = eventoDTO.NombrePrueba,
-                        LiAtletas = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
+                        LiPuntajes = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
                         {
                             Atleta = new AtletaVM
                             {
@@ -84,7 +86,7 @@ namespace MVC.Controllers
                                 Sexo = p.Atleta.Sexo
                             },
                             Puntaje = p.Puntaje
-                        })
+                        }).ToList()
                     };
                     return View(eventoVM);
                 }
@@ -105,20 +107,37 @@ namespace MVC.Controllers
             {
                 try
                 {
-                    EventoDTO eventoModificado = new EventoDTO()
+                    EventoUpdatePuntajesDTO eventoModificado = new EventoUpdatePuntajesDTO()
                     {
                         Id = eventoVM.Id,
-                        LiAtletas = eventoVM.LiAtletas.Select(p => new PuntajeEventoAtletaDTO
+                        LiAtletas = eventoVM.LiPuntajes.Select(p => new PEAUpdateDTO
                         {
                             Puntaje = p.Puntaje,
-                            Atleta = new AtletaDTO
-                            {
-                                Id = p.Atleta.Id,
-                            }
+                            AtletaId = p.Atleta.Id
                         })
                     };
 
-                    return RedirectToAction("Details", new {id = eventoVM.Id});
+                    EventoDTO eventoDTO = _cargarPuntajes.Ejecutar(eventoModificado);
+                    EventoVM eventoVMModificado = new EventoVM()
+                    {
+                        Id = eventoDTO.Id,
+                        FchInicio = eventoDTO.FchInicio,
+                        FchFin = eventoDTO.FchFin,
+                        NombrePrueba = eventoDTO.NombrePrueba,
+                        LiPuntajes = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
+                        {
+                            Atleta = new AtletaVM
+                            {
+                                Id = p.Atleta.Id,
+                                Nombre = p.Atleta.Nombre,
+                                Apellido = p.Atleta.Apellido,
+                                NombrePais = p.Atleta.NombrePais,
+                                Sexo = p.Atleta.Sexo
+                            },
+                            Puntaje = p.Puntaje
+                        }).ToList()
+                    };
+                    return View(eventoVMModificado);
                 }
                 catch (Exception ex)
                 {
