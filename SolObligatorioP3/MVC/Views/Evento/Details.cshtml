@@ -5,6 +5,10 @@
 }
 
 <section class="row pb-4 mt-5">
+    <div class="mb-2">
+        <a asp-action="ListEventosPorFecha" class="text-success mb-3">Volver</a>
+    </div>
+
     @if (ViewBag.ErrorMessage != null)
     {
         <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
@@ -13,6 +17,11 @@
     {
         <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
     }
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success text-center">@TempData["Message"]</p>
+    }
+
     <h1 class="col-12">Detalles</h1>
 
     <div class="col-12">
@@ -41,82 +50,30 @@
     </div>
 
     <div class="col-12">
-        <div>
-            <form method="post" asp-action="Details">
+        <div class="row">
+            <form method="post" asp-action="Details" class="col-12 col-md-6 rounded p-4 border border-3 border-danger">
+                <p class="fs-5 fw-bold mb-4">Agregar Puntajes</p>
+
                 <input type="hidden" value="@Model.Id" asp-for="Id" />
-                @* @foreach(var PEA in Model.LiPuntajes)
-                {
-                    <p>@PEA.Atleta.Nombre</p>
-                    <input type="hidden" asp-for="PEA.Atleta.Id" />
-                    <input asp-for="LiPuntajes." placeholder="Puntaje Actual @PEA.Puntaje" type="number" />
-                } *@
+
                 @for (int i = 0; i < Model.LiPuntajes.Count(); i++)
                 {
-                    <div>
-                        <p>@Model.LiPuntajes[i].Atleta.Nombre</p>
+                    
+                    <div class="row my-2">
                         <input type="hidden" asp-for="LiPuntajes[i].Atleta.Id" />
-                        <input asp-for="LiPuntajes[i].Puntaje" placeholder="Puntaje Actual @Model.LiPuntajes[i].Puntaje" type="number" />
+                        <p class="col-6">@Model.LiPuntajes[i].Atleta.Nombre @Model.LiPuntajes[i].Atleta.Apellido </p>
+                        
+                        <input 
+                            class="col-6"
+                            asp-for="LiPuntajes[i].Puntaje"
+                            placeholder="Agregar puntaje"
+                            type="decimal" />
                     </div>
                 }
-                <input type="submit" value="Guardar cambios" />
+                <input type="submit" value="Guardar cambios" class="btn btn-success mt-2" />
             </form>
         </div>
     </div>
-
-
-    <a asp-action="Details" asp>Guardar cambios</a>
-
-
-    <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-disciplina">Registrar en disciplina</p>
-
-    <div>
-        <a asp-action="Index" class="text-success">Volver</a>
-    </div>
-
-    @*  <!-- Modal -->
-    <div class="modal fade" id="modal-disciplina" tabindex="-1" aria-labelledby="atletaModal" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header bg-danger text-white">
-    <h5 class="modal-title" id="exampleModalLabel">Registrar atleta en disciplina</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-
-
-    <div class="modal-body pb-0">
-
-
-
-
-    @if (listDisciplinas.Count() == 0)
-    {
-    <p>Aún no existen disciplinas</p>
-    }
-    else
-    {
-    <form method="post" asp-action="AgregarDisciplina">
-    <input type="hidden" name="id" value="@Model.Id" />
-    <div class="form-control">
-    <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
-    <select id="idDisciplina" name="idDisciplina" class="form-select">
-    @foreach (var d in ViewBag.Disciplinas)
-    {
-    <option value="@d.Id">@d.Nombre</option>
-    }
-    </select>
-    </div>
-
-    <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-    <input type="submit" value="Registrar" class="btn btn-success" />
-    </div>
-    </form>
-    }
-    </div>
-
-    </div>
-    </div>
-    </div> *@
 
     </div>
 </section>

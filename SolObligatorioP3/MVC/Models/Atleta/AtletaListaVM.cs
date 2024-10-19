@@ -1,4 +1,5 @@
 ﻿using LogicaNegocio.Enums;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC.Models.Atleta
@@ -9,6 +10,8 @@ namespace MVC.Models.Atleta
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Sexo { get; set; }
+
+        [DisplayName("País")]
         public string NombrePais { get; set; }
     }
 }

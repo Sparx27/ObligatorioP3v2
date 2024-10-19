@@ -35,6 +35,9 @@
                             <th class="py-3">
                                 @Html.DisplayNameFor(model => model.Nombre)
                             </th>
+                            <th class="py-3">
+                                @Html.DisplayNameFor(model => model.AnioIntegracion)
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -47,6 +50,9 @@
                                 </td>
                                 <td class="py-3">
                                     @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.AnioIntegracion)
                                 </td>
                                 <td class="py-3">
                                     <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">

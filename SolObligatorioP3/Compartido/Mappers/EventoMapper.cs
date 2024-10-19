@@ -24,9 +24,8 @@ namespace Compartido.Mappers
                 LiPuntajes = dto.AtletasId.Select(id => new PuntajeEventoAtleta
                  {
                      AtletaId = id,
-                     Puntaje = -1 //-1 Para indicar el caso en que aún un Atleta no recibió un puntaje
+                     Puntaje = 0
                  }).ToList()
-
              };
 
             return res;

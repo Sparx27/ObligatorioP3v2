@@ -36,7 +36,8 @@ namespace MVC.Controllers
                     return View(_findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM
                     {
                         Id = d.Id,
-                        Nombre = d.Nombre
+                        Nombre = d.Nombre,
+                        AnioIntegracion = d.AnioIntegracion
                     }));
                 }
                 catch (DisciplinaException dex)

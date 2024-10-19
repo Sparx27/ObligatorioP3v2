@@ -11,9 +11,13 @@ namespace MVC.Models.Evento
 
         [DisplayName("Nombre de la prueba")]
         public string NombrePrueba { get; set; }
+
         [DisplayName("Fecha de inicio")]
+        [DataType(DataType.Date)]
         public DateTime FchInicio { get; set; }
+
         [DisplayName("Fecha de finalización")]
+        [DataType(DataType.Date)]
         public DateTime FchFin { get; set; }
         public List<PuntajeEventoAtletaVM> LiPuntajes { get; set; }
     }

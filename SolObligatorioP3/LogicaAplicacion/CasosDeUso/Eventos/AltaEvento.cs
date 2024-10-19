@@ -35,6 +35,7 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             ValidarEvento.CantidadAtletas(eventoInsertDTO);
             ValidarEvento.AtletasRegistradosEnDisciplina
                 (_repositorioDisciplina.GetAtletasDisciplina(eventoInsertDTO.DisciplinaId) , eventoInsertDTO.AtletasId);
+            ValidarEvento.Fechas(eventoInsertDTO);
 
             _repositorioEvento.Add(EventoMapper.DtoToEvento(eventoInsertDTO));
         }

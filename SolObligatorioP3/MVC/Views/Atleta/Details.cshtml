@@ -17,6 +17,10 @@
     {
         <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
     }
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success text-center">@TempData["Message"]</p>
+    }
         <h1>Detalles</h1>
 
         <div>

@@ -22,5 +22,17 @@ namespace LogicaAplicacion.Validadores
             int verificador = atletas.Where(a => dtoIds.Any(id => id == a.Id)).Count();
             if (verificador != dtoIds.Length) throw new EventoException("Hay atletas no registrados en esta Disciplina");
         }
+
+        public static void Fechas(EventoInsertDTO dto)
+        {
+            if (dto.FchInicio > dto.FchFin)
+                throw new EventoException("Fechas incorrectas");
+        }
+
+        public static void Puntajes(EventoUpdatePuntajesDTO eventoUpdatePuntajesDTO)
+        {
+            if (eventoUpdatePuntajesDTO.LiAtletas.Any(p => p.Puntaje < 0))
+                throw new EventoException("Los puntajes no pueden ser menores a 0");
+        }
     }
 }

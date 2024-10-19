@@ -137,6 +137,7 @@ namespace MVC.Controllers
                             Puntaje = p.Puntaje
                         }).ToList()
                     };
+                    TempData["Message"] = "Puntajes actualizados";
                     return View(eventoVMModificado);
                 }
                 catch (Exception ex)

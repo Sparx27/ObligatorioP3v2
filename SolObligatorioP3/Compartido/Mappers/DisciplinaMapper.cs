@@ -18,6 +18,7 @@ namespace Compartido.Mappers
             {
                 Id = d.Id,
                 Nombre = d.Nombre.Valor,
+                AnioIntegracion = d.AnioIntegracion
             });
 
             return disciplinasListaDTO;
