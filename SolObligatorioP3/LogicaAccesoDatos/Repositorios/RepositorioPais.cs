@@ -10,7 +10,12 @@ namespace LogicaAccesoDatos.Repositorios
 {
     public class RepositorioPais : IRepositorioPais
     {
-        private List<Pais> _liPaises = new List<Pais>();
+        private readonly JuegosOlimpicosDBContext _context;
+        public RepositorioPais(JuegosOlimpicosDBContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Pais item)
         {
             throw new NotImplementedException();

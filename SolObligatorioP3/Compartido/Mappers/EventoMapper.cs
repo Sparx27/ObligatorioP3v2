@@ -29,7 +29,6 @@ namespace Compartido.Mappers
             };
 
             return res;
-
         }
 
         public static IEnumerable<EventoListaDTO> EventosToListaDTO(List<Evento> listaEventos)
@@ -47,6 +46,8 @@ namespace Compartido.Mappers
 
         public static EventoDTO EventoToDTO(Evento evento)
         {
+            if (evento == null) throw new EventoException("Evento vacío en mapper");
+
             EventoDTO eventoDto = new EventoDTO
             {
                 Id = evento.Id,

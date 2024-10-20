@@ -35,7 +35,6 @@ namespace MVC.Controllers
             _deleteUsuario = deleteUsuario;
         }
 
-
         // GET: UsuarioController
         public ActionResult Index()
         {
