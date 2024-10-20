@@ -21,7 +21,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
         public void Ejecutar(int id)
         {
             Usuario resDB = _repositorioUsuario.GetById(id);
-            if(resDB == null)
+            if (resDB == null)
             {
                 throw new UsuarioException("Usuario no encontrado por ese ID");
             }

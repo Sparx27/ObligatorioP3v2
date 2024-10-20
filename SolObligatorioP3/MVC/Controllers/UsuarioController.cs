@@ -40,7 +40,7 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             int? usuarioId = ManejoSession.GetIdLogueado(HttpContext);
-            if ( usuarioId!= null)
+            if (usuarioId != null)
             {
                 return RedirectToAction("Details", new { id = usuarioId });
             }

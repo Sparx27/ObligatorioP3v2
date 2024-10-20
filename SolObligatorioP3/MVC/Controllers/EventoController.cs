@@ -64,7 +64,7 @@ namespace MVC.Controllers
         // GET: EventoController/Details/5
         public ActionResult Details(int id)
         {
-            if(ManejoSession.GetIdLogueado(HttpContext) != null)
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {
@@ -190,7 +190,7 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventoInsertVM eventoInsertVM)
         {
-            if(ManejoSession.GetIdLogueado(HttpContext) != null)
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {
@@ -207,7 +207,8 @@ namespace MVC.Controllers
                     TempData["Message"] = "Evento agregado con éxito";
                     return RedirectToAction("Create", new { idDisciplina = eventoInsertVM.DisciplinaId });
                 }
-                catch (EventoException eex) {
+                catch (EventoException eex)
+                {
                     TempData["ErrorMessage"] = eex.Message;
                 }
                 catch (Exception ex)
@@ -237,7 +238,7 @@ namespace MVC.Controllers
 
                 return View(EventoVM);
             }
-            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso"});
+            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
         }
 
         // GET: EventoController/Edit/5
@@ -284,7 +285,7 @@ namespace MVC.Controllers
 
         public ActionResult ListEventosPorFecha(DateTime fecha)
         {
-            if(ManejoSession.GetIdLogueado(HttpContext) != null)
+            if (ManejoSession.GetIdLogueado(HttpContext) != null)
             {
                 try
                 {

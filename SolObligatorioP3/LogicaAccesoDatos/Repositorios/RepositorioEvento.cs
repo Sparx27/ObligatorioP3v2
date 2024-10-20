@@ -23,21 +23,6 @@ namespace LogicaAccesoDatos.Repositorios
             _dbContext.SaveChanges();
         }
 
-        public void Add(Evento item, int[] atletasId)
-        {
-            _dbContext.Eventos.Add(item);
-            _dbContext.SaveChanges();
-
-            item.LiPuntajes = atletasId.Select(id => new PuntajeEventoAtleta
-            {
-                EventoId = item.Id,
-                AtletaId = id,
-                Puntaje = -1 //-1 Para indicar el caso en que aún un Atleta no recibió un puntaje
-            }).ToList();
-
-            _dbContext.SaveChanges();
-        }
-
         public void Delete(Evento item)
         {
             throw new NotImplementedException();
@@ -48,7 +33,7 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public Evento GetById(int id) => 
+        public Evento GetById(int id) =>
             _dbContext.Eventos
                 .Include(e => e.LiPuntajes)
                 .ThenInclude(p => p.Atleta)
@@ -57,9 +42,9 @@ namespace LogicaAccesoDatos.Repositorios
 
         public Evento GetByNombre(string nombre) => _dbContext.Eventos.SingleOrDefault(e => e.NombrePrueba == nombre);
 
-        public List<Evento> GetByFecha (DateTime fecha)
+        public List<Evento> GetByFecha(DateTime fecha)
         {
-            return _dbContext.Eventos.Where(e=> e.FchInicio <= fecha && e.FchFin >= fecha).ToList();
+            return _dbContext.Eventos.Where(e => e.FchInicio <= fecha && e.FchFin >= fecha).ToList();
         }
 
         public void Update(Evento item)

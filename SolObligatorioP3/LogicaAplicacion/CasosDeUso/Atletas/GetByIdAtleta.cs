@@ -20,7 +20,5 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
         }
 
         public AtletaDTO Ejecutar(int id) => AtletaMapper.AtletaToDTO(_repositorioAtleta.GetById(id));
-
-
     }
 }

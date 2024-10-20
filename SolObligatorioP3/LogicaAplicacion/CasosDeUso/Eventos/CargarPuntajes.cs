@@ -13,7 +13,7 @@ using LogicaAplicacion.Validadores;
 
 namespace LogicaAplicacion.CasosDeUso.Eventos
 {
-    public class CargarPuntajes:ICargarPuntajes
+    public class CargarPuntajes : ICargarPuntajes
     {
         private readonly IRepositorioEvento _repositorioEvento;
         public CargarPuntajes(IRepositorioEvento repositorioEvento)
@@ -29,7 +29,7 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             // Validar que existe el Evento
             Evento eventoAModificar = _repositorioEvento.GetById(eventoUpdatePuntajesDTO.Id);
             if (eventoAModificar == null) throw new EventoException("No se encontró un evento con ese Id");
-            
+
 
             // Update
             eventoAModificar.LiPuntajes = EventoMapper.DtoListaModificadaToListaPuntaje(eventoUpdatePuntajesDTO.LiAtletas);

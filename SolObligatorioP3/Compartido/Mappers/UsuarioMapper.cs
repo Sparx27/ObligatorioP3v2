@@ -15,7 +15,7 @@ namespace Compartido.Mappers
     {
         public static UsuarioDTO UsuarioToDTO(Usuario usuario)
         {
-            if(usuario == null)
+            if (usuario == null)
             {
                 throw new UsuarioException("Error en mapper: el Usuario ingresado está vacío");
             }
@@ -26,12 +26,11 @@ namespace Compartido.Mappers
                 RolUsuario = usuario.RolUsuario.ToString(),
                 Nombre = usuario.Nombre,
                 FechaRegistro = usuario.FechaRegistro.ToString("dd/MM/yyyy")
-        };
+            };
         }
-
         public static Usuario InsertDTOToUsuario(UsuarioInsertDTO usuarioInsertDto)
         {
-            if(usuarioInsertDto == null)
+            if (usuarioInsertDto == null)
             {
                 throw new UsuarioException("Error en mapper: el Usuario insert está vacío");
             }
@@ -41,12 +40,11 @@ namespace Compartido.Mappers
                 Email = new RUsuarioEmail(usuarioInsertDto.Email),
                 Nombre = usuarioInsertDto.Nombre,
                 Contrasena = new RUsuarioContrasena(usuarioInsertDto.Contrasena),
-                RolUsuario =  usuarioInsertDto.RolUsuario == 0 ? Rol.Administrador : Rol.Digitador,
+                RolUsuario = usuarioInsertDto.RolUsuario == 0 ? Rol.Administrador : Rol.Digitador,
                 IdAdminRegistro = usuarioInsertDto.IdAdminRegistro
-                
+
             };
         }
-
         public static IEnumerable<UsuarioDTO> ListaUsuariosToDTOListaUsuarios(List<Usuario> usuarios)
         {
             IEnumerable<UsuarioDTO> usuariosDTOs = usuarios.Select(u => new UsuarioDTO()
@@ -60,7 +58,6 @@ namespace Compartido.Mappers
 
             return usuariosDTOs;
         }
-
         public static UsuarioUpdateDTO UsuarioToUpdateDTO(Usuario usuario)
         {
             if (usuario == null)

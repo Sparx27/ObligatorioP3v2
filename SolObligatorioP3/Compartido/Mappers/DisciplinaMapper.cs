@@ -26,7 +26,7 @@ namespace Compartido.Mappers
 
         public static Disciplina InsertDTOToDisciplina(DisciplinaInsertDTO disciplinaInsertDTO)
         {
-            if(disciplinaInsertDTO == null)
+            if (disciplinaInsertDTO == null)
             {
                 throw new DisciplinaException("Discplina insert vacia en mapper");
             }
@@ -39,6 +39,5 @@ namespace Compartido.Mappers
 
             return res;
         }
-
     }
 }

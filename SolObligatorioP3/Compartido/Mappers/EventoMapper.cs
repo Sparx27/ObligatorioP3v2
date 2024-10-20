@@ -15,18 +15,18 @@ namespace Compartido.Mappers
         {
             if (dto == null) throw new EventoException("Evento insert DTO vacío en mapper");
 
-             Evento res = new Evento
+            Evento res = new Evento
             {
                 DisciplinaId = dto.DisciplinaId,
                 FchInicio = dto.FchInicio,
                 FchFin = dto.FchFin,
                 NombrePrueba = dto.NombrePrueba,
                 LiPuntajes = dto.AtletasId.Select(id => new PuntajeEventoAtleta
-                 {
-                     AtletaId = id,
-                     Puntaje = 0
-                 }).ToList()
-             };
+                {
+                    AtletaId = id,
+                    Puntaje = 0
+                }).ToList()
+            };
 
             return res;
 

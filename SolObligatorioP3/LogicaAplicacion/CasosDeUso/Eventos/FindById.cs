@@ -24,7 +24,7 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
         {
             if (id < 1) throw new EventoException("No existe atleta con ese id");
             return EventoMapper.EventoToDTO(_repositorioEvento.GetById(id));
-         
+
         }
     }
 }

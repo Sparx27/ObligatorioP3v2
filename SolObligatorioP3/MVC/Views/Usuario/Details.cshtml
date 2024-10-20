@@ -40,7 +40,7 @@
         </div>
         <div>
             <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
-            @if(Context.Session.GetString("rolLogueado") == "Administrador")
+            @if (Context.Session.GetString("rolLogueado") == "Administrador")
             {
                 <a asp-action="ListaUsuarios" class="text-success">Lista Usuarios</a>
             }

@@ -38,10 +38,10 @@ namespace LogicaAccesoDatos.Repositorios
             return _context.Usuarios.ToList();
         }
 
-        public Usuario? GetById(int id) => 
+        public Usuario? GetById(int id) =>
             _context.Usuarios.SingleOrDefault(usuario => usuario.Id == id);
 
-        public Usuario? GetByEmail(string email) => 
+        public Usuario? GetByEmail(string email) =>
             _context.Usuarios.SingleOrDefault(usuario => usuario.Email.Valor == email);
 
         public void Update(Usuario item)

@@ -19,7 +19,5 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             _repositorioEvento = repositorioEvento;
         }
         public IEnumerable<EventoListaDTO> Ejecutar(DateTime fecha) => EventoMapper.EventosToListaDTO(_repositorioEvento.GetByFecha(fecha));
-
-
     }
 }

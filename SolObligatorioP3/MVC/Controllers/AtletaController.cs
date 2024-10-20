@@ -25,7 +25,6 @@ namespace MVC.Controllers
             _findAllDisciplinas = findAllDisciplinas;
         }
 
-
         // GET: AtletaController
         public ActionResult Index()
         {
@@ -45,13 +44,13 @@ namespace MVC.Controllers
                 }
                 catch (Exception ex)
                 {
-                   return RedirectToAction("Index", "Error");
+                    return RedirectToAction("Index", "Error");
                 }
                 return View(res);
             }
             else
             {
-               return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
         }
 
@@ -95,11 +94,12 @@ namespace MVC.Controllers
                 {
                     return View();
                 }
-            }else
+            }
+            else
             {
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
-             
+
 
         }
 
@@ -205,11 +205,12 @@ namespace MVC.Controllers
                 }
 
                 return RedirectToAction("Details", new { id = id.Value });
-            }else
+            }
+            else
             {
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
-            
+
         }
     }
 }

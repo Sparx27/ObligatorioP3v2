@@ -5,8 +5,8 @@
 }
 
 <section class="row mt-5 pb-5">
-@*     <div class="text-center">
-        <a asp-action="Index" class="link link-success">Volver a la lista</a>
+    @*     <div class="text-center">
+    <a asp-action="Index" class="link link-success">Volver a la lista</a>
     </div> *@
 
     <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
@@ -45,5 +45,7 @@
 </section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

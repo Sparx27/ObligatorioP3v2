@@ -37,7 +37,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 throw new UsuarioException("No se encontró el usuario que intenta actualizar");
             }
 
-            if(_repositorioUsuario.GetByEmail(email) != null) 
+            if (_repositorioUsuario.GetByEmail(email) != null)
                 throw new UsuarioException("Este email ya pertenece a un usuario");
 
             actualizarUsuario.Email = new RUsuarioEmail(email);
@@ -74,12 +74,12 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 throw new UsuarioException("No se encontró el usuario que intenta actualizar");
             }
 
-            if(contrasenaAnterior != actualizarUsuario.Contrasena.Valor)
+            if (contrasenaAnterior != actualizarUsuario.Contrasena.Valor)
             {
                 throw new UsuarioException("La contraseña actual que ingresó es incorrecta");
             }
 
-            if(contrasenaAnterior == contrasena)
+            if (contrasenaAnterior == contrasena)
             {
                 throw new UsuarioException("La nueva contraseña que intenta ingresar es igual a la actual");
             }

@@ -8,11 +8,10 @@ namespace Compartido.DTOs.Eventos
 {
     public class EventoInsertDTO
     {
-        public int DisciplinaId { get; set; } // puede ser tambien: public Disciplina Disciplina { get; set; }
-                                              // depende de como se haga
+        public int DisciplinaId { get; set; }
         public string NombrePrueba { get; set; }
         public DateTime FchInicio { get; set; }
         public DateTime FchFin { get; set; }
-        public int[] ? AtletasId { get; set; }
+        public int[]? AtletasId { get; set; }
     }
 }

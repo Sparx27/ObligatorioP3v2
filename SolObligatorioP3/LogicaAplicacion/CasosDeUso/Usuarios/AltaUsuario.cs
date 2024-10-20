@@ -47,6 +47,5 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
             _repoUsuario.Add(UsuarioMapper.InsertDTOToUsuario(usuarioInsertDTO));
         }
-
     }
 }

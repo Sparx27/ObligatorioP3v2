@@ -58,23 +58,19 @@
 
                 @for (int i = 0; i < Model.LiPuntajes.Count(); i++)
                 {
-                    
                     <div class="row my-2">
                         <input type="hidden" asp-for="LiPuntajes[i].Atleta.Id" />
                         <p class="col-6">@Model.LiPuntajes[i].Atleta.Nombre @Model.LiPuntajes[i].Atleta.Apellido </p>
-                        
-                        <input 
-                            class="col-6"
-                            asp-for="LiPuntajes[i].Puntaje"
-                            placeholder="Agregar puntaje"
-                            type="decimal" />
+
+                        <input class="col-6"
+                               asp-for="LiPuntajes[i].Puntaje"
+                               placeholder="Agregar puntaje"
+                               type="decimal" />
                     </div>
                 }
                 <input type="submit" value="Guardar cambios" class="btn btn-success mt-2" />
             </form>
         </div>
-    </div>
-
     </div>
 </section>
 

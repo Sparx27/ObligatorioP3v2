@@ -13,7 +13,7 @@ namespace LogicaAplicacion.Validadores
     {
         public static void CantidadAtletas(EventoInsertDTO dto)
         {
-            if (dto.AtletasId != null ? dto.AtletasId.Count() < 3 : true) 
+            if (dto.AtletasId != null ? dto.AtletasId.Count() < 3 : true)
                 throw new EventoException("Se requieren al menos 3 Atletas");
         }
 

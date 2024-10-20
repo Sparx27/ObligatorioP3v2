@@ -27,14 +27,12 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
             Disciplina? BuscarSiExiste = _repositorioDisciplina.GetByNombre(disciplinaInsertDTO.Nombre);
             if (BuscarSiExiste != null)
             {
-                throw new DisciplinaException("Ya existe una disciplina con ese nombre");                
+                throw new DisciplinaException("Ya existe una disciplina con ese nombre");
             }
 
             ValidarDisciplina.Nombre(disciplinaInsertDTO.Nombre);
 
             _repositorioDisciplina.Add(DisciplinaMapper.InsertDTOToDisciplina(disciplinaInsertDTO));
         }
-            
-
     }
 }

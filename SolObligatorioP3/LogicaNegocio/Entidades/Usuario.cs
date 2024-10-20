@@ -37,7 +37,7 @@ namespace LogicaNegocio.Entidades
             Email = new RUsuarioEmail(email);
             Contrasena = new RUsuarioContrasena(contrasena);
             RolUsuario = rolUsuario;
-            IdAdminRegistro = idAdminRegistro; 
+            IdAdminRegistro = idAdminRegistro;
             Nombre = nombre;
         }
     }

@@ -12,11 +12,12 @@ namespace LogicaAplicacion.Validadores
     {
         public static void Nombre(string nombre)
         {
-            if(nombre.Length < 10)
+            if (nombre.Length < 10)
             {
-                throw new DisciplinaException("El nombre de la disciplina debe contener al menos 10 caracteres"); 
+                throw new DisciplinaException("El nombre de la disciplina debe contener al menos 10 caracteres");
             }
-            if(nombre.Length > 50) {
+            if (nombre.Length > 50)
+            {
                 throw new DisciplinaException("El nombre de la disciplina puede contener hasta 50 caracteres");
             }
         }

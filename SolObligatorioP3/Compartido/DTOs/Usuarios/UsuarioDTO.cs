@@ -14,6 +14,5 @@ namespace Compartido.DTOs.Usuarios
         public string RolUsuario { get; set; }
         public string? Nombre { get; set; }
         public string FechaRegistro { get; set; }
-
     }
 }

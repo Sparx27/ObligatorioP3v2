@@ -6,11 +6,11 @@ namespace MVC.Controllers
     {
         public IActionResult Index(int? code, string? message)
         {
-            if(code != null)
+            if (code != null)
             {
                 ViewBag.Message = new { code, message };
             }
-            
+
             return View();
         }
     }

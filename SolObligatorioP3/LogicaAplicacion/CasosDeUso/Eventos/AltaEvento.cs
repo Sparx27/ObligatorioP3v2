@@ -29,12 +29,12 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             if (eventoInsertDTO == null)
                 throw new EventoException("El Evento DTO se encuentra vacío");
 
-            if (_repositorioEvento.GetByNombre(eventoInsertDTO.NombrePrueba) != null) 
+            if (_repositorioEvento.GetByNombre(eventoInsertDTO.NombrePrueba) != null)
                 throw new EventoException("Ya existe un evento con ese nombre");
 
             ValidarEvento.CantidadAtletas(eventoInsertDTO);
             ValidarEvento.AtletasRegistradosEnDisciplina
-                (_repositorioDisciplina.GetAtletasDisciplina(eventoInsertDTO.DisciplinaId) , eventoInsertDTO.AtletasId);
+                (_repositorioDisciplina.GetAtletasDisciplina(eventoInsertDTO.DisciplinaId), eventoInsertDTO.AtletasId);
             ValidarEvento.Fechas(eventoInsertDTO);
 
             _repositorioEvento.Add(EventoMapper.DtoToEvento(eventoInsertDTO));

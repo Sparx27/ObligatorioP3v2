@@ -28,7 +28,7 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Atleta> GetAll() => 
+        public List<Atleta> GetAll() =>
             _context.Atletas
                 .Include(a => a.Pais)
                 .OrderBy(a => a.Pais.Nombre)
@@ -43,13 +43,13 @@ namespace LogicaAccesoDatos.Repositorios
                                 .Include(a => a.LiDisciplinas)
                                 .SingleOrDefault(a => a.Id == id);
 
-            if(atleta == null)
+            if (atleta == null)
             {
                 throw new AtletaException("Atleta no encontrado por id");
             }
 
-            return atleta;          
-             
+            return atleta;
+
         }
 
         public void Update(Atleta item)

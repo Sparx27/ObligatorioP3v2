@@ -24,8 +24,8 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         public UsuarioDTO? Ejecutar(string email, string password)
         {
-            LogicaNegocio.Entidades.Usuario resBD = _repositorioUsuario.LoginUsuario(email, password);
-            if(resBD == null)
+            Usuario resBD = _repositorioUsuario.LoginUsuario(email, password);
+            if (resBD == null)
             {
                 throw new UsuarioException("Usuario o contraseña incorrectos");
             }

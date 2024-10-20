@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio.Entidades
 {
-    public class Atleta : IEquatable<Atleta>, IEntity
+    public class Atleta : IEntity
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -17,24 +17,17 @@ namespace LogicaNegocio.Entidades
         public Sexo Sexo { get; set; }
         [ForeignKey("Pais")]
         public int PaisId { get; set; }
-
         public Pais Pais { get; set; }
-
         public List<Disciplina> LiDisciplinas { get; set; }
 
         public Atleta() { }
-        public Atleta(int id, string nombre,string apellido, Sexo sexo, Pais pais)
+        public Atleta(int id, string nombre, string apellido, Sexo sexo, Pais pais)
         {
             Id = id;
             Nombre = nombre;
             Apellido = apellido;
             Sexo = sexo;
             Pais = pais;
-        }
-
-        public bool Equals(Atleta? other)
-        {
-            return Nombre == other?.Nombre;
         }
     }
 }

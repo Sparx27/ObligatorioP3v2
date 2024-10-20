@@ -10,11 +10,9 @@ namespace Compartido.DTOs.Eventos
 {
     public class EventoListaDTO
     {
-        public int EventoId {  get; set; }
+        public int EventoId { get; set; }
         public string NombrePrueba { get; set; }
-
         public DateTime FchInicio { get; set; }
-
         public DateTime FchFin { get; set; }
     }
 }

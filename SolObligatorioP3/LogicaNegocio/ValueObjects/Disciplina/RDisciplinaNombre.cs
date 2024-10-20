@@ -18,12 +18,6 @@ namespace LogicaNegocio.ValueObjects.Disciplina
         public RDisciplinaNombre(string valor)
         {
             Valor = valor;
-            Validar();
         }
-
-        public void Validar()
-        {
-        }
-
     }
 }

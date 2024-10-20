@@ -11,7 +11,6 @@ namespace LogicaNegocio.Entidades
     public class Evento : IEntity
     {
         public int Id { get; set; }
-        
         public string NombrePrueba { get; set; }
         public int DisciplinaId { get; set; }
         public DateTime FchInicio { get; set; }

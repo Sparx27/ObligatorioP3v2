@@ -22,12 +22,10 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
         {
             LogicaNegocio.Entidades.Usuario? res = _repositorioUsuario.GetById(id);
 
-            if(res == null)
+            if (res == null)
             {
                 throw new UsuarioException("Usuario no encontrado por ID");
             }
-
-           
             return UsuarioMapper.UsuarioToDTO(res);
         }
     }

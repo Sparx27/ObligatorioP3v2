@@ -8,11 +8,11 @@
     <p class="text-center">
         <a asp-action="ListaUsuarios" class="text-success">Lista Usuarios</a>
     </p>
-        
+
 
     <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
 
-         <form asp-action="Create" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+        <form asp-action="Create" method="post" class="w-100 rounded p-4 border border-3 border-danger">
             <h1 class="text-center mb-4 text-danger">Alta Usuario</h1>
             @if (ViewBag.ErrorMessage != null)
             {
@@ -42,7 +42,7 @@
                 <label asp-for="RolUsuario" class="control-label mb-1"></label>
                 <select asp-for="RolUsuario" class="form-select">
                     <option value="">-- Seleccionar --</option>
-                    @foreach(var rol in ViewBag.Roles)
+                    @foreach (var rol in ViewBag.Roles)
                     {
                         <option value="@rol.Id">@rol.Name</option>
                     }
@@ -57,11 +57,13 @@
             <div class="form-group mt-3">
                 <input type="submit" value="Registrar" class="btn btn-danger w-100" />
             </div>
-         </form>
+        </form>
 
     </div>
 </section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

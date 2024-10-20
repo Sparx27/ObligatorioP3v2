@@ -31,7 +31,7 @@ namespace LogicaAccesoDatos.Repositorios
             _context.SaveChanges();
         }
 
-        public List<Disciplina> GetAll() => 
+        public List<Disciplina> GetAll() =>
             _context.Disciplinas
                 .AsEnumerable()
                 .OrderBy(d => d.Nombre.Valor)

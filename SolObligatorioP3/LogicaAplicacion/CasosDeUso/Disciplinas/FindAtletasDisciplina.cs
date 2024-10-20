@@ -22,7 +22,7 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
 
         public IEnumerable<AtletaListaDTO> Ejecutar(int idDisciplina)
         {
-            if(idDisciplina == 0)
+            if (idDisciplina == 0)
             {
                 throw new DisciplinaException("El id de la disciplina no es correcto");
             }

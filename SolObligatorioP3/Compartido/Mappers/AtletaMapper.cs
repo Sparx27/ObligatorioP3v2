@@ -26,7 +26,7 @@ namespace Compartido.Mappers
 
         public static AtletaDTO AtletaToDTO(Atleta atleta)
         {
-            if(atleta == null)
+            if (atleta == null)
             {
                 throw new AtletaException("Atleta vacío en mapper");
             }

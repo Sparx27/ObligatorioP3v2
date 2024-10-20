@@ -12,7 +12,5 @@ namespace LogicaAplicacion.ICasosDeUso.Usuarios
         UsuarioUpdateDTO Ejecutar(int id, UsuarioUpdateDTO usuarioUpdateDTO);
         UsuarioUpdateDTO Ejecutar(int id, string contrasena, string contrasenaAnterior);
         UsuarioUpdateDTO Ejecutar(int id, string contrasena);
-
-
     }
 }

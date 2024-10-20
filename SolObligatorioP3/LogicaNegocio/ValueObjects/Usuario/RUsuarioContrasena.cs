@@ -16,11 +16,7 @@ namespace LogicaNegocio.ValueObjects.Usuario
         public RUsuarioContrasena(string valor)
         {
             Valor = valor;
-            Validar();
         }
-        private void Validar()
-        {
-            Console.WriteLine("Validar Usuario Email");
-        }
+
     }
 }
