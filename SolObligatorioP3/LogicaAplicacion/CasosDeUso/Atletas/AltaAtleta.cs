@@ -1,6 +1,7 @@
 ﻿using Compartido.DTOs.Atletas;
 using LogicaAccesoDatos;
 using LogicaAplicacion.ICasosDeUso.Atletas;
+using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
 {
     public class AltaAtleta : IAltaAtleta
     {
-        private JuegosOlimpicosDBContext _context;
-        public AltaAtleta(JuegosOlimpicosDBContext context)
+        private readonly IRepositorioAtleta _repositorioAtleta;
+        public AltaAtleta(IRepositorioAtleta repositorioAtleta)
         {
-            _context = context;
+            _repositorioAtleta = repositorioAtleta;
         }
 
         public void Ejecutar(AtletaInsertDTO atletaInsertDTO)

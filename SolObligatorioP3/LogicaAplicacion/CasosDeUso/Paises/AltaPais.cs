@@ -1,6 +1,7 @@
 ﻿using Compartido.DTOs.Paises;
 using LogicaAccesoDatos;
 using LogicaAplicacion.ICasosDeUso.Paises;
+using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace LogicaAplicacion.CasosDeUso.Paises
 {
     public class AltaPais : IAltaPais
     {
-        private JuegosOlimpicosDBContext _context;
-        public AltaPais(JuegosOlimpicosDBContext context)
+        private readonly IRepositorioPais _repositorioPais;
+        public AltaPais(IRepositorioPais repositorioPais)
         {
-            _context = context;
+            _repositorioPais = repositorioPais;
         }
 
         public void Ejecutar(PaisInsertDTO paisInsertDTO)

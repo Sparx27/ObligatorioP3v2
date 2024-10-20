@@ -90,9 +90,17 @@ namespace MVC.Controllers
                     };
                     return View(eventoVM);
                 }
+                catch (EventoException eex)
+                {
+                    TempData["ErrorMessage"] = eex.Message;
+                }
+                catch (AtletaException aex)
+                {
+                    TempData["ErrorMessage"] = aex.Message;
+                }
                 catch (Exception ex)
                 {
-
+                    TempData["ErrorMessage"] = "Algo no salió correctamente";
                 }
                 return View();
             }
@@ -140,9 +148,17 @@ namespace MVC.Controllers
                     TempData["Message"] = "Puntajes actualizados";
                     return View(eventoVMModificado);
                 }
+                catch (EventoException eex)
+                {
+                    TempData["ErrorMessage"] = eex.Message;
+                }
+                catch (AtletaException aex)
+                {
+                    TempData["ErrorMessage"] = aex.Message;
+                }
                 catch (Exception ex)
                 {
-                    TempData["ErrorMessage"] = ex.Message;
+                    TempData["ErrorMessage"] = "Algo no salió correctamente";
                 }
                 return RedirectToAction("Details", new { id = eventoVM.Id });
             }
@@ -174,6 +190,10 @@ namespace MVC.Controllers
                 catch (EventoException eex)
                 {
                     TempData["ErrorMessage"] = eex.Message;
+                }
+                catch (AtletaException aex)
+                {
+                    TempData["ErrorMessage"] = aex.Message;
                 }
                 catch (Exception ex)
                 {
