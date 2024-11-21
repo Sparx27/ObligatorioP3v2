@@ -22,13 +22,11 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             _repositorioUsuario = repositorioUsuario;
         }
 
-        public UsuarioDTO? Ejecutar(string email, string password)
+        public UsuarioDTO Ejecutar(string email, string password)
         {
-            Usuario resBD = _repositorioUsuario.LoginUsuario(email, password);
-            if (resBD == null)
-            {
-                throw new UsuarioException("Usuario o contraseña incorrectos");
-            }
+            Usuario resBD = _repositorioUsuario.LoginUsuario(email, password)
+                ?? throw new UsuarioException("Usuario o contraseña incorrectos");
+
             return UsuarioMapper.UsuarioToDTO(resBD);
         }
     }

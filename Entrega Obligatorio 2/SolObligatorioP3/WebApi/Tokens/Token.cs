@@ -4,26 +4,21 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace WebApi.Token
+namespace WebApi.Tokens
 {
     public class Token
     {
         private readonly string _secret;
-
         public Token(IConfiguration config)
         {
             _secret = config.GetValue<string>("JWT:secret");
         }
 
-        internal static string Crear(UsuarioDTO dto, string _secret)
+        internal string Crear(UsuarioDTO dto)
         {
-
             byte[] clave = Encoding.ASCII.GetBytes(_secret);
 
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-
-            //clave secreta, generalmente se incluye en el archivo de configuración
-            //Debe ser un vector de bytes         
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();  
 
             //Se incluye un claim para el email
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor

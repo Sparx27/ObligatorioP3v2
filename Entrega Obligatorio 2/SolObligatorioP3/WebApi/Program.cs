@@ -53,9 +53,12 @@ namespace WebApi
                     ValidateAudience = false
                 };
             });
-            
 
-
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(opts =>
+            {
+                opts.IncludeXmlComments("WebAPIDoc.xml");
+            });
 
             var app = builder.Build();
 
