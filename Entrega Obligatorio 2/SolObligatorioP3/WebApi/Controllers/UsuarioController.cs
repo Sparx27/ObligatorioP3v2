@@ -1,7 +1,9 @@
 ﻿using Compartido.DTOs.Usuarios;
 using LogicaAplicacion.ICasosDeUso.Usuarios;
 using LogicaNegocio.ExcepcionesEntidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WebApi.Tokens;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,11 +23,11 @@ namespace WebApi.Controllers
         private readonly IConfiguration _config;
 
         public UsuarioController(
-            ILoginUsuario login, 
-            IAltaUsuario alta, 
-            IUpdateUsuario update, 
-            IGetByIdUsuario getById, 
-            IFindAllUsuarios getAll, 
+            ILoginUsuario login,
+            IAltaUsuario alta,
+            IUpdateUsuario update,
+            IGetByIdUsuario getById,
+            IFindAllUsuarios getAll,
             IDeleteUsuario delete,
             IConfiguration config)
         {
@@ -48,15 +50,27 @@ namespace WebApi.Controllers
 
             try
             {
-                _login.Ejecutar(dto.Email, dto.Contrasena);
-                return Ok();
+                UsuarioDTO usuario = _login.Ejecutar(dto.Email, dto.Contrasena);
+                UsuarioLogueadoDTO usuarioRes = new UsuarioLogueadoDTO
+                {
+                    Id = usuario.Id,
+                    Rol = usuario.RolUsuario,
+                    Token = token.Crear(usuario)
+
+                };
+                return Ok(usuarioRes);
 
             }
-            catch(UsuarioException uex)
+            catch (UsuarioException uex)
             {
                 return BadRequest(uex);
             }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
+
 
         // GET: api/<UsuarioController>
         [HttpGet]
@@ -65,23 +79,80 @@ namespace WebApi.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Administrador,Digitador")]
         // GET api/<UsuarioController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                string idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                string rol = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                if (rol == "Digitador")
+                    if (idUsuario != id.ToString()) return Unauthorized("No tiene permisos para acceder a estos recursos");
+
+                return Ok(_getById.Ejecutar(id));
+            }
+            catch (UsuarioException uex)
+            {
+                return BadRequest(uex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
+
         }
 
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Administrador")]
         // POST api/<UsuarioController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost()]
+        public IActionResult Post([FromBody] UsuarioInsertDTO usuarioInsert)
         {
+            try
+            {
+                _alta.Ejecutar(usuarioInsert);
+                return Created();
+
+            }
+            catch (ConflictException cex)
+            {
+                return Conflict(cex.Message);
+            }
+            catch (UsuarioException uex)
+            {
+                return BadRequest(uex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
+
         }
 
         // PUT api/<UsuarioController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] UsuarioUpdateDTO dtoUpdate)
         {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
 
         // DELETE api/<UsuarioController>/5

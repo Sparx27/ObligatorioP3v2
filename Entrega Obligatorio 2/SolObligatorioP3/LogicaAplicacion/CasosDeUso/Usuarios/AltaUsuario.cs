@@ -33,7 +33,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             Usuario? buscarSiExiste = _repositorioUsuario.GetByEmail(usuarioInsertDTO.Email);
             if (buscarSiExiste != null)
             {
-                throw new UsuarioException("Ya se registró un usuario con ese email");
+                throw new ConflictException("Ya se registró un usuario con ese email");
             }
 
             // Validaciones
