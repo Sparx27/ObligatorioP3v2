@@ -1,0 +1,144 @@
+﻿@model MVC.Models.Atleta.AtletaVM
+@using MVC.Models.Disciplina
+@{
+    IEnumerable<DisciplinaListaVM> listDisciplinas = ViewBag.Disciplinas;
+}
+@{
+    ViewData["Title"] = "Detalles Atleta";
+}
+
+
+<section class="row pb-4 mt-5">
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success text-center">@TempData["Message"]</p>
+    }
+    <h1>Detalles</h1>
+
+    <div>
+        <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
+        <hr />
+        <dl class="row fs-5">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Sexo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Sexo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NombrePais)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NombrePais)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DisciplinasAtleta)
+            </dt>
+
+            <dd class="col-sm-10">
+                @{
+                    int conteo = 0;
+                    foreach (var d in Model.DisciplinasAtleta) conteo++;
+
+                    if (conteo == 0)
+                    {
+                        <p>Atleta no registrado en ninguna disciplina</p>
+                    }
+                    else
+                    {
+                        <div class="row d-flex">
+                            <div class="col">
+                                <table>
+                                    <tbody>
+                                        @foreach (var dis in Model.DisciplinasAtleta)
+                                        {
+                                            <tr>
+                                                <td>@dis.Nombre</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    }
+                }
+            </dd>
+        </dl>
+    </div>
+    <div>
+        @if (Context.Session.GetString("rolLogueado") == "Digitador")
+        {
+            <div class="mb-3">
+                <p class="link link-success text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modal-disciplina">Registrar en disciplina</p>
+            </div>
+            <a asp-action="Index" class="text-success">Volver a la lista</a>
+
+        }
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-disciplina" tabindex="-1" aria-labelledby="atletaModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar atleta en disciplina</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body pb-0">
+
+                    @if (listDisciplinas.Count() == 0)
+                    {
+                        <p>Aún no existen disciplinas</p>
+                    }
+                    else
+                    {
+                        <form method="post" asp-action="AgregarDisciplina">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <div class="form-control">
+                                <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
+                                <select id="idDisciplina" name="idDisciplina" class="form-select">
+                                    @foreach (var d in ViewBag.Disciplinas)
+                                    {
+                                        <option value="@d.Id">@d.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <input type="submit" value="Registrar" class="btn btn-success" />
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,87 @@
+﻿@model MVC.Models.Usuario.UsuarioUpdateVM
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<section class="row mt-5 pb-5">
+    @if (Context.Session.GetString("rolLogueado") == "Administrador")
+    {
+        <p class="text-center">
+            <a asp-action="ListaUsuarios" class="text-success text-center">Lista Usuarios</a>
+        </p>
+    }
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+        <form asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Editar Usuario</h1>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (ViewBag.Message != null)
+            {
+                <p class="alert alert-success text-center">@ViewBag.Message</p>
+            }
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!--INPUT CON EL ID DEL USUARIO DE MODO OCULTO-->
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group my-2">
+                <label asp-for="Email" class="control-label mb-1"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label mb-1"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar cambios" class="btn btn-danger w-100" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+        <form asp-action="CambiarContrasena" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h2 class="text-danger text-center mb-4">Cambiar Contraseña</h2>
+            @if (TempData["ErrorContrasena"] != null)
+            {
+                <p class="alert alert-danger text-center">@TempData["ErrorContrasena"]</p>
+            }
+            @if (TempData["MessageContrasena"] != null)
+            {
+                <p class="alert alert-success text-center">@TempData["MessageContrasena"]</p>
+            }
+
+            <!--INPUT CON EL ID DEL USUARIO DE MODO OCULTO-->
+            <input type="hidden" asp-for="Id" />
+
+            @if (Context.Session.GetString("rolLogueado") != "Administrador")
+            {
+                <div class="form-group">
+                    <label for="contrasenaAnterior" class="control-label mb-1">Contraseña Actual</label>
+                    <input id="contrasenaAnterior" name="contrasenaAnterior" class="form-control" type="password" />
+                </div>
+            }
+            <div class="form-group">
+                <label for="contrasena" class="control-label mb-1">Nueva Contraseña</label>
+                <input id="contrasena" name="contrasena" class="form-control" type="password" />
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar cambio" class="btn btn-danger w-100" />
+            </div>
+        </form>
+    </div>
+
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
