@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Compartido.DTOs.Usuarios
 {
-    public class UsuarioLogueadoDTO
+    public class CredencialesDTO
     {
-        public int Id { get; set; }
-        public string Rol {  get; set; }
-        public string Token { get; set; }
+        public string Email {  get; set; }
+        public string Contrasena {  get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Compartido.Mappers
                 Id = a.Id,
                 Nombre = a.Nombre,
                 Apellido = a.Apellido,
+                NombreCompleto = a.Nombre + " " + a.Apellido,
                 NombrePais = a.Pais.Nombre,
                 Sexo = a.Sexo.ToString(),
             });

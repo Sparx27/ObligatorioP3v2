@@ -10,5 +10,6 @@ namespace LogicaNegocio.IRepositorios
     public interface IRepositorioAtleta : IRepositorio<Atleta>
     {
         public void GuardarCambios();
+        List<Atleta>? SelectByDisciplinaId(int disciplinaId);
     }
 }

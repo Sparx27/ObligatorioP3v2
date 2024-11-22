@@ -14,7 +14,30 @@ namespace WebApi.Tokens
             _secret = config.GetValue<string>("JWT:secret");
         }
 
-        internal string Crear(UsuarioDTO dto)
+        /*
+         var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("NombreUsuario", nombreUsuario),
+                new Claim("UsuarioId", usuarioId)
+            };
+
+            string? secret = _config["JWTConfig:Secret"]
+                ?? throw new ExcepcionInesperadaControlada("Error en la configuracion de JWT");
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            return new JwtSecurityTokenHandler()
+                .WriteToken(new JwtSecurityToken(
+                    claims: claims, 
+                    expires: DateTime.UtcNow.AddHours(1), 
+                    signingCredentials: creds
+                ));
+
+         */
+
+        public string Crear(UsuarioDTO dto)
         {
             byte[] clave = Encoding.ASCII.GetBytes(_secret);
 
@@ -32,7 +55,7 @@ namespace WebApi.Tokens
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(clave),
-                SecurityAlgorithms.HmacSha256Signature)
+                SecurityAlgorithms.HmacSha256)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

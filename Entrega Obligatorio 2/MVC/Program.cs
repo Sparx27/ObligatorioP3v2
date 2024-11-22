@@ -1,6 +1,3 @@
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Sesión usuario
@@ -8,10 +5,6 @@ builder.Services.AddSession();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
-
-
 
 var app = builder.Build();
 

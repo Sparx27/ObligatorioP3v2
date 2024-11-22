@@ -25,38 +25,30 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         public UsuarioUpdateDTO Ejecutar(int id, UsuarioUpdateDTO usuarioUpdateDTO)
         {
-            var (email, nombre) =
-                (usuarioUpdateDTO.Email, usuarioUpdateDTO.Nombre);
+            var (email, nombre) = (usuarioUpdateDTO.Email, usuarioUpdateDTO.Nombre);
 
             ValidarUsuario.Email(email);
             ValidarUsuario.Nombre(nombre);
 
-            Usuario actualizarUsuario = _repositorioUsuario.GetById(id);
-            if (actualizarUsuario == null)
-            {
-                throw new UsuarioException("No se encontró el usuario que intenta actualizar");
-            }
+            Usuario actualizarUsuario = _repositorioUsuario.GetById(id)
+                ?? throw new UsuarioException("No se encontró el usuario que intenta actualizar");
 
             if (_repositorioUsuario.GetByEmail(email) != null)
-                throw new UsuarioException("Este email ya pertenece a un usuario");
+                throw new ConflictException("Este email ya pertenece a un usuario");
 
             actualizarUsuario.Email = new RUsuarioEmail(email);
             actualizarUsuario.Nombre = nombre;
 
             _repositorioUsuario.Update(actualizarUsuario);
             return UsuarioMapper.UsuarioToUpdateDTO(actualizarUsuario);
-
         }
 
         public UsuarioUpdateDTO Ejecutar(int id, string contrasena)
         {
             ValidarUsuario.Contrasena(contrasena);
 
-            Usuario actualizarUsuario = _repositorioUsuario.GetById(id);
-            if (actualizarUsuario == null)
-            {
-                throw new UsuarioException("No se encontró el usuario que intenta actualizar");
-            }
+            Usuario actualizarUsuario = _repositorioUsuario.GetById(id)
+                ?? throw new UsuarioException("No se encontró el usuario que intenta actualizar");
 
             actualizarUsuario.Contrasena = new RUsuarioContrasena(contrasena);
 
@@ -68,21 +60,14 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
         {
             ValidarUsuario.Contrasena(contrasena);
 
-            Usuario actualizarUsuario = _repositorioUsuario.GetById(id);
-            if (actualizarUsuario == null)
-            {
-                throw new UsuarioException("No se encontró el usuario que intenta actualizar");
-            }
+            Usuario actualizarUsuario = _repositorioUsuario.GetById(id) 
+                ?? throw new UsuarioException("No se encontró el usuario que intenta actualizar");
 
             if (contrasenaAnterior != actualizarUsuario.Contrasena.Valor)
-            {
                 throw new UsuarioException("La contraseña actual que ingresó es incorrecta");
-            }
 
             if (contrasenaAnterior == contrasena)
-            {
                 throw new UsuarioException("La nueva contraseña que intenta ingresar es igual a la actual");
-            }
 
             actualizarUsuario.Contrasena = new RUsuarioContrasena(contrasena);
 

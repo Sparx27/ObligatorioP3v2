@@ -44,7 +44,7 @@ namespace WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("iniciar-sesion")]
-        public IActionResult Login([FromBody] Credenciales dto)
+        public IActionResult Login([FromBody] CredencialesDTO dto)
         {
             Token token = new Token(_config);
 
@@ -59,14 +59,14 @@ namespace WebApi.Controllers
 
                 };
                 return Ok(usuarioRes);
-
             }
             catch (UsuarioException uex)
             {
-                return BadRequest(uex);
+                return BadRequest(uex.Message);
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -74,9 +74,17 @@ namespace WebApi.Controllers
 
         // GET: api/<UsuarioController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_getAll.Ejecutar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
 
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -140,13 +148,31 @@ namespace WebApi.Controllers
 
         }
 
-        // PUT api/<UsuarioController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Administrador,Digitador")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UsuarioUpdateDTO dtoUpdate)
         {
             try
             {
+                string idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                string rol = User.FindFirst(ClaimTypes.Role)?.Value;
 
+                if (rol == "Digitador")
+                    if (idUsuario != id.ToString()) return Unauthorized("No tiene permisos para acceder a estos recursos");
+
+                return Ok(_update.Ejecutar(id, dtoUpdate));
+            }
+            catch (ConflictException cex)
+            {
+                return Conflict(cex.Message);
+            }
+            catch (UsuarioException uex)
+            {
+                return BadRequest(uex);
             }
             catch (Exception ex)
             {
@@ -155,10 +181,60 @@ namespace WebApi.Controllers
             }
         }
 
-        // DELETE api/<UsuarioController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Administrador,Digitador")]
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, [FromBody] UpdateContrasenaDTO dto)
         {
+            try
+            {
+                string idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                string rol = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                if (rol == "Digitador")
+                    if (idUsuario != id.ToString()) return Unauthorized("No tiene permisos para acceder a estos recursos");
+
+                if(rol == "Digitador")
+                {
+                    return Ok(_update.Ejecutar(id, dto.ContrasenaNueva, dto.ContrasenaAnterior));
+                }
+
+                return Ok(_update.Ejecutar(id, dto.ContrasenaNueva));
+            }
+            catch (UsuarioException uex)
+            {
+                return BadRequest(uex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
+        }
+
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Administrador")]
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _delete.Ejecutar(id);
+                return NoContent();
+            }
+            catch (UsuarioException uex)
+            {
+                return BadRequest(uex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
     }
 }

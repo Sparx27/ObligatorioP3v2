@@ -11,5 +11,10 @@
         {
             return httpContext.Session.GetString("rolLogueado");
         }
+
+        public static string? GetToken(HttpContext httpContext)
+        {
+            return httpContext.Session.GetString("token");
+        }
     }
 }

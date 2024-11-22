@@ -61,5 +61,24 @@ namespace LogicaAccesoDatos.Repositorios
         {
             _context.SaveChanges();
         }
+
+        public List<Atleta>? SelectByDisciplinaId(int disciplinaId)
+        {
+            Disciplina? encontrado = _context.Disciplinas
+                .Include(d => d.LiAtletas)
+                .ThenInclude(a => a.Pais)
+                .FirstOrDefault(d => d.Id == disciplinaId);
+
+            return encontrado == null
+                ? null
+                : encontrado.LiAtletas;
+        }
+
+        //RF2 – Listado de Atletas por Disciplina(API Web + HttpClient) – Sin autenticación
+        //- Crear un listado de atletas filtrado por disciplina.Este endpoint permitirá consultar todos los atletas
+        //que están registrados en una disciplina dado su Id.El listado se retornará ordenado alfabéticamente
+        //por nombre completo de atleta.Se incluirán como mínimo su Id (o número, según haya utilizado), su
+        //nombre completo y el nombre de su país.
+
     }
 }

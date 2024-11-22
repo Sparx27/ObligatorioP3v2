@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Compartido.DTOs.Usuarios
 {
-    public class Credenciales
+    public class UpdateContrasenaDTO
     {
-        public string Email {  get; set; }
-        public string Contrasena {  get; set; }
+        public string ContrasenaNueva {  get; set; }
+        public string ContrasenaAnterior { get; set; }
     }
 }

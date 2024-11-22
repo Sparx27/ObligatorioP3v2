@@ -1,7 +1,15 @@
 using LogicaAccesoDatos;
 using LogicaAccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Atletas;
+using LogicaAplicacion.CasosDeUso.Disciplinas;
+using LogicaAplicacion.CasosDeUso.Eventos;
+using LogicaAplicacion.CasosDeUso.Paises;
+using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.ICasosDeUso.Atletas;
+using LogicaAplicacion.ICasosDeUso.Disciplinas;
+using LogicaAplicacion.ICasosDeUso.Eventos;
+using LogicaAplicacion.ICasosDeUso.Paises;
+using LogicaAplicacion.ICasosDeUso.Usuarios;
 using LogicaNegocio.IRepositorios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -28,8 +36,39 @@ namespace WebApi
             builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
             builder.Services.AddScoped<IRepositorioDisciplina, RepositorioDisciplina>();
 
-            // Services
-            builder.Services.AddScoped<IEventosAtleta, EventosAtleta>();
+            // Casos de uso
+            #region Usuario
+            builder.Services.AddScoped<ILoginUsuario, LoginUsuario>();
+            builder.Services.AddScoped<IGetByIdUsuario, GetByIdUsuario>();
+            builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
+            builder.Services.AddScoped<IFindAllUsuarios, FindAllUsuarios>();
+            builder.Services.AddScoped<IUpdateUsuario, UpdateUsuario>();
+            builder.Services.AddScoped<IDeleteUsuario, DeleteUsuario>();
+            #endregion
+
+            #region Atleta
+            builder.Services.AddScoped<IAltaAtleta, AltaAtleta>();
+            builder.Services.AddScoped<IFindAllAtletas, FindAllAtletas>();
+            builder.Services.AddScoped<IGetByIdAtleta, GetByIdAtleta>();
+            builder.Services.AddScoped<IAgregarDisciplina, AgregarDisciplina>();
+            builder.Services.AddScoped<ISelectByDisciplinaId, SelectByDisciplinaId>();
+            #endregion
+
+            #region Disciplina
+            builder.Services.AddScoped<IFindAllDisciplinas, FindAllDisciplinas>();
+            builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();
+            builder.Services.AddScoped<IDeleteDisciplina, DeleteDisciplina>();
+            builder.Services.AddScoped<IFindAtletasDisciplina, FindAtletasDisciplina>();
+            #endregion
+
+            #region Evento
+            builder.Services.AddScoped<IAltaEvento, AltaEvento>();
+            builder.Services.AddScoped<IFindEventosFecha, FindEventosFecha>();
+            builder.Services.AddScoped<IFindById, FindById>();
+            builder.Services.AddScoped<ICargarPuntajes, CargarPuntajes>();
+            #endregion
+
+            builder.Services.AddScoped<IAltaPais, AltaPais>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
