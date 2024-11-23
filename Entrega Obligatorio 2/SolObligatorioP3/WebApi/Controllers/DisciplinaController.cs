@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LogicaNegocio.Enums;
 using LogicaNegocio.Entidades;
+using System.Security.Claims;
 
 namespace WebApi.Controllers
 {
@@ -30,7 +31,8 @@ namespace WebApi.Controllers
             IDeleteDisciplina deleteDisciplina, 
             IDisciplinaSelectById disciplinaSelectById,
             IAuditoriaInsert auditoriaInsert,
-            IDisciplinaSelectByNombre disciplinaSelectByNombre)
+            IDisciplinaSelectByNombre disciplinaSelectByNombre,
+            IDisciplinaUpdate disciplinaUpdate)
         {
             _eventosAtleta = eventosAtleta;
             _finAllDisciplinas = findAllDisciplinas;
@@ -39,6 +41,7 @@ namespace WebApi.Controllers
             _disciplinaSelectById = disciplinaSelectById;
             _auditoriaInsert = auditoriaInsert;
             _disciplinaSelectByNombre = disciplinaSelectByNombre;
+            _disciplinaUpdate = disciplinaUpdate;
         }
 
         [Authorize(Roles = "Digitador")]
@@ -81,7 +84,7 @@ namespace WebApi.Controllers
             }
         }
 
-        //[Authorize(Roles = "Digitador")]
+        [Authorize(Roles = "Digitador")]
         [HttpPost]
         public IActionResult Post([FromBody] DisciplinaInsertDTO disciplinaInsertDto)
         {
@@ -91,7 +94,7 @@ namespace WebApi.Controllers
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
                     Accion = Accion.Create,
-                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    EmailUsuario = User.FindFirst(ClaimTypes.Email)?.Value,
                     Entidad = "Disciplina",
                     EntidadId = idDisciplina
                 });
@@ -116,7 +119,7 @@ namespace WebApi.Controllers
         }
 
         [Authorize(Roles = "Digitador")]
-        [HttpPut("{nombre}")]
+        [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
         {
             try
@@ -126,7 +129,7 @@ namespace WebApi.Controllers
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
                     Accion = Accion.Update,
-                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    EmailUsuario = User.FindFirst(ClaimTypes.Email)?.Value,
                     Entidad = "Disciplina",
                     EntidadId = id
                 });
@@ -151,7 +154,7 @@ namespace WebApi.Controllers
 
 
         [Authorize(Roles = "Digitador")]
-        [HttpDelete("{nombre}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
@@ -160,7 +163,7 @@ namespace WebApi.Controllers
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
                     Accion = Accion.Delete,
-                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    EmailUsuario = User.FindFirst(ClaimTypes.Email)?.Value,
                     Entidad = "Disciplina",
                     EntidadId = id
                 });

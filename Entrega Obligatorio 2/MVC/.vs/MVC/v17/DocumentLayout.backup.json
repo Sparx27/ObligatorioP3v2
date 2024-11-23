@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\atleta\\listatletasdisciplina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\atleta\\listatletasdisciplina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 219,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MVC",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
-              "RelativeDocumentMoniker": "MVC.csproj",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
-              "RelativeToolTip": "MVC.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-23T12:54:22.739Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ListAtletasDisciplina.cshtml",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\ListAtletasDisciplina.cshtml",
-              "RelativeDocumentMoniker": "Views\\Atleta\\ListAtletasDisciplina.cshtml",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\ListAtletasDisciplina.cshtml",
-              "RelativeToolTip": "Views\\Atleta\\ListAtletasDisciplina.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBUAAAASAAAAAAAAAA==",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Edit.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-23T03:11:29.792Z",
+              "WhenOpened": "2024-11-23T19:45:48.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AtletaController.cs",
-              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\AtletaController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AtletaController.cs",
-              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\AtletaController.cs",
-              "RelativeToolTip": "Controllers\\AtletaController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBQAAAAvAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T19:33:37.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Create.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Create.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Create.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T19:17:05.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DisciplinaController.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DisciplinaController.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
+              "RelativeToolTip": "Controllers\\DisciplinaController.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAArwPMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T03:11:07.293Z",
+              "WhenOpened": "2024-11-23T13:27:13.32Z",
               "EditorCaption": ""
             }
           ]

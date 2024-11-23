@@ -66,9 +66,6 @@ namespace LogicaAccesoDatos.Repositorios
             _context.SaveChanges();
         }
 
-        void IRepositorio<Disciplina>.Update(Disciplina item)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

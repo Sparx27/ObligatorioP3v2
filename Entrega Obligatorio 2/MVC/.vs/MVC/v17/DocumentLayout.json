@@ -1,30 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\",
+  "WorkspaceRootPath": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:controllers\\disciplinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\detailsbynombre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\detailsbynombre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\utils\\conexionservidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:utils\\conexionservidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\utils\\manejosession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:utils\\manejosession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\cri_1\\onedrive\\escritorio\\obligatorio1_prog3\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\disciplina\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DetailsByNombre.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\DetailsByNombre.cshtml",
-              "RelativeDocumentMoniker": "Views\\Disciplina\\DetailsByNombre.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\DetailsByNombre.cshtml",
-              "RelativeToolTip": "Views\\Disciplina\\DetailsByNombre.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Edit.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-23T19:00:51.75Z",
+              "WhenOpened": "2024-11-23T19:45:48.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Disciplina\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Details.cshtml",
-              "RelativeToolTip": "Views\\Disciplina\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-23T18:01:14.467Z",
+              "WhenOpened": "2024-11-23T19:33:37.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ManejoSession.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Utils\\ManejoSession.cs",
-              "RelativeDocumentMoniker": "Utils\\ManejoSession.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Utils\\ManejoSession.cs",
-              "RelativeToolTip": "Utils\\ManejoSession.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T17:39:10.21Z",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Disciplina\\Create.cshtml",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Create.cshtml",
+              "RelativeToolTip": "Views\\Disciplina\\Create.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-23T19:17:05.349Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DisciplinaController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
+              "DocumentMoniker": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
               "RelativeDocumentMoniker": "Controllers\\DisciplinaController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
+              "ToolTip": "C:\\Users\\cri_1\\OneDrive\\Escritorio\\Obligatorio1_Prog3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\DisciplinaController.cs",
               "RelativeToolTip": "Controllers\\DisciplinaController.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAQwIAAAAAVAAAA",
+              "ViewState": "AgIAAOcAAAAAAAAAAAArwAYBAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T13:27:13.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Disciplina\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Disciplina\\Index.cshtml",
-              "RelativeToolTip": "Views\\Disciplina\\Index.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAABgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-23T16:56:15.324Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConexionServidor.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Utils\\ConexionServidor.cs",
-              "RelativeDocumentMoniker": "Utils\\ConexionServidor.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Utils\\ConexionServidor.cs",
-              "RelativeToolTip": "Utils\\ConexionServidor.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAwwDYAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T16:58:12.331Z",
               "EditorCaption": ""
             }
           ]

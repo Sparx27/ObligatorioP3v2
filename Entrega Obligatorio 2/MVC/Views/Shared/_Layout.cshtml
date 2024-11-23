@@ -28,7 +28,7 @@
                         else
                         {
                             // General a ambos tipos de Usuario
-                            <li class="nav-item">
+                           @*  <li class="nav-item">
                                 <a class="nav-link text-white h5" asp-area="" asp-controller="Usuario" asp-action="Details"
                                    asp-route-id="@Context.Session.GetInt32("idLogueado")">Mis Datos</a>
                             </li>
@@ -42,11 +42,11 @@
                                         <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Evento" asp-action="ListEventosPorFecha">Buscar evento</a></li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> *@
 
                             if (Context.Session.GetString("rolLogueado") == "Administrador")
                             {
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <div class="dropdown">
                                         <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Usuarios
@@ -56,11 +56,11 @@
                                             <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Usuario" asp-action="Create">Registrar Usuario</a></li>
                                         </ul>
                                     </div>
-                                </li>
+                                </li> *@
                             }
                             else // Caso Usuario Digitador
                             {
-                                <li class="nav-item">
+                               @*  <li class="nav-item">
                                     <div class="dropdown">
                                         <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Atletas
@@ -69,7 +69,7 @@
                                             <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Atleta" asp-action="Index">Lista</a></li>
                                         </ul>
                                     </div>
-                                </li>
+                                </li> *@
                                 <li class="nav-item">
                                     <div class="dropdown">
                                         <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">

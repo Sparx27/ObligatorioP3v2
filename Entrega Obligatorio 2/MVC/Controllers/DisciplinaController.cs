@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Disciplina;
 using MVC.Utils;
 using Newtonsoft.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MVC.Controllers
 {
@@ -51,7 +52,7 @@ namespace MVC.Controllers
 
         public async Task<ActionResult> Details(int id)
         {
-            if(id == 0)
+            if (id == 0)
             {
                 TempData["ErrorMessage"] = "Id incorrecto";
                 return View();
@@ -73,7 +74,7 @@ namespace MVC.Controllers
 
                         return View(res);
                     }
-                    else if((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
                     {
                         throw new Exception(disciplinas.Item1);
                     }
@@ -81,7 +82,7 @@ namespace MVC.Controllers
                     {
                         TempData["ErrorMessage"] = disciplinas.Item1;
                         return View();
-                    } 
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +97,7 @@ namespace MVC.Controllers
 
         public async Task<ActionResult> DetailsByNombre(string? nombre)
         {
-            if(string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrEmpty(nombre))
             {
                 TempData["ErrorMessage"] = "Nombre requerido";
                 return View();
@@ -148,29 +149,38 @@ namespace MVC.Controllers
         // POST: DisciplinaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DisciplinaInsertVM disciplinaInsertVM)
+        public async Task<ActionResult> Create(DisciplinaInsertVM disciplinaInsertVM)
         {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
                 try
                 {
-                    //DisciplinaInsertDTO disciplina = new DisciplinaInsertDTO
-                    //{
-                    //    Nombre = disciplinaInsertVM.Nombre,
-                    //    AnioIntegracion = disciplinaInsertVM.AnioIntegracion
-                    //};
-                    //_altaDisciplina.Ejecutar(disciplina);
-                    //TempData["Message"] = "Disciplina creada correctamente";
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
 
-                    return RedirectToAction("Create");
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientConBody(_url + "/api/Disciplina/", "POST", disciplinaInsertVM, token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina creada correctamente";
+                        return RedirectToAction(nameof(Create));
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
                 }
-               
                 catch (Exception ex)
                 {
-                    ViewBag.ErrorMessage = ex.Message;
-                    return View();
-
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
                 }
+
             }
             else
             {
@@ -181,44 +191,133 @@ namespace MVC.Controllers
         }
 
         // GET: DisciplinaController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                TempData["ErrorMessage"] = "Id incorrecto";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "GET", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(disciplinas.Item1);
+
+                        return View(res);
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
         }
 
         // POST: DisciplinaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, DisciplinaUpdateVM disciplinaUpdate)
         {
-            try
+            if (id == 0)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+                TempData["ErrorMessage"] = "Id incorrecto";
                 return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientConBody(_url + "/api/Disciplina/" + id.ToString(), "PUT", disciplinaUpdate, token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(disciplinas.Item1);
+                        TempData["Message"] = "Disciplina actualizada correctamente";
+                        return View(res);
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
         }
 
         // GET: DisciplinaController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
                 try
                 {
-                    //_deleteDisciplina.Ejecutar(id);
-                    //TempData["Message"] = "Disciplina eliminada correctamente";
-                    return RedirectToAction("Index");
-                }
-               
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = "Algo no salió correctamente. Es posible que existan referencias de esta Disciplina en Atletas.";
+                    string token = ManejoSession.GetToken(HttpContext)
+                       ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "DELETE", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina eliminada correctamente";
+                        return RedirectToAction("Index");
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return RedirectToAction("Index");
+                    }
                 }
 
-                return RedirectToAction("Index");
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+
             }
             else
             {
