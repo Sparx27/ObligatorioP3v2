@@ -17,6 +17,11 @@ namespace WebApi.Controllers
             _selectByDisciplinaId = selectByDisciplinaId;
         }
 
+        /// <summary>
+        /// Permite obtener el listado de atletas de una disciplina
+        /// </summary>
+        /// <param name="disciplinaId"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Security.Policy;
 using Newtonsoft.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
 
 namespace MVC.Controllers
 {
@@ -21,10 +22,7 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             int? usuarioId = ManejoSession.GetIdLogueado(HttpContext);
-            if (usuarioId != null)
-            {
-                return RedirectToAction("Details", new { id = usuarioId });
-            }
+            if (usuarioId != null) return RedirectToAction("Index", "Home");
 
             return View();
         }
@@ -34,12 +32,17 @@ namespace MVC.Controllers
         {
             try
             {
+                if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                {
+                    ViewBag.ErrorMessage = "Debe completar todos los campos";
+                    return View();
+                }
                 CredencialesVM cred = new CredencialesVM
                 {
                     Email = email,
                     Contrasena = password
                 };
-                (string, HttpResponseMessage) res = 
+                (string, HttpResponseMessage) res =
                     await ConexionServidor.ClientConBody<CredencialesVM>(_url + "/api/Usuario/iniciar-sesion", "POST", cred);
 
                 if (res.Item2.IsSuccessStatusCode)
@@ -52,7 +55,6 @@ namespace MVC.Controllers
                     HttpContext.Session.SetString("token", vm.Token);
 
                     return RedirectToAction("Index", "Home");
-                    return RedirectToAction("Details", new { id = vm.Id });
                 }
                 else
                 {

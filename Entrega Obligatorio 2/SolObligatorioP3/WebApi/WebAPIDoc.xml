@@ -4,5 +4,62 @@
         <name>WebApi</name>
     </assembly>
     <members>
+        <member name="M:WebApi.Controllers.AtletaController.GetByDisciplina(System.Int32)">
+            <summary>
+            Permite obtener el listado de atletas de una disciplina
+            </summary>
+            <param name="disciplinaId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Login(Compartido.DTOs.Usuarios.CredencialesDTO)">
+            <summary>
+            Permite realizar el login a la página
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Get">
+            <summary>
+            Permite obtener el listado de usuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Get(System.Int32)">
+            <summary>
+            Permite obtener un usuario por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Post(Compartido.DTOs.Usuarios.UsuarioInsertDTO)">
+            <summary>
+            Permite realizar el alta de un usuario
+            </summary>
+            <param name="usuarioInsert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Put(System.Int32,Compartido.DTOs.Usuarios.UsuarioUpdateDTO)">
+            <summary>
+            Permite modificar los datos de un usuario
+            </summary>
+            <param name="id"></param>
+            <param name="dtoUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Patch(System.Int32,Compartido.DTOs.Usuarios.UpdateContrasenaDTO)">
+            <summary>
+            Permite modificar la contraseña de un usuario
+            </summary>
+            <param name="id"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            Permite borrar un usuario
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -1,0 +1,95 @@
+﻿@using MVC.Models.Disciplina
+@model IEnumerable<MVC.Models.Atleta.AtletaListaVM>
+@{
+    IEnumerable<DisciplinaListaVM> disciplinas = ViewBag.Disciplinas;
+}
+@{
+        ViewData["Title"] = "Listado de atletas";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar atletas de una disciplina</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+
+        <form method="get" id="formBuscarAtletas" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-center">
+            <div class="col-auto">
+                <h2 class="fs-5">Seleccionar disciplina</h2>
+            </div>
+            <div class="col-auto">
+                <select id="" name="disciplinaId">
+                    <option value="">-- Seleccionar -- </option>
+                    @if (disciplinas != null)
+                    {
+                        foreach (DisciplinaListaVM disciplina in disciplinas)
+                        {
+                            <option value=@disciplina.Id>@disciplina.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="Buscar" class="btn btn-success text-white pb-2" />
+            </div>
+        </form>
+
+
+        @if (Model != null)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3 d-none">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombreCompleto)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.Sexo)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombrePais)
+                        </th>
+                        <th class="py-3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-3 d-none">
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombreCompleto)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.Sexo)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombrePais)
+                            </td>
+                            @* <td class="py-3">
+                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                    @Html.ActionLink("Detalle", "Details", new { id = item.EventoId }, new { @class = "text-success" })
+                                </div>
+                            </td> *@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="fs-4 mt-3">Sin atletas</p>
+        }
+    </div>
+</section>
+
+

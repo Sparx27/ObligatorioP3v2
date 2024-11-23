@@ -40,6 +40,11 @@ namespace WebApi.Controllers
             _config = config;
         }
 
+        /// <summary>
+        /// Permite realizar el login a la página
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -71,7 +76,10 @@ namespace WebApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Permite obtener el listado de usuarios
+        /// </summary>
+        /// <returns></returns>
         // GET: api/<UsuarioController>
         [HttpGet]
         public IActionResult Get()
@@ -87,6 +95,11 @@ namespace WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Permite obtener un usuario por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -117,6 +130,11 @@ namespace WebApi.Controllers
 
         }
 
+        /// <summary>
+        /// Permite realizar el alta de un usuario
+        /// </summary>
+        /// <param name="usuarioInsert"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -148,6 +166,12 @@ namespace WebApi.Controllers
 
         }
 
+        /// <summary>
+        /// Permite modificar los datos de un usuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dtoUpdate"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -181,6 +205,12 @@ namespace WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Permite modificar la contraseña de un usuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -214,6 +244,11 @@ namespace WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Permite borrar un usuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

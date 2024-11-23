@@ -66,6 +66,7 @@ namespace WebApi
             builder.Services.AddScoped<IFindEventosFecha, FindEventosFecha>();
             builder.Services.AddScoped<IFindById, FindById>();
             builder.Services.AddScoped<ICargarPuntajes, CargarPuntajes>();
+            builder.Services.AddScoped<IEventosAtleta, EventosAtleta>();
             #endregion
 
             builder.Services.AddScoped<IAltaPais, AltaPais>();

@@ -463,3 +463,7 @@ C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\ObligatorioP3v2\Entreg
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\MVC.csproj.Up2Date
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\MVC.genruntimeconfig.cache
 C:\Users\Dell\Desktop\A4.01\ORT\Semestre 3\Programacion 3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\ref\MVC.dll
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\bin\Debug\net8.0\MVC.staticwebassets.endpoints.json
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\staticwebassets\msbuild.MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

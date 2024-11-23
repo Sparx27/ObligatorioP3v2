@@ -1,0 +1,22 @@
+Empezar por el RF4 antes del RF3, teniendo la clase de auditoria, luego podemos hacer el CRUD e incluirle directamente lo necesario para guardar las acciones en la tabla de auditoria.
+
+RF4 Control de cambios 
+Crear una nueva clase (posible nombre: Auditoria) con al menos los siguientes atributos:
+- Fecha
+- Acción
+- Entidad
+- Identidad
+- EmailUsuario
+
+Tiene que ser aplicable para todas las entidades, de momento solo se necesita aplicar la auditoria al CRUD
+
+RF3 CRUD de disciplinas
+Hay que hacer los casos de uso de UpdateDisciplina y GetById de disciplina, alta, findall y delete ya existen.
+
+
+RF5 Búsqueda de eventos por filtros
+Opciones: 
+	- Solicitar en MVC que se ingresen todos los filtros y allí hacer el llamado a la API 
+	- Pedir que se ingrese al menos un filtro y con ello hacer el llamado a la API, ver la complejidad de poder soportar el filtrado tanto si nos llega un filtro como si llegan los 4
+	
+

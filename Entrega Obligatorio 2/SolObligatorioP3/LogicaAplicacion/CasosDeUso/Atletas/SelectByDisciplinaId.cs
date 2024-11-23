@@ -14,17 +14,17 @@ namespace LogicaAplicacion.CasosDeUso.Atletas
 {
     public class SelectByDisciplinaId : ISelectByDisciplinaId
     {
-        private readonly IRepositorioAtleta _repo;
-        public SelectByDisciplinaId(IRepositorioAtleta repo)
+        private readonly IRepositorioAtleta _repositorioAtleta;
+        public SelectByDisciplinaId(IRepositorioAtleta repositorioAtleta)
         {
-            _repo = repo;
+            _repositorioAtleta = repositorioAtleta;
         }
 
         public IEnumerable<AtletaListaDTO> Ejecutar(int disciplinaId)
         {
             if (disciplinaId <= 0) throw new AtletaException("Id incorrecto");
 
-            List<Atleta>? resdb = _repo.SelectByDisciplinaId(disciplinaId);
+            List<Atleta>? resdb = _repositorioAtleta.SelectByDisciplinaId(disciplinaId);
 
             return resdb == null
                 ? null
