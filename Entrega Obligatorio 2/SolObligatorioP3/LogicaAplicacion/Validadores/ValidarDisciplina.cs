@@ -12,14 +12,14 @@ namespace LogicaAplicacion.Validadores
     {
         public static void Nombre(string nombre)
         {
-            if (nombre.Length < 10)
-            {
-                throw new DisciplinaException("El nombre de la disciplina debe contener al menos 10 caracteres");
-            }
-            if (nombre.Length > 50)
-            {
-                throw new DisciplinaException("El nombre de la disciplina puede contener hasta 50 caracteres");
-            }
+            if (nombre.Length < 10) throw new DisciplinaException("El nombre de la disciplina debe contener al menos 10 caracteres");
+
+            if (nombre.Length > 50) throw new DisciplinaException("El nombre de la disciplina puede contener hasta 50 caracteres");
+        }
+
+        public static void Anio(int anio)
+        {
+            if (anio > DateTime.Now.Year) throw new DisciplinaException("El año no puede ser posterior al actual");
         }
     }
 }

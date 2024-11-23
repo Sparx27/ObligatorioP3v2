@@ -9,6 +9,7 @@ namespace LogicaNegocio.IRepositorios
 {
     public interface IRepositorioDisciplina : IRepositorio<Disciplina>
     {
+        Disciplina Insert(Disciplina item);
         Disciplina? GetByNombre(string nombre);
         List<Atleta> GetAtletasDisciplina(int idDisciplina);
     }

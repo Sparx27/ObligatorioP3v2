@@ -6,11 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LogicaAccesoDatos.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class auditoria : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Auditorias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Accion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Entidad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EntidadId = table.Column<int>(type: "int", nullable: false),
+                    EmailUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Auditorias", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Disciplinas",
                 columns: table => new
@@ -190,6 +207,9 @@ namespace LogicaAccesoDatos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AtletaDisciplina");
+
+            migrationBuilder.DropTable(
+                name: "Auditorias");
 
             migrationBuilder.DropTable(
                 name: "PuntajeEventoAtleta");

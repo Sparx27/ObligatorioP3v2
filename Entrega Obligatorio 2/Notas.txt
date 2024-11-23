@@ -5,10 +5,10 @@ Crear una nueva clase (posible nombre: Auditoria) con al menos los siguientes at
 - Fecha
 - Acción
 - Entidad
-- Identidad
+- IdEntidad
 - EmailUsuario
 
-Tiene que ser aplicable para todas las entidades, de momento solo se necesita aplicar la auditoria al CRUD
+Tiene que ser aplicable para todas las entidades, de momento solo se necesita aplicar la auditoria al CRUD de disciplina
 
 RF3 CRUD de disciplinas
 Hay que hacer los casos de uso de UpdateDisciplina y GetById de disciplina, alta, findall y delete ya existen.

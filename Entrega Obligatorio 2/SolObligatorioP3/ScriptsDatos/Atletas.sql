@@ -1,52 +1,105 @@
 SET IDENTITY_INSERT [dbo].[Atletas] ON
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (1, N'Michael', N'Phelps', 0, 1)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (2, N'Usain', N'Bolt', 0, 2)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (3, N'Nadia', N'Comaneci', 1, 3)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (4, N'Yelena', N'Isinbayeva', 1, 4)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (5, N'Paavo', N'Nurmi', 0, 5)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (6, N'Hadi', N'Souan', 0, 6)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (7, N'Ester', N'Ledecká', 1, 7)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (8, N'Luciana', N'Aymar', 1, 8)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (9, N'Enzo', N'Francescoli', 0, 9)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (10, N'Pelé', N'Nascimento', 0, 10)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (11, N'Donovan', N'Bailey', 0, 11)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (12, N'Soraya', N'Jiménez', 1, 12)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (13, N'Birgit', N'Fischer', 1, 13)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (14, N'Marie-José', N'Pérec', 1, 14)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (15, N'Valentino', N'Rossi', 0, 15)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (16, N'Pau', N'Gasol', 0, 16)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (17, N'Kohei', N'Uchimura', 0, 17)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (18, N'Liu', N'Xiang', 0, 18)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (19, N'Cathy', N'Freeman', 1, 19)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (20, N'Caster', N'Semenya', 1, 20)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (21, N'Valerie', N'Adams', 1, 21)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (22, N'Eliud', N'Kipchoge', 0, 22)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (23, N'Kim', N'Yuna', 1, 23)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (24, N'Pyrros', N'Dimas', 0, 24)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (25, N'Hossam', N'Abdalla', 0, 25)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (26, N'Naim', N'Süleymanoglu', 0, 26)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (27, N'Gert', N'Fredriksson', 0, 27)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (28, N'Ole', N'Einar Bjørndalen', 0, 28)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (29, N'Milkha', N'Singh', 0, 29)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (30, N'Mo', N'Farah', 0, 30)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (31, N'Carl', N'Lewis', 0, 1)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (32, N'Shelly-Ann', N'Fraser-Pryce', 1, 2)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (33, N'Gabriela', N'Szabó', 1, 3)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (34, N'Aleksandr', N'Popov', 0, 4)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (35, N'Kaisa', N'Mäkäräinen', 1, 5)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (36, N'Saeed', N'Abdulghani', 0, 6)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (37, N'Jan', N'Železný', 0, 7)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (38, N'Lionel', N'Messi', 0, 8)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (39, N'Santiago', N'Urrutia', 0, 9)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (40, N'Gustavo', N'Kuerten', 0, 10)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (41, N'Clara', N'Hughes', 1, 11)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (42, N'Ana', N'Guevara', 1, 12)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (43, N'Katja', N'Seizinger', 1, 13)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (44, N'Renaud', N'Lavillenie', 0, 14)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (45, N'Federica', N'Pellegrini', 1, 15)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (46, N'Rafael', N'Nadal', 0, 16)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (47, N'Saori', N'Yoshida', 1, 17)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (48, N'Ma', N'Long', 0, 18)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (49, N'Ian', N'Thorpe', 0, 19)
-INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) VALUES (50, N'Wayde', N'van Niekerk', 0, 20)
+INSERT INTO [dbo].[Atletas] ([Id], [Nombre], [Apellido], [Sexo], [PaisId]) 
+VALUES 
+(1, N'Michael', N'Phelps', 0, 1),
+(2, N'Usain', N'Bolt', 0, 2),
+(3, N'Nadia', N'Comaneci', 1, 3),
+(4, N'Yelena', N'Isinbayeva', 1, 4),
+(5, N'Paavo', N'Nurmi', 0, 5),
+(6, N'Hadi', N'Souan', 0, 6),
+(7, N'Ester', N'Ledecká', 1, 7),
+(8, N'Luciana', N'Aymar', 1, 8),
+(9, N'Enzo', N'Francescoli', 0, 9),
+(10, N'Pelé', N'Nascimento', 0, 10),
+(11, N'Donovan', N'Bailey', 0, 11),
+(12, N'Soraya', N'Jiménez', 1, 12),
+(13, N'Birgit', N'Fischer', 1, 13),
+(14, N'Marie-José', N'Pérec', 1, 14),
+(15, N'Valentino', N'Rossi', 0, 15),
+(16, N'Pau', N'Gasol', 0, 16),
+(17, N'Kohei', N'Uchimura', 0, 17),
+(18, N'Liu', N'Xiang', 0, 18),
+(19, N'Cathy', N'Freeman', 1, 19),
+(20, N'Caster', N'Semenya', 1, 20),
+(21, N'Valerie', N'Adams', 1, 21),
+(22, N'Eliud', N'Kipchoge', 0, 22),
+(23, N'Kim', N'Yuna', 1, 23),
+(24, N'Pyrros', N'Dimas', 0, 24),
+(25, N'Hossam', N'Abdalla', 0, 25),
+(26, N'Naim', N'Süleymanoglu', 0, 26),
+(27, N'Gert', N'Fredriksson', 0, 27),
+(28, N'Ole', N'Einar Bjørndalen', 0, 28),
+(29, N'Milkha', N'Singh', 0, 29),
+(30, N'Mo', N'Farah', 0, 30),
+(31, N'Carl', N'Lewis', 0, 1),
+(32, N'Shelly-Ann', N'Fraser-Pryce', 1, 2),
+(33, N'Gabriela', N'Szabó', 1, 3),
+(34, N'Aleksandr', N'Popov', 0, 4),
+(35, N'Kaisa', N'Mäkäräinen', 1, 5),
+(36, N'Saeed', N'Abdulghani', 0, 6),
+(37, N'Jan', N'Železný', 0, 7),
+(38, N'Lionel', N'Messi', 0, 8),
+(39, N'Santiago', N'Urrutia', 0, 9),
+(40, N'Gustavo', N'Kuerten', 0, 10),
+(41, N'Clara', N'Hughes', 1, 11),
+(42, N'Ana', N'Guevara', 1, 12),
+(43, N'Katja', N'Seizinger', 1, 13),
+(44, N'Renaud', N'Lavillenie', 0, 14),
+(45, N'Federica', N'Pellegrini', 1, 15),
+(46, N'Rafael', N'Nadal', 0, 16),
+(47, N'Saori', N'Yoshida', 1, 17),
+(48, N'Ma', N'Long', 0, 18),
+(49, N'Ian', N'Thorpe', 0, 19),
+(50, N'Wayde', N'van Niekerk', 0, 20),
+(51, N'Florence', N'Griffith-Joyner', 1, 1),
+(52, N'Maurice', N'Greene', 0, 1),
+(53, N'Yohan', N'Blake', 0, 2),
+(54, N'Melaine', N'Walker', 1, 2),
+(55, N'Alina', N'Astafei', 1, 3),
+(56, N'Andrei', N'Rădulescu', 0, 3),
+(57, N'Dina', N'Asher-Smith', 1, 30),
+(58, N'Jessica', N'Ennis-Hill', 1, 30),
+(59, N'Daria', N'Klishina', 1, 4),
+(60, N'Ilya', N'Zakharov', 0, 4),
+(61, N'Tero', N'Pitkämäki', 0, 5),
+(62, N'Minna', N'Nikkanen', 1, 5),
+(63, N'Haider', N'Al-Muwallad', 0, 6),
+(64, N'Reem', N'Al-Jizawi', 1, 6),
+(65, N'Barbora', N'Špotáková', 1, 7),
+(66, N'Tomáš', N'Dvořák', 0, 7),
+(67, N'Gabriela', N'Sabatini', 1, 8),
+(68, N'Marcos', N'Maidana', 0, 8),
+(69, N'Luis', N'Suárez', 0, 9),
+(70, N'Virginia', N'Saravia', 1, 9),
+(71, N'Gisele', N'Schmidt', 1, 10),
+(72, N'Adriano', N'Leite', 0, 10),
+(73, N'Christine', N'Sinclair', 1, 11),
+(74, N'Simon', N'Whitfield', 0, 11),
+(75, N'Guadalupe', N'Luna', 1, 12),
+(76, N'Omar', N'Fierro', 0, 12),
+(77, N'Monica', N'Seles', 1, 13),
+(78, N'Steffi', N'Graf', 1, 13),
+(79, N'Armand', N'Duplantis', 0, 27),
+(80, N'Daniel', N'Stähl', 0, 27),
+(81, N'Karsten', N'Warholm', 0, 28),
+(82, N'Therese', N'Johaug', 1, 28),
+(83, N'Zhang', N'Ning', 0, 18),
+(84, N'Wang', N'Meng', 1, 18),
+(85, N'Neeraj', N'Chopra', 0, 29),
+(86, N'PV', N'Sindhu', 1, 29),
+(87, N'Ezekiel', N'Kemboi', 0, 22),
+(88, N'Vivian', N'Cheruiyot', 1, 22),
+(89, N'John', N'Walker', 0, 21),
+(90, N'Dame', N'Valerie Adams', 1, 21),
+(91, N'Miruts', N'Yifter', 0, 22),
+(92, N'Tirunesh', N'Dibaba', 1, 22),
+(93, N'Yuzuru', N'Hanyu', 0, 17),
+(94, N'Ryoko', N'Tani', 1, 17),
+(95, N'Ashleigh', N'Barty', 1, 19),
+(96, N'Ian', N'Millar', 0, 19),
+(97, N'Mpumelelo', N'Mbangwa', 0, 20),
+(98, N'Zola', N'Budd', 1, 20),
+(99, N'Elvan', N'Abeylegesse', 1, 26),
+(100, N'Riza', N'Kayaalp', 0, 26);
 SET IDENTITY_INSERT [dbo].[Atletas] OFF
+

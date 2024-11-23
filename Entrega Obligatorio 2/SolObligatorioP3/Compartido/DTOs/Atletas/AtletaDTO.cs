@@ -17,6 +17,6 @@ namespace Compartido.DTOs.Atletas
         public string Apellido { get; set; }
         public string Sexo { get; set; }
         public string NombrePais { get; set; }
-        public IEnumerable<DisciplinaListaDTO> DisciplinasAtleta { get; set; }
+        public IEnumerable<DisciplinaDTO> DisciplinasAtleta { get; set; }
     }
 }

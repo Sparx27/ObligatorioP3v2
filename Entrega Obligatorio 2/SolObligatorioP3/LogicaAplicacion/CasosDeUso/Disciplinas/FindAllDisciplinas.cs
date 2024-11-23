@@ -19,6 +19,6 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
             _repositorioDisciplina = repositorioDisciplina;
         }
 
-        public IEnumerable<DisciplinaListaDTO> Ejecutar() => DisciplinaMapper.DisciplinasToListaDTO(_repositorioDisciplina.GetAll());
+        public IEnumerable<DisciplinaDTO> Ejecutar() => DisciplinaMapper.DisciplinasToListaDTO(_repositorioDisciplina.GetAll());
     }
 }

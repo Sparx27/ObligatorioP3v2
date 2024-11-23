@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LogicaAplicacion.ICasosDeUso.Disciplinas
 {
-    public interface IAltaDisciplina
+    public interface IInsertDisciplina
     {
-        void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO);
+        int Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO);
     }
 }

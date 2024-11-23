@@ -15,6 +15,7 @@ namespace LogicaAccesoDatos
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Pais> Paises { get; set; }
+        public DbSet<Auditoria> Auditorias { get; set; }
 
         public JuegosOlimpicosDBContext(DbContextOptions opt) : base(opt)
         {
@@ -38,6 +39,10 @@ namespace LogicaAccesoDatos
                 .OwnsOne(d => d.Nombre)
                 .HasIndex(n => n.Valor)
                 .IsUnique();
+
+            modelBuilder.Entity<Auditoria>()
+                .Property(a => a.Accion)
+                .HasConversion<string>();
         }
         private void InicializarDatos()
         {

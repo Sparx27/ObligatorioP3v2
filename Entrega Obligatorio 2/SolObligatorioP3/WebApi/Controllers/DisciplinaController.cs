@@ -1,10 +1,13 @@
 ﻿using Compartido.DTOs.Disciplinas;
+using Compartido.DTOs.Auditorias;
 using LogicaAplicacion.ICasosDeUso.Atletas;
+using LogicaAplicacion.ICasosDeUso.Auditorias;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
 using LogicaNegocio.ExcepcionesEntidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using LogicaNegocio.Enums;
 
 namespace WebApi.Controllers
 {
@@ -14,40 +17,113 @@ namespace WebApi.Controllers
     {
         private readonly IEventosAtleta _eventosAtleta;
         private readonly IFindAllDisciplinas _finAllDisciplinas;
-        private readonly IAltaDisciplina _altaDisciplina;
+        private readonly IInsertDisciplina _altaDisciplina;
         private readonly IDeleteDisciplina _deleteDisciplina;
-        //private readonly IUpdateDisciplina _updateDisciplina;
-        //private readonly IFindByIdDisciplina _findByIdDisciplina;
-        public DisciplinaController(IEventosAtleta eventosAtleta, IFindAllDisciplinas findAllDisciplinas, IAltaDisciplina altaDisciplina, IDeleteDisciplina deleteDisciplina)
+        private readonly IDisciplinaUpdate _disciplinaUpdate;
+        private readonly IDisciplinaSelectById _disciplinaSelectById;
+        private readonly IAuditoriaInsert _auditoriaInsert;
+        public DisciplinaController(IEventosAtleta eventosAtleta, 
+            IFindAllDisciplinas findAllDisciplinas, 
+            IInsertDisciplina altaDisciplina, 
+            IDeleteDisciplina deleteDisciplina, 
+            IDisciplinaSelectById disciplinaSelectById,
+            IAuditoriaInsert auditoriaInsert)
         {
             _eventosAtleta = eventosAtleta;
             _finAllDisciplinas = findAllDisciplinas;
             _altaDisciplina = altaDisciplina;
             _deleteDisciplina = deleteDisciplina;
-        }
-
-        [Authorize(Roles ="Digitador")]
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            //Falta implementar
-            return Ok();
+            _disciplinaSelectById = disciplinaSelectById;
+            _auditoriaInsert = auditoriaInsert;
         }
 
         [Authorize(Roles = "Digitador")]
-        [HttpPost]
-        public IActionResult Post([FromBody] DisciplinaInsertDTO disciplinaDto)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            //Falta implementar
-            return Created();
+            try
+            {
+                DisciplinaDTO? res = _disciplinaSelectById.Ejecutar(id);
+                return res == null ? NotFound("No se encontró disciplina con ese id") : Ok(res);
+            }
+            catch (DisciplinaException dex)
+            {
+                return BadRequest(dex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
+
+        }
+
+        //[Authorize(Roles = "Digitador")]
+        [HttpPost]
+        public IActionResult Post([FromBody] DisciplinaInsertDTO disciplinaInsertDto)
+        {
+            try
+            {
+                int idDisciplina = _altaDisciplina.Ejecutar(disciplinaInsertDto);
+                _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
+                {
+                    Accion = Accion.Create,
+                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    Entidad = "Disciplina",
+                    EntidadId = idDisciplina
+                });
+
+                return Created();
+
+            }
+            catch (ConflictException cex)
+            {
+                return Conflict(cex.Message);
+            }
+            catch (DisciplinaException dex)
+            {
+                return BadRequest(dex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
+
         }
 
         [Authorize(Roles = "Digitador")]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO discplinaUpdateDTO)
+        public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
         {
-            //Falta implementar
-            return Ok();
+            try
+            {
+                DisciplinaDTO disciplinaDTO = _disciplinaUpdate.Ejecutar(id, disciplinaUpdateDTO);
+
+                _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
+                {
+                    Accion = Accion.Update,
+                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    Entidad = "Disciplina",
+                    EntidadId = id
+                });
+
+                return Ok(disciplinaDTO);
+
+            }
+            catch (ConflictException cex)
+            {
+                return Conflict(cex.Message);
+            }
+            catch (DisciplinaException dex)
+            {
+                return BadRequest(dex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
 
 
@@ -71,7 +147,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                IEnumerable<DisciplinaListaDTO> disciplinas = _finAllDisciplinas.Ejecutar();
+                IEnumerable<DisciplinaDTO> disciplinas = _finAllDisciplinas.Ejecutar();
                 return disciplinas == null
                     ? NotFound("No se encontraron disciplinas")
                     : Ok(disciplinas);

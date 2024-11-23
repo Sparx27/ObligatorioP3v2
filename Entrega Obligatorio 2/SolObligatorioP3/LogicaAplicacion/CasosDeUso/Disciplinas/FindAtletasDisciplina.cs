@@ -24,7 +24,7 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
         {
             if (idDisciplina == 0)
             {
-                throw new DisciplinaException("El id de la disciplina no es correcto");
+                throw new DisciplinaException("Id Incorrecto");
             }
 
             return AtletaMapper.AtletasToListaDTO(_repositorioDisciplina.GetAtletasDisciplina(idDisciplina));

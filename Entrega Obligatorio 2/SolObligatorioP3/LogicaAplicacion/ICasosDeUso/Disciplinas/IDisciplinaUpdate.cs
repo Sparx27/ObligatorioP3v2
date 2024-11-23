@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LogicaAplicacion.ICasosDeUso.Disciplinas
 {
-    public interface IFindAllDisciplinas
+    public interface IDisciplinaUpdate
     {
-        IEnumerable<DisciplinaDTO> Ejecutar();
+        DisciplinaDTO Ejecutar(int id,DisciplinaUpdateDTO dto);
     }
 }

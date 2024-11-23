@@ -1,11 +1,13 @@
 using LogicaAccesoDatos;
 using LogicaAccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Atletas;
+using LogicaAplicacion.CasosDeUso.Auditorias;
 using LogicaAplicacion.CasosDeUso.Disciplinas;
 using LogicaAplicacion.CasosDeUso.Eventos;
 using LogicaAplicacion.CasosDeUso.Paises;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.ICasosDeUso.Atletas;
+using LogicaAplicacion.ICasosDeUso.Auditorias;
 using LogicaAplicacion.ICasosDeUso.Disciplinas;
 using LogicaAplicacion.ICasosDeUso.Eventos;
 using LogicaAplicacion.ICasosDeUso.Paises;
@@ -35,6 +37,7 @@ namespace WebApi
             builder.Services.AddScoped<IRepositorioEvento, RepositorioEvento>();
             builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
             builder.Services.AddScoped<IRepositorioDisciplina, RepositorioDisciplina>();
+            builder.Services.AddScoped<IRepositorioAuditoria,RepositorioAuditoria>();
 
             // Casos de uso
             #region Usuario
@@ -56,9 +59,10 @@ namespace WebApi
 
             #region Disciplina
             builder.Services.AddScoped<IFindAllDisciplinas, FindAllDisciplinas>();
-            builder.Services.AddScoped<IAltaDisciplina, AltaDisciplina>();
+            builder.Services.AddScoped<IInsertDisciplina, InsertDisciplina>();
             builder.Services.AddScoped<IDeleteDisciplina, DeleteDisciplina>();
             builder.Services.AddScoped<IFindAtletasDisciplina, FindAtletasDisciplina>();
+            builder.Services.AddScoped<IDisciplinaSelectById, DisciplinaSelectById>();
             #endregion
 
             #region Evento
@@ -70,6 +74,8 @@ namespace WebApi
             #endregion
 
             builder.Services.AddScoped<IAltaPais, AltaPais>();
+
+            builder.Services.AddScoped<IAuditoriaInsert, AuditoriaInsert>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

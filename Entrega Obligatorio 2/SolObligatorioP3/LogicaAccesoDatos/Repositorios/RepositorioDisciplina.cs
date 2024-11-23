@@ -18,12 +18,12 @@ namespace LogicaAccesoDatos.Repositorios
         {
             _context = context;
         }
-        public void Add(Disciplina item)
+        public Disciplina Insert(Disciplina item)
         {
             _context.Disciplinas.Add(item);
             _context.SaveChanges();
+            return item;
         }
-
 
         public void Delete(Disciplina item)
         {
@@ -48,24 +48,26 @@ namespace LogicaAccesoDatos.Repositorios
             return buscar.LiAtletas;
         }
 
-        public Disciplina GetById(int id)
-        {
-            Disciplina disciplina = _context.Disciplinas.SingleOrDefault(d => d.Id == id);
-
-            if (disciplina == null)
-            {
-                throw new DisciplinaException("Disciplina no encontrada por id");
-            }
-
-            return disciplina;
-        }
+        public Disciplina? GetById(int id) => _context.Disciplinas.SingleOrDefault(d => d.Id == id);            
 
         public void Update(Disciplina item)
         {
-            throw new NotImplementedException();
+            _context.Disciplinas.Update(item);
+            _context.SaveChanges();         
         }
 
         public Disciplina? GetByNombre(string nombre) =>
              _context.Disciplinas.SingleOrDefault(disiplina => disiplina.Nombre.Valor == nombre);
+
+        public void Add(Disciplina item)
+        {
+            _context.Disciplinas.Add(item);
+            _context.SaveChanges();
+        }
+
+        void IRepositorio<Disciplina>.Update(Disciplina item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

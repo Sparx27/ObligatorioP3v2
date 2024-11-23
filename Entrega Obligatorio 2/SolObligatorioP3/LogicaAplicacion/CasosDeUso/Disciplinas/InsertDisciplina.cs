@@ -14,25 +14,24 @@ using System.Threading.Tasks;
 
 namespace LogicaAplicacion.CasosDeUso.Disciplinas
 {
-    public class AltaDisciplina : IAltaDisciplina
+    public class InsertDisciplina : IInsertDisciplina
     {
         private IRepositorioDisciplina _repositorioDisciplina;
-        public AltaDisciplina(IRepositorioDisciplina repositorioDisciplina)
+        public InsertDisciplina(IRepositorioDisciplina repositorioDisciplina)
         {
             _repositorioDisciplina = repositorioDisciplina;
         }
 
-        public void Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO)
+        public int Ejecutar(DisciplinaInsertDTO disciplinaInsertDTO)
         {
-            Disciplina? BuscarSiExiste = _repositorioDisciplina.GetByNombre(disciplinaInsertDTO.Nombre);
-            if (BuscarSiExiste != null)
-            {
-                throw new DisciplinaException("Ya existe una disciplina con ese nombre");
-            }
-
             ValidarDisciplina.Nombre(disciplinaInsertDTO.Nombre);
+            ValidarDisciplina.Anio(disciplinaInsertDTO.AnioIntegracion);
 
-            _repositorioDisciplina.Add(DisciplinaMapper.InsertDTOToDisciplina(disciplinaInsertDTO));
+            Disciplina? BuscarSiExiste = _repositorioDisciplina.GetByNombre(disciplinaInsertDTO.Nombre);
+            if (BuscarSiExiste != null) throw new ConflictException("Ya existe una disciplina con ese nombre");
+
+            Disciplina disciplina = _repositorioDisciplina.Insert(DisciplinaMapper.InsertDTOToDisciplina(disciplinaInsertDTO));
+            return disciplina.Id;
         }
     }
 }

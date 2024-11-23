@@ -11,6 +11,12 @@
             <param name="disciplinaId"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.DisciplinaController.GetAll">
+            <summary>
+            Permite obtener todas las disciplinas
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.UsuarioController.Login(Compartido.DTOs.Usuarios.CredencialesDTO)">
             <summary>
             Permite realizar el login a la página
