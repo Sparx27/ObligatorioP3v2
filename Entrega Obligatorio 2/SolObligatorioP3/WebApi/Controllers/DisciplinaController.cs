@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LogicaNegocio.Enums;
+using LogicaNegocio.Entidades;
 
 namespace WebApi.Controllers
 {
@@ -22,12 +23,14 @@ namespace WebApi.Controllers
         private readonly IDisciplinaUpdate _disciplinaUpdate;
         private readonly IDisciplinaSelectById _disciplinaSelectById;
         private readonly IAuditoriaInsert _auditoriaInsert;
+        private readonly IDisciplinaSelectByNombre _disciplinaSelectByNombre;
         public DisciplinaController(IEventosAtleta eventosAtleta, 
             IFindAllDisciplinas findAllDisciplinas, 
             IInsertDisciplina altaDisciplina, 
             IDeleteDisciplina deleteDisciplina, 
             IDisciplinaSelectById disciplinaSelectById,
-            IAuditoriaInsert auditoriaInsert)
+            IAuditoriaInsert auditoriaInsert,
+            IDisciplinaSelectByNombre disciplinaSelectByNombre)
         {
             _eventosAtleta = eventosAtleta;
             _finAllDisciplinas = findAllDisciplinas;
@@ -35,6 +38,7 @@ namespace WebApi.Controllers
             _deleteDisciplina = deleteDisciplina;
             _disciplinaSelectById = disciplinaSelectById;
             _auditoriaInsert = auditoriaInsert;
+            _disciplinaSelectByNombre = disciplinaSelectByNombre;
         }
 
         [Authorize(Roles = "Digitador")]
@@ -44,7 +48,7 @@ namespace WebApi.Controllers
             try
             {
                 DisciplinaDTO? res = _disciplinaSelectById.Ejecutar(id);
-                return res == null ? NotFound("No se encontró disciplina con ese id") : Ok(res);
+                return res == null ? NotFound("No se encontró disciplina con ese Id") : Ok(res);
             }
             catch (DisciplinaException dex)
             {
@@ -55,7 +59,26 @@ namespace WebApi.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");
             }
+        }
 
+        [Authorize(Roles = "Digitador")]
+        [HttpGet("Nombre/{nombre}")]
+        public IActionResult GetByNombre(string nombre)
+        {
+            try
+            {
+                DisciplinaDTO? res = _disciplinaSelectByNombre.Ejecutar(nombre);
+                return res == null ? NotFound("No se encontró disciplina con ese nombre") : Ok(res);
+            }
+            catch (DisciplinaException dex)
+            {
+                return BadRequest(dex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
 
         //[Authorize(Roles = "Digitador")]
@@ -93,7 +116,7 @@ namespace WebApi.Controllers
         }
 
         [Authorize(Roles = "Digitador")]
-        [HttpPut("{id}")]
+        [HttpPut("{nombre}")]
         public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
         {
             try
@@ -128,11 +151,34 @@ namespace WebApi.Controllers
 
 
         [Authorize(Roles = "Digitador")]
-        [HttpDelete("{id}")]
+        [HttpDelete("{nombre}")]
         public IActionResult Delete(int id)
         {
-            //Falta implementar
-            return NoContent();
+            try
+            {
+                _deleteDisciplina.Ejecutar(id);
+                _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
+                {
+                    Accion = Accion.Delete,
+                    EmailUsuario = User.FindFirst("Email")?.Value,
+                    Entidad = "Disciplina",
+                    EntidadId = id
+                });
+                return NoContent();
+            }
+            catch (ConflictException cex)
+            {
+                return Conflict(cex.Message);
+            }
+            catch (DisciplinaException dex)
+            {
+                return BadRequest(dex.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, "Algo no salió correctamente");
+            }
         }
 
         /// <summary>
@@ -148,9 +194,7 @@ namespace WebApi.Controllers
             try
             {
                 IEnumerable<DisciplinaDTO> disciplinas = _finAllDisciplinas.Ejecutar();
-                return disciplinas == null
-                    ? NotFound("No se encontraron disciplinas")
-                    : Ok(disciplinas);
+                return Ok(disciplinas);
             }
             catch (Exception ex)
             {
@@ -159,16 +203,5 @@ namespace WebApi.Controllers
             }
 
         }
-        /*
-         RF3– CRUD de disciplinas a través de Webapi. - Autenticación Jwt
-        - Se podrán agregar disciplinas, modificarlas, eliminarlas, obtener una disciplina dado su Id, obtener una
-        disciplina dado su nombre (recordar que es único), obtener todas las disciplinas.
-        - Estas operaciones se expondrán a través de una Web Api, y se probarán a través de un cliente
-        HttpClient.
-         */
-
-
-
-
     }
 }

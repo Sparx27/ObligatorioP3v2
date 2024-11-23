@@ -20,8 +20,14 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
 
         public void Ejecutar(int id)
         {
-            Disciplina buscarDisciplina = _repositorioDisciplina.GetById(id);
-            if (buscarDisciplina == null) throw new DisciplinaException($"No se encontró una Disciplina con id: {id}");
+            if (id <= 0) throw new DisciplinaException("Id incorrecto");
+
+            Disciplina buscarDisciplina = _repositorioDisciplina.GetById(id)
+                ?? throw new DisciplinaException($"No se encontró una Disciplina con id: {id}");
+
+            if (buscarDisciplina.LiAtletas.Count > 0) 
+                throw new ConflictException("No se puede eliminar una disciplina con atletlas registrados");
+
             _repositorioDisciplina.Delete(buscarDisciplina);
         }
     }

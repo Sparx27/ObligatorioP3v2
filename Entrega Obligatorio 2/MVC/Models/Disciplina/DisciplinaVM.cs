@@ -2,7 +2,7 @@
 
 namespace MVC.Models.Disciplina
 {
-    public class DisciplinaListaVM
+    public class DisciplinaVM
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

@@ -1,7 +1,7 @@
 ﻿@using MVC.Models.Disciplina
 @model IEnumerable<MVC.Models.Atleta.AtletaListaVM>
 @{
-    IEnumerable<DisciplinaListaVM> disciplinas = ViewBag.Disciplinas;
+    IEnumerable<DisciplinaVM> disciplinas = ViewBag.Disciplinas;
 }
 @{
         ViewData["Title"] = "Listado de atletas";
@@ -25,7 +25,7 @@
                     <option value="">-- Seleccionar -- </option>
                     @if (disciplinas != null)
                     {
-                        foreach (DisciplinaListaVM disciplina in disciplinas)
+                        foreach (DisciplinaVM disciplina in disciplinas)
                         {
                             <option value=@disciplina.Id>@disciplina.Nombre</option>
                         }

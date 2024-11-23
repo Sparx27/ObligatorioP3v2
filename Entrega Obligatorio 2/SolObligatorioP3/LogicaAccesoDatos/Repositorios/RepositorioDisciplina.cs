@@ -33,10 +33,8 @@ namespace LogicaAccesoDatos.Repositorios
 
         public List<Disciplina> GetAll() =>
             _context.Disciplinas
-                .AsEnumerable()
                 .OrderBy(d => d.Nombre.Valor)
                 .ToList();
-        // NOTA: AsEnumerable porque Nombre es un ValueObject
 
         public List<Atleta> GetAtletasDisciplina(int idDisciplina)
         {
@@ -48,7 +46,10 @@ namespace LogicaAccesoDatos.Repositorios
             return buscar.LiAtletas;
         }
 
-        public Disciplina? GetById(int id) => _context.Disciplinas.SingleOrDefault(d => d.Id == id);            
+        public Disciplina? GetById(int id) => 
+            _context.Disciplinas
+            .Include(d => d.LiAtletas)
+            .SingleOrDefault(d => d.Id == id);            
 
         public void Update(Disciplina item)
         {

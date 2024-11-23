@@ -2,30 +2,44 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models.Disciplina;
 using MVC.Utils;
+using Newtonsoft.Json;
 
 namespace MVC.Controllers
 {
     public class DisciplinaController : Controller
     {
-       
-        // GET: DisciplinaController
-        public ActionResult Index()
+        private readonly string _url;
+
+        public DisciplinaController(IConfiguration config)
         {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            _url = config.GetConnectionString("API");
+        }
+
+        // GET: DisciplinaController
+        public async Task<ActionResult> Index()
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
                 try
                 {
-                    return View();/*_findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM*/
-                    //{
-                    //    Id = d.Id,
-                    //    Nombre = d.Nombre,
-                    //    AnioIntegracion = d.AnioIntegracion
-                    //}));
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina", "GET");
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        IEnumerable<DisciplinaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaVM>>(disciplinas.Item1) ??
+                            throw new Exception("Fallo en obtener listado de disciplinas");
+
+                        return View(listaDiscplinas);
+                    }
+                    else
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
                 }
-                
                 catch (Exception ex)
                 {
-                    return RedirectToAction("Index", "Error", new { code = 400, message = ex.Message });
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
                 }
             }
             else
@@ -35,10 +49,94 @@ namespace MVC.Controllers
 
         }
 
-        // GET: DisciplinaController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            if(id == 0)
+            {
+                TempData["ErrorMessage"] = "Id incorrecto";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "GET", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                        return View(res);
+                    }
+                    else if((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    } 
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        public async Task<ActionResult> DetailsByNombre(string? nombre)
+        {
+            if(string.IsNullOrEmpty(nombre))
+            {
+                TempData["ErrorMessage"] = "Nombre requerido";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/Nombre/" + nombre, "GET", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                        return View(res);
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
         }
 
         // GET: DisciplinaController/Create

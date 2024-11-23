@@ -27,7 +27,7 @@ namespace MVC.Controllers
 
                 if (disciplinas.Item2.IsSuccessStatusCode)
                 {
-                    IEnumerable<DisciplinaListaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaListaVM>>(disciplinas.Item1) ??
+                    IEnumerable<DisciplinaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaVM>>(disciplinas.Item1) ??
                         throw new Exception("Fallo en obtener listado de disciplinas");
 
                     ViewBag.Disciplinas = listaDiscplinas;
@@ -35,6 +35,7 @@ namespace MVC.Controllers
                 else
                 {
                     TempData["ErrorMessage"] = disciplinas.Item1;
+                    return View();
                 }
 
                 if (disciplinaId != null)

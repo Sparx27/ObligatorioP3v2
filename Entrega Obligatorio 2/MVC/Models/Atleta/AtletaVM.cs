@@ -13,6 +13,6 @@ namespace MVC.Models.Atleta
         [DisplayName("Nombre del país")]
         public string NombrePais { get; set; }
         [DisplayName("Lista de disciplinas")]
-        public IEnumerable<DisciplinaListaVM> DisciplinasAtleta { get; set; }
+        public IEnumerable<DisciplinaVM> DisciplinasAtleta { get; set; }
     }
 }

@@ -28,7 +28,6 @@ namespace Compartido.Mappers
         {
             if (disciplinaInsertDTO == null) throw new DisciplinaException("Discplina insert vacia en mapper");
 
-
             Disciplina res = new Disciplina
             {
                 Nombre = new RDisciplinaNombre(disciplinaInsertDTO.Nombre),

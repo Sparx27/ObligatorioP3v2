@@ -63,6 +63,8 @@ namespace WebApi
             builder.Services.AddScoped<IDeleteDisciplina, DeleteDisciplina>();
             builder.Services.AddScoped<IFindAtletasDisciplina, FindAtletasDisciplina>();
             builder.Services.AddScoped<IDisciplinaSelectById, DisciplinaSelectById>();
+            builder.Services.AddScoped<IDisciplinaSelectByNombre, DisciplinaSelectByNombre>();
+            builder.Services.AddScoped<IDisciplinaUpdate, DisciplinaUpdate>();
             #endregion
 
             #region Evento
