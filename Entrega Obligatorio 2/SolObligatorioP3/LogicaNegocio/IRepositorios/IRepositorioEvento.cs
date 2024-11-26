@@ -12,5 +12,7 @@ namespace LogicaNegocio.IRepositorios
         Evento GetByNombre(string nombre);
         List<Evento> GetByFecha (DateTime fecha);
         List<Evento> GetEventosAtleta(int atletaId);
+        List<Evento> SelectByBusqueda
+            (int? disciplinaId, DateTime? fchInicio, DateTime? fchFin, string? nombreEvento, int? puntajeMin, int? puntajeMax);
     }
 }

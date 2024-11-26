@@ -4,281 +4,102 @@ using MVC.Models.Atleta;
 using MVC.Models.Disciplina;
 using MVC.Models.Evento;
 using MVC.Utils;
+using Newtonsoft.Json;
 
 namespace MVC.Controllers
 {
     public class EventoController : Controller
     {
-       
+        private readonly string _url;
 
-        // GET: EventoController
-        public ActionResult Index()
+        public EventoController(IConfiguration config)
         {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
-            {
-                try
-                {
-                    //ViewBag.Disciplinas = _findAllDisciplinas.Ejecutar().Select(d => new DisciplinaListaVM
-                    //{
-                    //    Id = d.Id,
-                    //    Nombre = d.Nombre,
-                    //});
-                }
-               
-                catch (Exception ex)
-                {
-                    ViewBag.ErrorMessage = ex.Message;
-                }
-                return View();
-            }
-            return RedirectToAction("Index", "Error");
-
+            _url = config.GetConnectionString("API");
         }
 
-        // GET: EventoController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public async Task<ActionResult> Busqueda(EventoBusquedaVM? vm)
         {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
-                try
+                // En teoría vm nunc debería ser null, pero por las dudas
+                if (vm is null || vm.GetType().GetProperties().All(prop => prop.GetValue(vm) == null))
                 {
-                    //EventoDTO eventoDTO = _findById.Ejecutar(id);
-                    //EventoVM eventoVM = new EventoVM()
-                    //{
-                    //    Id = eventoDTO.Id,
-                    //    FchInicio = eventoDTO.FchInicio,
-                    //    FchFin = eventoDTO.FchFin,
-                    //    NombrePrueba = eventoDTO.NombrePrueba,
-                    //    LiPuntajes = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
-                    //    {
-                    //        Atleta = new AtletaVM
-                    //        {
-                    //            Id = p.Atleta.Id,
-                    //            Nombre = p.Atleta.Nombre,
-                    //            Apellido = p.Atleta.Apellido,
-                    //            NombrePais = p.Atleta.NombrePais,
-                    //            Sexo = p.Atleta.Sexo
-                    //        },
-                    //        Puntaje = p.Puntaje
-                    //    }).ToList()
-                    //};
-                    return View(/*eventoVM*/);
+                    return View();
                 }
-               
-                catch (Exception ex)
+                else
                 {
-                    TempData["ErrorMessage"] = "Algo no salió correctamente";
+                    try
+                    {
+                        // Validaciones del VM
+                        if (
+                            (vm.FchInicio != null && vm.FchFin == null) ||
+                            (vm.FchFin != null && vm.FchInicio == null) ||
+                            (vm.PuntajeMin != null && vm.PuntajeMax == null) ||
+                            (vm.PuntajeMax != null && vm.PuntajeMin == null)
+                        )
+                        {
+                            ViewBag.ErrorMessage = "Si ingresa una fecha debe ingresar ambas, lo mismo para los puntajes";
+                            return View();
+                        }
+
+                        if (vm.FchInicio > vm.FchFin)
+                        {
+                            ViewBag.ErrorMessage = "Rango de fechas incorrecto";
+                            return View();
+                        }
+
+                        if (vm.PuntajeMax < vm.PuntajeMin)
+                        {
+                            ViewBag.ErrorMessage = "Rango de puntajes incorrecto";
+                            return View();
+                        }
+
+                        // Reflección para generar URL dinámicamente:
+                        List<string> queries = vm.GetType()
+                            .GetProperties()
+                            .Where(p => p.GetValue(vm) != null)
+                            .Select(p => $"{p.Name}={p.GetValue(vm)}")
+                            .ToList();
+
+                        // Ej. api/Evento?DisciplinaId=2&NombreEvento=Salto | Si no hay filtro que traiga todos
+                        string queryString = queries.Any() ? "?" + string.Join("&", queries) : "";
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Evento" + queryString, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            var res = JsonConvert.DeserializeObject<IEnumerable<EventoListaVM>>(disciplinas.Item1)
+                                ?? throw new Exception("Fallo en obtener listado de disciplinas");
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            ViewBag.ErrorMessage = disciplinas.Item2;
+                            return View();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                    }
                 }
-                return View();
-            }
-            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Details(EventoVM eventoVM)
-        {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
-            {
-                try
-                {
-                    //EventoUpdatePuntajesDTO eventoModificado = new EventoUpdatePuntajesDTO()
-                    //{
-                    //    Id = eventoVM.Id,
-                    //    LiAtletas = eventoVM.LiPuntajes.Select(p => new PEAUpdateDTO
-                    //    {
-                    //        Puntaje = p.Puntaje,
-                    //        AtletaId = p.Atleta.Id
-                    //    })
-                    //};
-
-                    //EventoDTO eventoDTO = _cargarPuntajes.Ejecutar(eventoModificado);
-                    //EventoVM eventoVMModificado = new EventoVM()
-                    //{
-                    //    Id = eventoDTO.Id,
-                    //    FchInicio = eventoDTO.FchInicio,
-                    //    FchFin = eventoDTO.FchFin,
-                    //    NombrePrueba = eventoDTO.NombrePrueba,
-                    //    LiPuntajes = eventoDTO.LiAtletas.Select(p => new PuntajeEventoAtletaVM
-                    //    {
-                    //        Atleta = new AtletaVM
-                    //        {
-                    //            Id = p.Atleta.Id,
-                    //            Nombre = p.Atleta.Nombre,
-                    //            Apellido = p.Atleta.Apellido,
-                    //            NombrePais = p.Atleta.NombrePais,
-                    //            Sexo = p.Atleta.Sexo
-                    //        },
-                    //        Puntaje = p.Puntaje
-                    //    }).ToList()
-                    //};
-                    //TempData["Message"] = "Puntajes actualizados";
-                    return View(/*eventoVMModificado*/);
-                }
-               
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = "Algo no salió correctamente";
-                }
-                return RedirectToAction("Details", new { id = eventoVM.Id });
-            }
-            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
-
-        }
-
-        // GET: EventoController/Create
-        public ActionResult Create(int idDisciplina)
-        {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
-            {
-                EventoInsertVM EventoVM = new EventoInsertVM();
-
-                try
-                {
-                    //IEnumerable<AtletaListaVM> atletas = _findAtletasDisciplina.Ejecutar(idDisciplina).Select(a => new AtletaListaVM()
-                    //{
-                    //    Id = a.Id,
-                    //    Nombre = a.Nombre,
-                    //    Apellido = a.Apellido,
-                    //    NombrePais = a.NombrePais,
-                    //    Sexo = a.Sexo
-                    //});
-                    //EventoVM.DisciplinaId = idDisciplina;
-                    //EventoVM.Atletas = atletas;
-                    return View(EventoVM);
-                }
-               
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = "Algo no salió correctamente, por favor intente nuevamente";
-                }
-                return View(EventoVM);
-            }
-            return RedirectToAction("Index", "Error");
-
-        }
-
-        // POST: EventoController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(EventoInsertVM eventoInsertVM)
-        {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
-            {
-                try
-                {
-                    //EventoInsertDTO evento = new EventoInsertDTO()
-                    //{
-                    //    DisciplinaId = eventoInsertVM.DisciplinaId,
-                    //    FchInicio = eventoInsertVM.FchInicio,
-                    //    FchFin = eventoInsertVM.FchFin,
-                    //    NombrePrueba = eventoInsertVM.NombrePrueba,
-                    //    AtletasId = eventoInsertVM.AtletasId
-                    //};
-
-                    //_altaEvento.Ejecutar(evento);
-                    //TempData["Message"] = "Evento agregado con éxito";
-                    return RedirectToAction("Create", new { idDisciplina = eventoInsertVM.DisciplinaId });
-                }
-                
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = ex.Message;
-                }
-
-                EventoInsertVM EventoVM = new EventoInsertVM();
-                IEnumerable<AtletaListaVM> atletas;
-                try
-                {
-                    //atletas = _findAtletasDisciplina.Ejecutar(eventoInsertVM.DisciplinaId).Select(a => new AtletaListaVM()
-                    //{
-                    //    Id = a.Id,
-                    //    Nombre = a.Nombre,
-                    //    Apellido = a.Apellido,
-                    //    NombrePais = a.NombrePais,
-                    //    Sexo = a.Sexo
-                    //});
-                }
-                catch (Exception ex)
-                {
-                    return RedirectToAction("Index", "Error");
-                }
-                //EventoVM.DisciplinaId = eventoInsertVM.DisciplinaId;
-                //EventoVM.Atletas = atletas;
-
-                return View(EventoVM);
-            }
-            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
-        }
-
-        // GET: EventoController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: EventoController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: EventoController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: EventoController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult ListEventosPorFecha(DateTime fecha)
-        {
-            if (ManejoSession.GetIdLogueado(HttpContext) != null)
-            {
-                try
-                {
-                    //IEnumerable<EventoListaDTO> eventosFechaDTO = _findEventosFecha.Ejecutar(fecha);
-                    //IEnumerable<EventoListaVM> eventosVM = eventosFechaDTO.Select(e => new EventoListaVM
-                    //{
-                    //    EventoId = e.EventoId,
-                    //    NombrePrueba = e.NombrePrueba,
-                    //    FchInicio = e.FchInicio,
-                    //    FchFin = e.FchFin
-                    //});
-                    //return View(eventosVM);
-                }
-             
-                catch (Exception ex)
-                {
-                    TempData["ErrorMessage"] = ex.Message;
-                }
-                return View();
-
 
             }
-            return RedirectToAction("Index", "Error", new { code = 404, message = "No tiene permisos para ver este recurso" });
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
         }
+    
     }
 }

@@ -73,6 +73,7 @@ namespace WebApi
             builder.Services.AddScoped<IFindById, FindById>();
             builder.Services.AddScoped<ICargarPuntajes, CargarPuntajes>();
             builder.Services.AddScoped<IEventosAtleta, EventosAtleta>();
+            builder.Services.AddScoped<ISelectByBusqueda, SelectByBusqueda>();
             #endregion
 
             builder.Services.AddScoped<IAltaPais, AltaPais>();

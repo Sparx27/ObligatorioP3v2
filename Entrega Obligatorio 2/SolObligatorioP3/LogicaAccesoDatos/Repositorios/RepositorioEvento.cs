@@ -59,5 +59,26 @@ namespace LogicaAccesoDatos.Repositorios
                 .Where(e => e.LiPuntajes.Any(p => p.AtletaId == atletaId))
                 .OrderBy(e => e.Disciplina.Nombre.Valor)
                 .ToList();
+
+        public List<Evento> SelectByBusqueda
+            (int? disciplinaId, DateTime? fchInicio, DateTime? fchFin, string? nombreEvento, int? puntajeMin, int? puntajeMax)
+        {
+            IQueryable<Evento> eventos = _dbContext.Eventos.AsQueryable();
+
+            if (disciplinaId.HasValue) eventos = eventos.Where(e => e.DisciplinaId == disciplinaId);
+
+            if (fchInicio.HasValue)
+            {
+                if (fchInicio == fchFin) eventos = eventos.Where(e => e.FchInicio == fchInicio);
+                else eventos = eventos.Where(e => e.FchInicio >= fchInicio && e.FchFin <= fchFin);
+            }
+
+            if (!string.IsNullOrEmpty(nombreEvento)) eventos = eventos.Where(e => e.NombrePrueba.Contains(nombreEvento));
+
+            if (puntajeMin.HasValue)
+                eventos = eventos.Where(e => e.LiPuntajes.Any(pea => pea.Puntaje >= puntajeMin && pea.Puntaje <= puntajeMax));
+
+            return eventos.ToList();
+        }
     }
 }
