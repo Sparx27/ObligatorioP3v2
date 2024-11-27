@@ -22,6 +22,9 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
         public IEnumerable<EventoListaDTO> Ejecutar(EventoBusquedaDTO busqueda)
         {
             // Validaciones de la búsqueda
+            if(busqueda.DisciplinaId <= 0) 
+                throw new EventoException("Id incorrecto");
+
             if (
                 (busqueda.FchInicio != null && busqueda.FchFin == null) ||
                 (busqueda.FchFin != null && busqueda.FchInicio == null) ||

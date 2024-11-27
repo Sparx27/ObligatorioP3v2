@@ -20,6 +20,7 @@ namespace LogicaAplicacion.Validadores
         public static void Anio(int anio)
         {
             if (anio > DateTime.Now.Year) throw new DisciplinaException("El año no puede ser posterior al actual");
+            if(anio <= 0) throw new DisciplinaException("Año incorrecto");
         }
     }
 }

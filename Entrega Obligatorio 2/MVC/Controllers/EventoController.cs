@@ -32,6 +32,11 @@ namespace MVC.Controllers
                     try
                     {
                         // Validaciones del VM
+                        if(vm.DisciplinaId <= 0)
+                        {
+                            ViewBag.ErrorMessage = "Id incorrecto";
+                            return View();
+                        }
                         if (
                             (vm.FchInicio != null && vm.FchFin == null) ||
                             (vm.FchFin != null && vm.FchInicio == null) ||

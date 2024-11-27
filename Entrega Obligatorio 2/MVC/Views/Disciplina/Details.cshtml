@@ -1,7 +1,7 @@
 ﻿@model MVC.Models.Disciplina.DisciplinaVM
 
 @{
-    ViewData["Title"] = "Disciplina";
+    ViewData["Title"] = "Detalles Disciplina";
 }
 
 <section class="row pb-4 mt-5">
@@ -44,7 +44,9 @@
             {
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
             }
-            <a asp-action="ListaUsuarios" class="text-success">Lista Disciplinas</a>
+            <a asp-action="Index" class="text-success me-2">Lista Disciplinas</a> 
+            <a asp-action="Buscar" class="text-success">Buscar Disciplinas</a>
         </div>
     </div>
+  
 </section>

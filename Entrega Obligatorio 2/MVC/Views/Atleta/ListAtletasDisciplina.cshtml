@@ -43,7 +43,7 @@
             <table class="table mt-4">
                 <thead class="thead-rojo">
                     <tr>
-                        <th class="py-3 d-none">
+                        <th class="py-3">
                             @Html.DisplayNameFor(model => model.Id)
                         </th>
                         <th class="py-3">
@@ -55,15 +55,13 @@
                         <th class="py-3">
                             @Html.DisplayNameFor(model => model.NombrePais)
                         </th>
-                        <th class="py-3">
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="py-3 d-none">
+                            <td class="py-3">
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td class="py-3">
@@ -75,11 +73,6 @@
                             <td class="py-3">
                                 @Html.DisplayFor(modelItem => item.NombrePais)
                             </td>
-                            @* <td class="py-3">
-                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
-                                    @Html.ActionLink("Detalle", "Details", new { id = item.EventoId }, new { @class = "text-success" })
-                                </div>
-                            </td> *@
                         </tr>
                     }
                 </tbody>

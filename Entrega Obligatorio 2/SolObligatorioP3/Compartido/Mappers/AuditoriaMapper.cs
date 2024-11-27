@@ -16,7 +16,7 @@ namespace Compartido.Mappers
             if (DtoInsertToAuditoria == null) throw new Exception("DTO vacío en Auditoria mapper");
             return new Auditoria
             {
-                Accion = Accion.Create,
+                Accion = dto.Accion,
                 EmailUsuario = dto.EmailUsuario,
                 Entidad = dto.Entidad,
                 EntidadId = dto.EntidadId,

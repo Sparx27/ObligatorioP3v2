@@ -56,7 +56,6 @@
                                 </td>
                                 <td class="py-3">
                                     <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
-                                        @Html.ActionLink("Agregar evento", "Create", "Evento", new { idDisciplina = item.Id }, new { @class = "text-success" })
                                         @Html.ActionLink("Editar", "Edit", "Disciplina", new { id = item.Id }, new { @class = "text-success" })
                                         <p data-id="@item.Id"
                                            data-nombre="@item.Nombre"

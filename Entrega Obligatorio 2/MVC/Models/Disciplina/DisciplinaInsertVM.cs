@@ -11,6 +11,7 @@ namespace MVC.Models.Disciplina
         public string Nombre { get; set; }
         [DisplayName("Año de integración")]
         [Required(ErrorMessage = "El año es requerido")]
+        [Range(1, 2024, ErrorMessage = "Año fuera del rango")]
         public int AnioIntegracion { get; set; }
     }
 }

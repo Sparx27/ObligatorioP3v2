@@ -69,7 +69,7 @@ namespace LogicaAccesoDatos.Repositorios
 
             if (fchInicio.HasValue)
             {
-                if (fchInicio == fchFin) eventos = eventos.Where(e => e.FchInicio == fchInicio);
+                if (fchInicio == fchFin) eventos = eventos.Where(e => e.FchInicio == fchInicio || e.FchFin == fchInicio);
                 else eventos = eventos.Where(e => e.FchInicio >= fchInicio && e.FchFin <= fchFin);
             }
 

@@ -8,8 +8,6 @@
 <section class="row mt-5 pb-5">
 
     <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
-
-        
         <form asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
             <h1 class="text-center mb-4 text-danger">Editar Disciplina</h1>
             @if (ViewBag.ErrorMessage != null)
@@ -45,9 +43,11 @@
                     <input type="submit" value="Editar" class="btn btn-danger w-100" />
                 </div>
             }
-           
         </form>
+    </div>
 
+    <div class="col-12 d-flex justify-content-center mt-3">
+        <a asp-action="Index" class="text-center text-success">Volver a la lista</a>
     </div>
 </section>
 

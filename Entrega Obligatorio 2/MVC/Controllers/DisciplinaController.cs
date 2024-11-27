@@ -16,7 +16,6 @@ namespace MVC.Controllers
             _url = config.GetConnectionString("API");
         }
 
-        // GET: DisciplinaController
         public async Task<ActionResult> Index()
         {
             if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
@@ -29,7 +28,7 @@ namespace MVC.Controllers
                     if (disciplinas.Item2.IsSuccessStatusCode)
                     {
                         IEnumerable<DisciplinaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaVM>>(disciplinas.Item1) ??
-                            throw new Exception("Fallo en obtener listado de disciplinas");
+                            throw new Exception("Error al intentar obtener listado de disciplinas");
 
                         return View(listaDiscplinas);
                     }
@@ -47,7 +46,6 @@ namespace MVC.Controllers
             {
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
-
         }
 
         public async Task<ActionResult> Details(int id)
@@ -140,13 +138,102 @@ namespace MVC.Controllers
             }
         }
 
-        // GET: DisciplinaController/Create
-        public ActionResult Create()
+        [HttpGet]
+        public async Task<ActionResult> Buscar(int? opts, int? iId, string? iNa)
         {
-            return View();
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    if (opts is null || opts <= 0)
+                    {
+                        return View();
+                    }
+                    else if (opts == 1)
+                    {
+                        if(iId is null || iId <= 0)
+                        {
+                            TempData["ErrorMessage"] = "Error: Id incorrecto";
+                            return View();
+                        }
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + iId, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"] = disciplinas.Item1;
+                            return RedirectToAction("Buscar");
+                        }
+                    }
+                    else
+                    {
+                        if(string.IsNullOrEmpty(iNa))
+                        {
+                            TempData["ErrorMessage"] = "Error: Nombre vacío";
+                            return View();
+                        }
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/Nombre/" + iNa, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"] = disciplinas.Item1;
+                            return View();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
         }
 
-        // POST: DisciplinaController/Create
+        [HttpGet]
+        public async Task<ActionResult> Create()
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(DisciplinaInsertVM disciplinaInsertVM)
@@ -186,11 +273,8 @@ namespace MVC.Controllers
             {
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
-
-
         }
 
-        // GET: DisciplinaController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
             if (id == 0)
@@ -236,7 +320,6 @@ namespace MVC.Controllers
             }
         }
 
-        // POST: DisciplinaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, DisciplinaUpdateVM disciplinaUpdate)
@@ -284,7 +367,45 @@ namespace MVC.Controllers
             }
         }
 
-        // GET: DisciplinaController/Delete/5
+        public async Task<ActionResult> DeleteDesdeBuscar(int id)
+        {
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                       ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "DELETE", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina eliminada correctamente";
+                        return RedirectToAction("Buscar");
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return RedirectToAction("Buscar");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
         public async Task<ActionResult> Delete(int id)
         {
             if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
@@ -324,21 +445,6 @@ namespace MVC.Controllers
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
 
-        }
-
-        // POST: DisciplinaController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

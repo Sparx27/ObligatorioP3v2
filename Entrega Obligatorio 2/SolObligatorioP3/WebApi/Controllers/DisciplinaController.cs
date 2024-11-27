@@ -54,7 +54,6 @@ namespace WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-
         [Authorize(Roles = "Digitador")]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
