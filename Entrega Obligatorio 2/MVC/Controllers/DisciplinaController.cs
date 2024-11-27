@@ -254,23 +254,23 @@ namespace MVC.Controllers
                     string token = ManejoSession.GetToken(HttpContext)
                         ?? throw new Exception("Fallo en la obtención del token");
 
-                    (string, HttpResponseMessage) disciplinas =
+                    (string, HttpResponseMessage) updated =
                         await ConexionServidor.ClientConBody(_url + "/api/Disciplina/" + id.ToString(), "PUT", disciplinaUpdate, token);
 
-                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    if (updated.Item2.IsSuccessStatusCode)
                     {
-                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(disciplinas.Item1);
+                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(updated.Item1);
                         TempData["Message"] = "Disciplina actualizada correctamente";
                         return View(res);
                     }
-                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    else if ((int)updated.Item2.StatusCode == StatusCodes.Status500InternalServerError)
                     {
-                        throw new Exception(disciplinas.Item1);
+                        throw new Exception(updated.Item1);
                     }
                     else
                     {
-                        TempData["ErrorMessage"] = disciplinas.Item1;
-                        return View();
+                        TempData["ErrorMessage"] = updated.Item1;
+                        return RedirectToAction("Edit", new { Id = id });
                     }
                 }
                 catch (Exception ex)

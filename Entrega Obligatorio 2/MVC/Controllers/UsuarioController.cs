@@ -72,7 +72,7 @@ namespace MVC.Controllers
         public ActionResult CerrarSesion()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
     }
 }

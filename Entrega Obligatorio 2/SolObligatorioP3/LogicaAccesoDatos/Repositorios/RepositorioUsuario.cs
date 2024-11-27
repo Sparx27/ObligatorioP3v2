@@ -50,7 +50,13 @@ namespace LogicaAccesoDatos.Repositorios
             _context.SaveChanges();
         }
 
-        public Usuario? LoginUsuario(string email, string password) =>
-            _context.Usuarios.SingleOrDefault(usuario => usuario.Email.Valor == email && usuario.Contrasena.Valor == password);
+        public Usuario? LoginUsuario(string email, string password)
+        {
+            List<Usuario> preRes = _context.Usuarios
+                .Where(usuario => usuario.Email.Valor == email && usuario.Contrasena.Valor == password)
+                .ToList();
+            return preRes.FirstOrDefault(u => u.Email.Valor == email && u.Contrasena.Valor == password);
+        }
+            
     }
 }

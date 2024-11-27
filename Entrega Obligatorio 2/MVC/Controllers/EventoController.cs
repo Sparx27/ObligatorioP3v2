@@ -59,7 +59,18 @@ namespace MVC.Controllers
                         List<string> queries = vm.GetType()
                             .GetProperties()
                             .Where(p => p.GetValue(vm) != null)
-                            .Select(p => $"{p.Name}={p.GetValue(vm)}")
+                            .Select(p =>
+                            {
+                                if (p.PropertyType == typeof(DateTime?))
+                                { 
+                                    DateTime? otroP = p.GetValue(vm) as DateTime?;
+                                    return $"{p.Name}={otroP.Value.ToString("yyyy-MM-dd")}";
+                                }
+                                else
+                                {
+                                    return $"{p.Name}={p.GetValue(vm)}";
+                                 }
+                            })
                             .ToList();
 
                         // Ej. api/Evento?DisciplinaId=2&NombreEvento=Salto | Si no hay filtro que traiga todos
