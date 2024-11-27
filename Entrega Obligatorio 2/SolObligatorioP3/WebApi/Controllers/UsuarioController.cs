@@ -226,7 +226,7 @@ namespace WebApi.Controllers
                 if (rol == "Digitador")
                     if (idUsuario != id.ToString()) return Unauthorized("No tiene permisos para acceder a estos recursos");
 
-                if(rol == "Digitador")
+                if (rol == "Digitador")
                 {
                     return Ok(_update.Ejecutar(id, dto.ContrasenaNueva, dto.ContrasenaAnterior));
                 }

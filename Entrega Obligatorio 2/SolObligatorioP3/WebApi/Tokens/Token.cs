@@ -19,7 +19,7 @@ namespace WebApi.Tokens
         {
             byte[] clave = Encoding.ASCII.GetBytes(_secret);
 
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();  
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
             //Se incluye un claim para el email
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor

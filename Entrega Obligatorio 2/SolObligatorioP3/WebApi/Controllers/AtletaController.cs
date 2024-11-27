@@ -24,6 +24,7 @@ namespace WebApi.Controllers
         /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("{disciplinaId}")]
         public IActionResult GetByDisciplina(int disciplinaId)
@@ -35,7 +36,7 @@ namespace WebApi.Controllers
                     ? NotFound("No existe disciplina con esa id")
                     : Ok(res);
             }
-            catch(AtletaException aex)
+            catch (AtletaException aex)
             {
                 return BadRequest(aex.Message);
             }
@@ -45,9 +46,5 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
-
-
-
-
     }
 }

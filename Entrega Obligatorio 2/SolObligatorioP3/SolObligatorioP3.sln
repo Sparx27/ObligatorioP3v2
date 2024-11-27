@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compartido", "Compartido\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{B4FD4D63-ABA8-42E7-91FA-2EE9D2928372}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenCodigoWebAPI", "GenCodigoWebAPI\GenCodigoWebAPI.csproj", "{FC548DD7-AA71-4624-89AF-191E04C57F43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B4FD4D63-ABA8-42E7-91FA-2EE9D2928372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4FD4D63-ABA8-42E7-91FA-2EE9D2928372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FD4D63-ABA8-42E7-91FA-2EE9D2928372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC548DD7-AA71-4624-89AF-191E04C57F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC548DD7-AA71-4624-89AF-191E04C57F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC548DD7-AA71-4624-89AF-191E04C57F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC548DD7-AA71-4624-89AF-191E04C57F43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

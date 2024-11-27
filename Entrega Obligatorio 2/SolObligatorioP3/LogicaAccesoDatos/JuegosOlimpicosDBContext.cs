@@ -60,6 +60,12 @@ namespace LogicaAccesoDatos
                 EjecutarScript("Atletas.sql");
                 EjecutarScript("Disciplinas.sql");
                 EjecutarScript("AtletasDisciplina.sql");
+                
+            }
+            if(!Eventos.Any())
+            {
+                EjecutarScript("Eventos.sql");
+                EjecutarScript("PuntajeEventoAtleta.sql");
             }
         }
         private void EjecutarScript(string nombreScript)

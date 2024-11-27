@@ -25,10 +25,10 @@ namespace WebApi.Controllers
         private readonly IDisciplinaSelectById _disciplinaSelectById;
         private readonly IAuditoriaInsert _auditoriaInsert;
         private readonly IDisciplinaSelectByNombre _disciplinaSelectByNombre;
-        public DisciplinaController(IEventosAtleta eventosAtleta, 
-            IFindAllDisciplinas findAllDisciplinas, 
-            IInsertDisciplina altaDisciplina, 
-            IDeleteDisciplina deleteDisciplina, 
+        public DisciplinaController(IEventosAtleta eventosAtleta,
+            IFindAllDisciplinas findAllDisciplinas,
+            IInsertDisciplina altaDisciplina,
+            IDeleteDisciplina deleteDisciplina,
             IDisciplinaSelectById disciplinaSelectById,
             IAuditoriaInsert auditoriaInsert,
             IDisciplinaSelectByNombre disciplinaSelectByNombre,
@@ -43,6 +43,17 @@ namespace WebApi.Controllers
             _disciplinaSelectByNombre = disciplinaSelectByNombre;
             _disciplinaUpdate = disciplinaUpdate;
         }
+
+        /// <summary>
+        /// Permite obtener una disciplina por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
         [Authorize(Roles = "Digitador")]
         [HttpGet("{id}")]
@@ -64,6 +75,16 @@ namespace WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Permite obtener una disciplina por nombre
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Digitador")]
         [HttpGet("Nombre/{nombre}")]
         public IActionResult GetByNombre(string nombre)
@@ -83,7 +104,16 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+        /// <summary>
+        /// Permite dar de alta una disciplina
+        /// </summary>
+        /// <param name="disciplinaInsertDto"></param>
+        /// <returns></returns>
 
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Digitador")]
         [HttpPost]
         public IActionResult Post([FromBody] DisciplinaInsertDTO disciplinaInsertDto)
@@ -117,7 +147,17 @@ namespace WebApi.Controllers
             }
 
         }
+        /// <summary>
+        /// Permite modificar una disciplina
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="disciplinaUpdateDTO"></param>
+        /// <returns></returns>
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Digitador")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
@@ -151,8 +191,16 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+        /// <summary>
+        /// Permite eliminar una disciplina
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
-
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Digitador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -177,7 +225,7 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");

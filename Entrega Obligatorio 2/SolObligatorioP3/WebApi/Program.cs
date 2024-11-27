@@ -37,7 +37,7 @@ namespace WebApi
             builder.Services.AddScoped<IRepositorioEvento, RepositorioEvento>();
             builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
             builder.Services.AddScoped<IRepositorioDisciplina, RepositorioDisciplina>();
-            builder.Services.AddScoped<IRepositorioAuditoria,RepositorioAuditoria>();
+            builder.Services.AddScoped<IRepositorioAuditoria, RepositorioAuditoria>();
 
             // Casos de uso
             #region Usuario
@@ -84,7 +84,7 @@ namespace WebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            
+
             builder.Services.AddAuthentication(aut =>
             {
                 aut.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

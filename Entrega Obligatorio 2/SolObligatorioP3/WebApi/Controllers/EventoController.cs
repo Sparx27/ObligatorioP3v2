@@ -16,7 +16,15 @@ namespace WebApi.Controllers
         {
             _selectByBusqueda = selectByBusqueda;
         }
+        /// <summary>
+        /// Permite obtener el listado de eventos de acuerdo a los filtros cargados.
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
         [Authorize(Roles = "Digitador")]
         public IActionResult GetByBusqueda([FromQuery] EventoBusquedaDTO dto)
