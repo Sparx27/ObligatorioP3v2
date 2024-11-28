@@ -93,51 +93,6 @@ namespace MVC.Controllers
             }
         }
 
-        public async Task<ActionResult> DetailsByNombre(string? nombre)
-        {
-            if (string.IsNullOrEmpty(nombre))
-            {
-                TempData["ErrorMessage"] = "Nombre requerido";
-                return View();
-            }
-
-            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
-            {
-                try
-                {
-                    string token = ManejoSession.GetToken(HttpContext)
-                        ?? throw new Exception("Fallo en la obtención del token");
-
-                    (string, HttpResponseMessage) disciplinas =
-                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/Nombre/" + nombre, "GET", token);
-
-                    if (disciplinas.Item2.IsSuccessStatusCode)
-                    {
-                        DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
-
-                        return View(res);
-                    }
-                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
-                    {
-                        throw new Exception(disciplinas.Item1);
-                    }
-                    else
-                    {
-                        TempData["ErrorMessage"] = disciplinas.Item1;
-                        return View();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
-                }
-            }
-            else
-            {
-                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
-            }
-        }
-
         [HttpGet]
         public async Task<ActionResult> Buscar(int? tipoBusqueda, int? iId, string? iNa)
         {

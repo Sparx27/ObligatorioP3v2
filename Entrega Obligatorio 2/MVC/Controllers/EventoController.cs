@@ -32,7 +32,7 @@ namespace MVC.Controllers
                     try
                     {
                         // Validaciones del VM
-                        if(vm.DisciplinaId <= 0)
+                        if (vm.DisciplinaId <= 0)
                         {
                             ViewBag.ErrorMessage = "Id incorrecto";
                             return View();
@@ -55,10 +55,10 @@ namespace MVC.Controllers
                             return View();
                         }
 
-                        if (vm.PuntajeMax < vm.PuntajeMin || 
-                            vm.PuntajeMin < 0 || 
-                            vm.PuntajeMin > 10 || 
-                            vm.PuntajeMax < 0 || 
+                        if (vm.PuntajeMax < vm.PuntajeMin ||
+                            vm.PuntajeMin < 0 ||
+                            vm.PuntajeMin > 10 ||
+                            vm.PuntajeMax < 0 ||
                             vm.PuntajeMax > 10
                         )
                         {
@@ -73,14 +73,14 @@ namespace MVC.Controllers
                             .Select(p =>
                             {
                                 if (p.PropertyType == typeof(DateTime?))
-                                { 
+                                {
                                     DateTime? otroP = p.GetValue(vm) as DateTime?;
                                     return $"{p.Name}={otroP.Value.ToString("yyyy-MM-dd")}";
                                 }
                                 else
                                 {
                                     return $"{p.Name}={p.GetValue(vm)}";
-                                 }
+                                }
                             })
                             .ToList();
 
@@ -122,6 +122,5 @@ namespace MVC.Controllers
                 return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
             }
         }
-    
     }
 }

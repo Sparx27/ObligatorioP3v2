@@ -17,7 +17,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class DisciplinaController : ControllerBase
     {
-        private readonly IEventosAtleta _eventosAtleta;
+
         private readonly IFindAllDisciplinas _finAllDisciplinas;
         private readonly IInsertDisciplina _altaDisciplina;
         private readonly IDeleteDisciplina _deleteDisciplina;
@@ -25,7 +25,7 @@ namespace WebApi.Controllers
         private readonly IDisciplinaSelectById _disciplinaSelectById;
         private readonly IAuditoriaInsert _auditoriaInsert;
         private readonly IDisciplinaSelectByNombre _disciplinaSelectByNombre;
-        public DisciplinaController(IEventosAtleta eventosAtleta,
+        public DisciplinaController(
             IFindAllDisciplinas findAllDisciplinas,
             IInsertDisciplina altaDisciplina,
             IDeleteDisciplina deleteDisciplina,
@@ -34,7 +34,7 @@ namespace WebApi.Controllers
             IDisciplinaSelectByNombre disciplinaSelectByNombre,
             IDisciplinaUpdate disciplinaUpdate)
         {
-            _eventosAtleta = eventosAtleta;
+          
             _finAllDisciplinas = findAllDisciplinas;
             _altaDisciplina = altaDisciplina;
             _deleteDisciplina = deleteDisciplina;
