@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GXRB0WkJIFTjtWBdwW6svTgwSwv2D+TugFfjDpgm/hXdRIjP5eimw0xlkcp7OVhgeFB5ml0bRlPzUDV2QELQ9A==",
+  "dgSpecHash": "XqGcjM6uhvJiGeuQcF9SPb0j83gEqtgynAzPj2eBFvCAlcPHPdBnJrUSiOPNaWQCtBMzlYO+nf6mCJpoH9n8mQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\Obligatorio\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

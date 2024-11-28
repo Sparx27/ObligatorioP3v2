@@ -6142,11 +6142,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Obligatorio\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
       "projectName": "MVC",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
+      "projectPath": "C:\\Users\\Dell\\Desktop\\Obligatorio\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\MVC.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\obj\\",
+      "outputPath": "C:\\Users\\Dell\\Desktop\\Obligatorio\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
