@@ -37,6 +37,7 @@ namespace MVC.Controllers
                             ViewBag.ErrorMessage = "Id incorrecto";
                             return View();
                         }
+
                         if (
                             (vm.FchInicio != null && vm.FchFin == null) ||
                             (vm.FchFin != null && vm.FchInicio == null) ||
@@ -54,7 +55,12 @@ namespace MVC.Controllers
                             return View();
                         }
 
-                        if (vm.PuntajeMax < vm.PuntajeMin)
+                        if (vm.PuntajeMax < vm.PuntajeMin || 
+                            vm.PuntajeMin < 0 || 
+                            vm.PuntajeMin > 10 || 
+                            vm.PuntajeMax < 0 || 
+                            vm.PuntajeMax > 10
+                        )
                         {
                             ViewBag.ErrorMessage = "Rango de puntajes incorrecto";
                             return View();

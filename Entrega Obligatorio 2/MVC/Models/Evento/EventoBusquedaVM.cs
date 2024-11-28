@@ -15,8 +15,10 @@ namespace MVC.Models.Evento
         public DateTime? FchFin { get; set; }
         public string? NombreEvento { get; set; }
         [DisplayName("Puntaje Mínimo")]
+        [Range(0, 10, ErrorMessage = "Los puntajes van desde 0 a 10")]
         public int? PuntajeMin { get; set; }
         [DisplayName("Puntaje Máximo")]
+        [Range(0, 10, ErrorMessage = "Los puntajes van desde 0 a 10")]
         public int? PuntajeMax { get; set; }
     }
 }

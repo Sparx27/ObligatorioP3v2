@@ -1,6 +1,7 @@
 ﻿using Compartido.DTOs.Auditorias;
 using LogicaNegocio.Entidades;
 using LogicaNegocio.Enums;
+using LogicaNegocio.ExcepcionesEntidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace Compartido.Mappers
     {
         public static Auditoria DtoInsertToAuditoria(AuditoriaInsertDTO dto)
         {
-            if (DtoInsertToAuditoria == null) throw new Exception("DTO vacío en Auditoria mapper");
+            if (dto == null) throw new AuditoriaException("DTO vacío en Auditoria mapper");
+
             return new Auditoria
             {
                 Accion = dto.Accion,

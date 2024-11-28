@@ -49,7 +49,6 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -79,7 +78,6 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="nombre"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -103,12 +101,12 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+
         /// <summary>
         /// Permite dar de alta una disciplina
         /// </summary>
         /// <param name="disciplinaInsertDto"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -120,6 +118,7 @@ namespace WebApi.Controllers
             try
             {
                 int idDisciplina = _altaDisciplina.Ejecutar(disciplinaInsertDto);
+
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
                     Accion = Accion.Create,
@@ -139,6 +138,12 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                // Esto es un tema interno de servidor, si llego hasta _auditoriaInsert.Ejecutar ya hizo la inserción
+                Console.WriteLine(aex.Message);
+                return Created();
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -146,13 +151,13 @@ namespace WebApi.Controllers
             }
 
         }
+
         /// <summary>
         /// Permite modificar una disciplina
         /// </summary>
         /// <param name="id"></param>
         /// <param name="disciplinaUpdateDTO"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -161,9 +166,10 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
         {
+            DisciplinaDTO disciplinaDTO = new DisciplinaDTO();
             try
             {
-                DisciplinaDTO disciplinaDTO = _disciplinaUpdate.Ejecutar(id, disciplinaUpdateDTO);
+                disciplinaDTO = _disciplinaUpdate.Ejecutar(id, disciplinaUpdateDTO);
 
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
@@ -174,7 +180,6 @@ namespace WebApi.Controllers
                 });
 
                 return Ok(disciplinaDTO);
-
             }
             catch (ConflictException cex)
             {
@@ -184,18 +189,23 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                Console.WriteLine(aex.Message);
+                return Ok(disciplinaDTO);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+
         /// <summary>
         /// Permite eliminar una disciplina
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -224,6 +234,11 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                Console.WriteLine(aex.Message);
+                return NoContent();
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -251,7 +266,6 @@ namespace WebApi.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");
             }
-
         }
     }
 }

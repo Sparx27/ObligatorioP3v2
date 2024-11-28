@@ -25,7 +25,7 @@
                 <h2 class="fs-5">Seleccionar Tipo de Búsqueda</h2>
             </div>
             <div class="col-auto">
-                <select id="opts" name="opts">
+                <select id="tipoBusqueda" name="tipoBusqueda">
                     <option value="">-- Seleccionar -- </option>
                     <option value="1">Id</option>
                     <option value="2">Nombre</option>
@@ -75,7 +75,7 @@
                             <td class="py-3">
                                 <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
                                     @Html.ActionLink("Detalle", "Details", new { id = Model.Id }, new { @class = "text-success" })
-                                    @Html.ActionLink("Eliminar", "DeleteDesdeBuscar", new { id = Model.Id, @class = "text-success" })
+                                    @Html.ActionLink("Eliminar", "DeleteDesdeBuscar", new { id = Model.Id }, new {@class = "text-success" })
                                 </div>
                             </td>
                         </tr>
@@ -97,7 +97,7 @@
         const inputNombre = $("iNa")
         const divBtn = $("divBtn")
 
-        $("opts").addEventListener("change", (e) => {
+        $("tipoBusqueda").addEventListener("change", (e) => {
             if (e.target.value == null || e.target.value == undefined || e.target.value == "") {
                 divId.classList.add("d-none")
                 divNombre.classList.add("d-none")

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\atleta\\listatletasdisciplina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\atleta\\listatletasdisciplina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:controllers\\atletacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:views\\atleta\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\models\\atleta\\atletavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:models\\atleta\\atletavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|c:\\users\\dell\\desktop\\a4.01\\ort\\semestre 3\\programacion 3\\obligatorio\\obligatoriop3v2\\entrega obligatorio 2\\mvc\\models\\evento\\puntajeeventoatletavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7023753-FFCB-445D-9CB0-B91D03207709}|MVC.csproj|solutionrelative:models\\evento\\puntajeeventoatletavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EventoController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\EventoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EventoController.cs",
-              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\EventoController.cs",
-              "RelativeToolTip": "Controllers\\EventoController.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAYwCYAAAAZAAAA",
+              "Title": "ListAtletasDisciplina.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\ListAtletasDisciplina.cshtml",
+              "RelativeDocumentMoniker": "Views\\Atleta\\ListAtletasDisciplina.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\ListAtletasDisciplina.cshtml",
+              "RelativeToolTip": "Views\\Atleta\\ListAtletasDisciplina.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T02:41:18.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Atleta\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Views\\Atleta\\Details.cshtml",
+              "RelativeToolTip": "Views\\Atleta\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T02:40:30.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PuntajeEventoAtletaVM.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Models\\Evento\\PuntajeEventoAtletaVM.cs",
+              "RelativeDocumentMoniker": "Models\\Evento\\PuntajeEventoAtletaVM.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Models\\Evento\\PuntajeEventoAtletaVM.cs",
+              "RelativeToolTip": "Models\\Evento\\PuntajeEventoAtletaVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T17:22:28.211Z",
+              "WhenOpened": "2024-11-28T02:40:15.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AtletaVM.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Models\\Atleta\\AtletaVM.cs",
+              "RelativeDocumentMoniker": "Models\\Atleta\\AtletaVM.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Models\\Atleta\\AtletaVM.cs",
+              "RelativeToolTip": "Models\\Atleta\\AtletaVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T02:39:57.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AtletaController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\AtletaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AtletaController.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\A4.01\\ORT\\Semestre 3\\Programacion 3\\OBLIGATORIO\\ObligatorioP3v2\\Entrega Obligatorio 2\\MVC\\Controllers\\AtletaController.cs",
+              "RelativeToolTip": "Controllers\\AtletaController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwBQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T02:39:24.763Z",
               "EditorCaption": ""
             }
           ]

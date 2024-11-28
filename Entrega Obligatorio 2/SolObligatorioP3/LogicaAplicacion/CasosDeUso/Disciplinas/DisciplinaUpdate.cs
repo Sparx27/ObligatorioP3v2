@@ -30,7 +30,13 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
             Disciplina Existe = _repositorioDisciplina.GetById(id)
                  ?? throw new DisciplinaException("Disciplina no encontrada");
 
-            if (dto.Nombre == Existe.Nombre.Valor) throw new ConflictException("Ya existe una disciplina con ese nombre");
+            Disciplina? ExisteNombre = _repositorioDisciplina.GetByNombre(dto.Nombre);
+
+            if(ExisteNombre != null)
+            {
+                if (dto.Nombre == ExisteNombre.Nombre.Valor && id != ExisteNombre.Id)
+                    throw new ConflictException("Ya existe una disciplina con ese nombre");
+            }
 
             Existe.Nombre = new RDisciplinaNombre( dto.Nombre);
             Existe.AnioIntegracion = dto.AnioIntegracion;

@@ -1,6 +1,7 @@
 ﻿using Compartido.DTOs.Auditorias;
 using Compartido.Mappers;
 using LogicaAplicacion.ICasosDeUso.Auditorias;
+using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace LogicaAplicacion.CasosDeUso.Auditorias
 
         public void Ejecutar(AuditoriaInsertDTO dto)
         {
-            if (dto == null) throw new Exception("Error al registrar la auditoría");
+            if (dto == null) throw new AuditoriaException("Error al registrar la auditoría");
 
             _repositorioAuditoria.Add(AuditoriaMapper.DtoInsertToAuditoria(dto));
         }

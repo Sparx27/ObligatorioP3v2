@@ -139,17 +139,17 @@ namespace MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Buscar(int? opts, int? iId, string? iNa)
+        public async Task<ActionResult> Buscar(int? tipoBusqueda, int? iId, string? iNa)
         {
             if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
             {
                 try
                 {
-                    if (opts is null || opts <= 0)
+                    if (tipoBusqueda is null || tipoBusqueda <= 0)
                     {
                         return View();
                     }
-                    else if (opts == 1)
+                    else if (tipoBusqueda == 1)
                     {
                         if(iId is null || iId <= 0)
                         {
@@ -186,6 +186,8 @@ namespace MVC.Controllers
                             TempData["ErrorMessage"] = "Error: Nombre vacío";
                             return View();
                         }
+
+                        iNa = iNa.Trim();
 
                         string token = ManejoSession.GetToken(HttpContext)
                             ?? throw new Exception("Fallo en la obtención del token");
@@ -334,6 +336,8 @@ namespace MVC.Controllers
             {
                 try
                 {
+                    disciplinaUpdate.Nombre = disciplinaUpdate.Nombre.Trim();
+
                     string token = ManejoSession.GetToken(HttpContext)
                         ?? throw new Exception("Fallo en la obtención del token");
 
@@ -344,7 +348,7 @@ namespace MVC.Controllers
                     {
                         DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(updated.Item1);
                         TempData["Message"] = "Disciplina actualizada correctamente";
-                        return View(res);
+                        return RedirectToAction("Edit", new { Id = id });
                     }
                     else if ((int)updated.Item2.StatusCode == StatusCodes.Status500InternalServerError)
                     {

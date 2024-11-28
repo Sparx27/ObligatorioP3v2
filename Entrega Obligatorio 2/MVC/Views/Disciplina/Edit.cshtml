@@ -8,19 +8,21 @@
 <section class="row mt-5 pb-5">
 
     <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
-        <form asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+        <form id="elForm" asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
             <h1 class="text-center mb-4 text-danger">Editar Disciplina</h1>
+
+            <p id="alertMessage" class="alert alert-warning text-center d-none"></p>
             @if (ViewBag.ErrorMessage != null)
             {
                 <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
             }
             @if (TempData["ErrorMessage"] != null)
             {
-                <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+                <p id="errorMessage" class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
             }
             @if (TempData["Message"] != null)
             {
-                <p class="alert alert-success text-center">@TempData["Message"]</p>
+                <p id="message" class="alert alert-success text-center">@TempData["Message"]</p>
             }
 
             @if (Model != null) {
@@ -56,3 +58,43 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const $ = (id) => document.getElementById(id)
+        let cambio = false
+        const inputNombre = $("Nombre")
+        const inputAnio = $("AnioIntegracion")
+        const inputs = [inputNombre, inputAnio]
+        const elForm = $("elForm")
+        const eMessage = $("alertMessage")
+        function evitarSubmit(e) {
+            e.preventDefault()
+            eMessage.innerText = "No se realizaron cambios"
+            eMessage.classList.remove("d-none")
+
+            const m = $("message")
+            const me = $("errorMessage")
+            if(m != null) {
+                m.classList.add("d-none")
+            }
+            if (me != null) {
+                me.classList.add("d-none")
+            }
+            
+            e.stopImmediatePropagation()
+        }
+
+        if (inputNombre == null || inputAnio == null || elForm == null || eMessage == null) {
+            console.log("Error")
+        }
+
+        elForm.addEventListener("submit", evitarSubmit)
+
+        inputs.forEach(i => {
+            i.addEventListener("change", () => {
+                elForm.removeEventListener("submit", evitarSubmit)
+            })
+        })
+    })
+</script>
