@@ -1,0 +1,52 @@
+﻿@model MVC.Models.Disciplina.DisciplinaVM
+
+@{
+    ViewData["Title"] = "Detalles Disciplina";
+}
+
+<section class="row pb-4 mt-5">
+    <div class="col-12">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        <h1>Detalles</h1>
+
+        <div>
+            <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
+            <hr />
+            <dl class="row fs-5">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AnioIntegracion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AnioIntegracion)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @if (Model != null)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
+            }
+            <a asp-action="Index" class="text-success me-2">Lista Disciplinas</a> 
+            <a asp-action="Buscar" class="text-success">Buscar Disciplinas</a>
+        </div>
+    </div>
+  
+</section>

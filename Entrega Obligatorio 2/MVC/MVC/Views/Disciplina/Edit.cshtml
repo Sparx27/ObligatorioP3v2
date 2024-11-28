@@ -1,0 +1,100 @@
+﻿@model MVC.Models.Disciplina.DisciplinaUpdateVM
+
+@{
+    ViewData["Title"] = "Editar disciplina";
+}
+
+
+<section class="row mt-5 pb-5">
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+        <form id="elForm" asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Editar Disciplina</h1>
+
+            <p id="alertMessage" class="alert alert-warning text-center d-none"></p>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p id="errorMessage" class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <p id="message" class="alert alert-success text-center">@TempData["Message"]</p>
+            }
+
+            @if (Model != null) {
+
+                <input type = "hidden" asp-for= "Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label mb-1"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AnioIntegracion" class="control-label mb-1"></label>
+                    <input asp-for="AnioIntegracion" class="form-control" />
+                    <span asp-validation-for="AnioIntegracion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="submit" value="Editar" class="btn btn-danger w-100" />
+                </div>
+            }
+        </form>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center mt-3">
+        <a asp-action="Index" class="text-center text-success">Volver a la lista</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const $ = (id) => document.getElementById(id)
+        let cambio = false
+        const inputNombre = $("Nombre")
+        const inputAnio = $("AnioIntegracion")
+        const inputs = [inputNombre, inputAnio]
+        const elForm = $("elForm")
+        const eMessage = $("alertMessage")
+        function evitarSubmit(e) {
+            e.preventDefault()
+            eMessage.innerText = "No se realizaron cambios"
+            eMessage.classList.remove("d-none")
+
+            const m = $("message")
+            const me = $("errorMessage")
+            if(m != null) {
+                m.classList.add("d-none")
+            }
+            if (me != null) {
+                me.classList.add("d-none")
+            }
+            
+            e.stopImmediatePropagation()
+        }
+
+        if (inputNombre == null || inputAnio == null || elForm == null || eMessage == null) {
+            console.log("Error")
+        }
+
+        elForm.addEventListener("submit", evitarSubmit)
+
+        inputs.forEach(i => {
+            i.addEventListener("change", () => {
+                elForm.removeEventListener("submit", evitarSubmit)
+            })
+        })
+    })
+</script>

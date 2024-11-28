@@ -1,0 +1,1055 @@
+﻿***********************************
+Archivo: AtletaController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\AtletaController.cs
+***********************************
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Atleta;
+using MVC.Models.Disciplina;
+using MVC.Utils;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+
+namespace MVC.Controllers
+{
+    public class AtletaController : Controller
+    {
+        private readonly string _url;
+
+        public AtletaController(IConfiguration config)
+        {
+            _url = config.GetConnectionString("API");
+        }
+
+        public async Task<ActionResult> ListAtletasDisciplina(int? disciplinaId)
+        {
+            try
+            {
+                (string, HttpResponseMessage) disciplinas =
+                    await ConexionServidor.ClientSinBody(_url + "/api/Disciplina", "GET");
+
+                if (disciplinas.Item2.IsSuccessStatusCode)
+                {
+                    IEnumerable<DisciplinaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaVM>>(disciplinas.Item1) ??
+                        throw new Exception("Fallo en obtener listado de disciplinas");
+
+                    ViewBag.Disciplinas = listaDiscplinas;
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = disciplinas.Item1;
+                    return View();
+                }
+
+                if (disciplinaId != null)
+                {
+                    (string, HttpResponseMessage) atletas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Atleta/" + disciplinaId, "GET");
+
+                    if (atletas.Item2.IsSuccessStatusCode)
+                    {
+                        IEnumerable<AtletaListaVM> listaAtletasvm = JsonConvert.DeserializeObject<IEnumerable<AtletaListaVM>>(atletas.Item1) ??
+                            throw new Exception("Fallo en obtener listado de atletas");
+
+                        return View(listaAtletasvm);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = atletas.Item1;
+                    }
+                }
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            return View();
+        }
+    }
+}
+
+***********************************
+Archivo: DisciplinaController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\DisciplinaController.cs
+***********************************
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Disciplina;
+using MVC.Utils;
+using Newtonsoft.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace MVC.Controllers
+{
+    public class DisciplinaController : Controller
+    {
+        private readonly string _url;
+
+        public DisciplinaController(IConfiguration config)
+        {
+            _url = config.GetConnectionString("API");
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina", "GET");
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        IEnumerable<DisciplinaVM> listaDiscplinas = JsonConvert.DeserializeObject<IEnumerable<DisciplinaVM>>(disciplinas.Item1) ??
+                            throw new Exception("Error al intentar obtener listado de disciplinas");
+
+                        return View(listaDiscplinas);
+                    }
+                    else
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        public async Task<ActionResult> Details(int id)
+        {
+            if (id == 0)
+            {
+                TempData["ErrorMessage"] = "Id incorrecto";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "GET", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                        return View(res);
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Buscar(int? tipoBusqueda, int? iId, string? iNa)
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    if (tipoBusqueda is null || tipoBusqueda <= 0)
+                    {
+                        return View();
+                    }
+                    else if (tipoBusqueda == 1)
+                    {
+                        if(iId is null || iId <= 0)
+                        {
+                            TempData["ErrorMessage"] = "Error: Id incorrecto";
+                            return View();
+                        }
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + iId, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"] = disciplinas.Item1;
+                            return RedirectToAction("Buscar");
+                        }
+                    }
+                    else
+                    {
+                        if(string.IsNullOrEmpty(iNa))
+                        {
+                            TempData["ErrorMessage"] = "Error: Nombre vacío";
+                            return View();
+                        }
+
+                        iNa = iNa.Trim();
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/Nombre/" + iNa, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            DisciplinaVM res = JsonConvert.DeserializeObject<DisciplinaVM>(disciplinas.Item1);
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"] = disciplinas.Item1;
+                            return View();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Create()
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(DisciplinaInsertVM disciplinaInsertVM)
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientConBody(_url + "/api/Disciplina/", "POST", disciplinaInsertVM, token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina creada correctamente";
+                        return RedirectToAction(nameof(Create));
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        public async Task<ActionResult> Edit(int id)
+        {
+            if (id == 0)
+            {
+                TempData["ErrorMessage"] = "Id incorrecto";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "GET", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(disciplinas.Item1);
+
+                        return View(res);
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return View();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(int id, DisciplinaUpdateVM disciplinaUpdate)
+        {
+            if (id == 0)
+            {
+                TempData["ErrorMessage"] = "Id incorrecto";
+                return View();
+            }
+
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    disciplinaUpdate.Nombre = disciplinaUpdate.Nombre.Trim();
+
+                    string token = ManejoSession.GetToken(HttpContext)
+                        ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) updated =
+                        await ConexionServidor.ClientConBody(_url + "/api/Disciplina/" + id.ToString(), "PUT", disciplinaUpdate, token);
+
+                    if (updated.Item2.IsSuccessStatusCode)
+                    {
+                        DisciplinaUpdateVM res = JsonConvert.DeserializeObject<DisciplinaUpdateVM>(updated.Item1);
+                        TempData["Message"] = "Disciplina actualizada correctamente";
+                        return RedirectToAction("Edit", new { Id = id });
+                    }
+                    else if ((int)updated.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(updated.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = updated.Item1;
+                        return RedirectToAction("Edit", new { Id = id });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        public async Task<ActionResult> DeleteDesdeBuscar(int id)
+        {
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                       ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "DELETE", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina eliminada correctamente";
+                        return RedirectToAction("Buscar");
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return RedirectToAction("Buscar");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            if (ManejoSession.GetIdLogueado(HttpContext) != null && ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                try
+                {
+                    string token = ManejoSession.GetToken(HttpContext)
+                       ?? throw new Exception("Fallo en la obtención del token");
+
+                    (string, HttpResponseMessage) disciplinas =
+                        await ConexionServidor.ClientSinBody(_url + "/api/Disciplina/" + id.ToString(), "DELETE", token);
+
+                    if (disciplinas.Item2.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Disciplina eliminada correctamente";
+                        return RedirectToAction("Index");
+                    }
+                    else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                    {
+                        throw new Exception(disciplinas.Item1);
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = disciplinas.Item1;
+                        return RedirectToAction("Index");
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+
+        }
+    }
+}
+
+***********************************
+Archivo: ErrorController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\ErrorController.cs
+***********************************
+using Microsoft.AspNetCore.Mvc;
+
+namespace MVC.Controllers
+{
+    public class ErrorController : Controller
+    {
+        public IActionResult Index(int? code, string? message)
+        {
+            if (code != null)
+            {
+                ViewBag.Message = new { code, message };
+            }
+
+            return View();
+        }
+    }
+}
+
+***********************************
+Archivo: EventoController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\EventoController.cs
+***********************************
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Atleta;
+using MVC.Models.Disciplina;
+using MVC.Models.Evento;
+using MVC.Utils;
+using Newtonsoft.Json;
+
+namespace MVC.Controllers
+{
+    public class EventoController : Controller
+    {
+        private readonly string _url;
+
+        public EventoController(IConfiguration config)
+        {
+            _url = config.GetConnectionString("API");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Busqueda(EventoBusquedaVM? vm)
+        {
+            if (ManejoSession.GetRolLogueado(HttpContext) == "Digitador")
+            {
+                // En teoría vm nunc debería ser null, pero por las dudas
+                if (vm is null || vm.GetType().GetProperties().All(prop => prop.GetValue(vm) == null))
+                {
+                    return View();
+                }
+                else
+                {
+                    try
+                    {
+                        // Validaciones del VM
+                        if (vm.DisciplinaId <= 0)
+                        {
+                            ViewBag.ErrorMessage = "Id incorrecto";
+                            return View();
+                        }
+
+                        if (
+                            (vm.FchInicio != null && vm.FchFin == null) ||
+                            (vm.FchFin != null && vm.FchInicio == null) ||
+                            (vm.PuntajeMin != null && vm.PuntajeMax == null) ||
+                            (vm.PuntajeMax != null && vm.PuntajeMin == null)
+                        )
+                        {
+                            ViewBag.ErrorMessage = "Si ingresa una fecha debe ingresar ambas, lo mismo para los puntajes";
+                            return View();
+                        }
+
+                        if (vm.FchInicio > vm.FchFin)
+                        {
+                            ViewBag.ErrorMessage = "Rango de fechas incorrecto";
+                            return View();
+                        }
+
+                        if (vm.PuntajeMax < vm.PuntajeMin ||
+                            vm.PuntajeMin < 0 ||
+                            vm.PuntajeMin > 10 ||
+                            vm.PuntajeMax < 0 ||
+                            vm.PuntajeMax > 10
+                        )
+                        {
+                            ViewBag.ErrorMessage = "Rango de puntajes incorrecto";
+                            return View();
+                        }
+
+                        // Reflección para generar URL dinámicamente:
+                        List<string> queries = vm.GetType()
+                            .GetProperties()
+                            .Where(p => p.GetValue(vm) != null)
+                            .Select(p =>
+                            {
+                                if (p.PropertyType == typeof(DateTime?))
+                                {
+                                    DateTime? otroP = p.GetValue(vm) as DateTime?;
+                                    return $"{p.Name}={otroP.Value.ToString("yyyy-MM-dd")}";
+                                }
+                                else
+                                {
+                                    return $"{p.Name}={p.GetValue(vm)}";
+                                }
+                            })
+                            .ToList();
+
+                        // Ej. api/Evento?DisciplinaId=2&NombreEvento=Salto | Si no hay filtro que traiga todos
+                        string queryString = queries.Any() ? "?" + string.Join("&", queries) : "";
+
+                        string token = ManejoSession.GetToken(HttpContext)
+                            ?? throw new Exception("Fallo en la obtención del token");
+
+                        (string, HttpResponseMessage) disciplinas =
+                            await ConexionServidor.ClientSinBody(_url + "/api/Evento" + queryString, "GET", token);
+
+                        if (disciplinas.Item2.IsSuccessStatusCode)
+                        {
+                            var res = JsonConvert.DeserializeObject<IEnumerable<EventoListaVM>>(disciplinas.Item1)
+                                ?? throw new Exception("Fallo en obtener listado de disciplinas");
+
+                            return View(res);
+                        }
+                        else if ((int)disciplinas.Item2.StatusCode == StatusCodes.Status500InternalServerError)
+                        {
+                            throw new Exception(disciplinas.Item1);
+                        }
+                        else
+                        {
+                            ViewBag.ErrorMessage = disciplinas.Item2;
+                            return View();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return RedirectToAction("Index", "Error", new { code = 500, message = ex.Message });
+                    }
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error", new { code = 401, message = "No tiene permisos para ver esta información" });
+            }
+        }
+    }
+}
+
+***********************************
+Archivo: HomeController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\HomeController.cs
+***********************************
+using Microsoft.AspNetCore.Mvc;
+
+namespace MVC.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+***********************************
+Archivo: UsuarioController.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Controllers\UsuarioController.cs
+***********************************
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MVC.Models.Usuario;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using MVC.Utils;
+using System.Net.Http.Headers;
+using System.Security.Policy;
+using Newtonsoft.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
+
+namespace MVC.Controllers
+{
+    public class UsuarioController : Controller
+    {
+        private readonly string _url;
+
+        public UsuarioController(IConfiguration config)
+        {
+            _url = config.GetConnectionString("API");
+        }
+        public ActionResult Index()
+        {
+            int? usuarioId = ManejoSession.GetIdLogueado(HttpContext);
+            if (usuarioId != null) return RedirectToAction("Index", "Home");
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(string email, string password)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                {
+                    ViewBag.ErrorMessage = "Debe completar todos los campos";
+                    return View();
+                }
+                CredencialesVM cred = new CredencialesVM
+                {
+                    Email = email,
+                    Contrasena = password
+                };
+                (string, HttpResponseMessage) res =
+                    await ConexionServidor.ClientConBody<CredencialesVM>(_url + "/api/Usuario/iniciar-sesion", "POST", cred);
+
+                if (res.Item2.IsSuccessStatusCode)
+                {
+                    UsuarioLogueadoVM vm = JsonConvert.DeserializeObject<UsuarioLogueadoVM>(res.Item1) ??
+                        throw new Exception("Fallo en iniciar-sesion de API");
+
+                    HttpContext.Session.SetInt32("idLogueado", vm.Id);
+                    HttpContext.Session.SetString("rolLogueado", vm.Rol);
+                    HttpContext.Session.SetString("token", vm.Token);
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = res.Item1;
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult CerrarSesion()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
+    }
+}
+
+***********************************
+Archivo: ErrorViewModel.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\ErrorViewModel.cs
+***********************************
+namespace MVC.Models
+{
+    public class ErrorViewModel
+    {
+        public string? RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    }
+}
+
+***********************************
+Archivo: ConexionServidor.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Utils\ConexionServidor.cs
+***********************************
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using MVC.Models.Usuario;
+using System.Net.Http.Headers;
+using System.Security.Cryptography;
+using System.Security.Policy;
+
+namespace MVC.Utils
+{
+    public static class ConexionServidor
+    {
+        public static async Task<(string, HttpResponseMessage)> ClientSinBody(string url, string method)
+        {
+            HttpClient cliente = new HttpClient();
+            HttpResponseMessage respuesta;
+
+            switch (method)
+            {
+                case "GET":
+                    respuesta = await cliente.GetAsync(url);
+                    break;
+
+                case "DELETE":
+                    respuesta = await cliente.DeleteAsync(url);
+                    break;
+
+                default:
+                    throw new Exception("Method incorrecto");
+            }
+
+            string resBody = await respuesta.Content.ReadAsStringAsync();
+            return (resBody, respuesta);
+        }
+
+        public static async Task<(string, HttpResponseMessage)> ClientSinBody(string url, string method, string token)
+        {
+            HttpClient cliente = new HttpClient();
+            cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage respuesta;
+
+            switch (method)
+            {
+                case "GET":
+                    respuesta = await cliente.GetAsync(url);
+                    break;
+
+                case "DELETE":
+                    respuesta = await cliente.DeleteAsync(url);
+                    break;
+
+                default:
+                    throw new Exception("Method incorrecto");
+            }
+
+            string resBody = await respuesta.Content.ReadAsStringAsync();
+            return (resBody, respuesta);
+        }
+
+        public static async Task<(string, HttpResponseMessage)> ClientConBody<T>(string url, string method, T VM)
+        {
+            HttpClient cliente = new HttpClient();
+
+            HttpResponseMessage respuesta;
+
+            switch (method)
+            {
+                case "POST":
+                    respuesta = await cliente.PostAsJsonAsync(url, VM);
+                    break;
+                case "PUT":
+                    respuesta = await cliente.PutAsJsonAsync(url, VM);
+                    break;
+                case "PATCH":
+                    respuesta = await cliente.PatchAsJsonAsync(url, VM);
+                    break;
+
+                default:
+                    throw new Exception("Method incorrecto");
+            }
+
+            string resBody = await respuesta.Content.ReadAsStringAsync();
+            return (resBody, respuesta);
+        }
+
+        public static async Task<(string, HttpResponseMessage)> ClientConBody<T>(string url, string method, T VM, string token)
+        {
+            HttpClient cliente = new HttpClient();
+            cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage respuesta;
+
+            switch (method)
+            {
+                case "POST":
+                    respuesta = await cliente.PostAsJsonAsync(url, VM);
+                    break;
+                case "PUT":
+                    respuesta = await cliente.PutAsJsonAsync(url, VM);
+                    break;
+                case "PATCH":
+                    respuesta = await cliente.PatchAsJsonAsync(url, VM);
+                    break;
+
+                default:
+                    throw new Exception("Method incorrecto");
+            }
+
+            string resBody = await respuesta.Content.ReadAsStringAsync();
+            return (resBody, respuesta);
+        }
+    }
+}
+
+***********************************
+Archivo: ManejoSession.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Utils\ManejoSession.cs
+***********************************
+namespace MVC.Utils
+{
+    public static class ManejoSession
+    {
+        public static int? GetIdLogueado(HttpContext httpContext)
+        {
+            return httpContext.Session.GetInt32("idLogueado");
+        }
+
+        public static string? GetRolLogueado(HttpContext httpContext)
+        {
+            return httpContext.Session.GetString("rolLogueado");
+        }
+
+        public static string? GetToken(HttpContext httpContext)
+        {
+            return httpContext.Session.GetString("token");
+        }
+    }
+}
+
+***********************************
+Archivo: AtletaListaVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Atleta\AtletaListaVM.cs
+***********************************
+
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MVC.Models.Atleta
+{
+    public class AtletaListaVM
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        [DisplayName("Nombre Completo")]
+        public string NombreCompleto { get; set; }
+        public string Sexo { get; set; }
+
+        [DisplayName("País")]
+        public string NombrePais { get; set; }
+    }
+}
+
+***********************************
+Archivo: DisciplinaInsertVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Disciplina\DisciplinaInsertVM.cs
+***********************************
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace MVC.Models.Disciplina
+{
+    public class DisciplinaInsertVM
+    {
+        [DisplayName("Nombre de disciplina")]
+        [Length(10,50,ErrorMessage = "El nombre de la disciplina debe tener entre 10 y 50 caracteres")]
+        [Required(ErrorMessage = "El nombre es requerido")]
+        public string Nombre { get; set; }
+        [DisplayName("Año de integración")]
+        [Required(ErrorMessage = "El año es requerido")]
+        [Range(1, 2024, ErrorMessage = "Año fuera del rango")]
+        public int AnioIntegracion { get; set; }
+    }
+}
+
+***********************************
+Archivo: DisciplinaUpdateVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Disciplina\DisciplinaUpdateVM.cs
+***********************************
+namespace MVC.Models.Disciplina
+{
+    public class DisciplinaUpdateVM
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int AnioIntegracion { get; set; }
+    }
+}
+
+***********************************
+Archivo: DisciplinaVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Disciplina\DisciplinaVM.cs
+***********************************
+using System.ComponentModel;
+
+namespace MVC.Models.Disciplina
+{
+    public class DisciplinaVM
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+
+        [DisplayName("Año integración")]
+        public int AnioIntegracion { get; set; }
+    }
+}
+
+***********************************
+Archivo: EventoBusquedaVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Evento\EventoBusquedaVM.cs
+***********************************
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
+namespace MVC.Models.Evento
+{
+    public class EventoBusquedaVM
+    {
+        [DisplayName("Disciplina Id")]
+        public int? DisciplinaId { get; set; }
+        [DisplayName("Fecha Inicio")]
+        [DataType(DataType.Date)]
+        public DateTime? FchInicio { get; set; }
+        [DisplayName("Fecha Final")]
+        [DataType(DataType.Date)]
+        public DateTime? FchFin { get; set; }
+        public string? NombreEvento { get; set; }
+        [DisplayName("Puntaje Mínimo")]
+        [Range(0, 10, ErrorMessage = "Los puntajes van desde 0 a 10")]
+        public int? PuntajeMin { get; set; }
+        [DisplayName("Puntaje Máximo")]
+        [Range(0, 10, ErrorMessage = "Los puntajes van desde 0 a 10")]
+        public int? PuntajeMax { get; set; }
+    }
+}
+
+***********************************
+Archivo: EventoListaVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Evento\EventoListaVM.cs
+***********************************
+using MVC.Models.Atleta;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
+namespace MVC.Models.Evento
+{
+    public class EventoListaVM
+    {
+        public int EventoId { get; set; }
+        [DisplayName("Nombre de la Prueba")]
+        public string NombrePrueba { get; set; }
+
+        [DisplayName("Fecha Inicio")]
+        [DataType(DataType.Date)]
+        public DateTime FchInicio { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayName("Fecha Finalización")]
+        public DateTime FchFin { get; set; }
+    }
+}
+
+***********************************
+Archivo: CredencialesVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Usuario\CredencialesVM.cs
+***********************************
+namespace MVC.Models.Usuario
+{
+    public class CredencialesVM
+    {
+        public string Email { get; set; }
+        public string Contrasena { get; set; }
+    }
+}
+
+***********************************
+Archivo: UsuarioLogueadoVM.cs
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Models\Usuario\UsuarioLogueadoVM.cs
+***********************************
+namespace MVC.Models.Usuario
+{
+    public class UsuarioLogueadoVM
+    {
+        public int Id { get; set; }
+        public string Rol { get; set; }
+        public string Token { get; set; }
+    }
+}

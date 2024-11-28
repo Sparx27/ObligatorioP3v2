@@ -1,9 +1,0 @@
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.csproj.AssemblyReference.cache
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.AssemblyInfoInputs.cache
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.AssemblyInfo.cs
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.csproj.CoreCompileInputs.cache
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.RazorAssemblyInfo.cache
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.RazorAssemblyInfo.cs
-C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolMVC\obj\Debug\net8.0\MVC.sourcelink.json

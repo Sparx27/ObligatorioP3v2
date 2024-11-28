@@ -1,0 +1,1278 @@
+﻿***********************************
+Archivo: _ViewImports.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\_ViewImports.cshtml
+***********************************
+@using MVC
+@using MVC.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+***********************************
+Archivo: _ViewStart.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\_ViewStart.cshtml
+***********************************
+@{
+    Layout = "_Layout";
+}
+
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Atleta\Index.cshtml
+***********************************
+@model IEnumerable<MVC.Models.Atleta.AtletaListaVM>
+
+@{
+    ViewData["Title"] = "Lista Atletas";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Lista Atletas</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+
+        <table class="table mt-4">
+            <thead class="thead-rojo">
+                <tr>
+                    <th class="py-3 d-none">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Apellido)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.Sexo)
+                    </th>
+                    <th class="py-3">
+                        @Html.DisplayNameFor(model => model.NombrePais)
+                    </th>
+                    <th class="py-3">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="d-none">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td class="py-3">
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td class="py-3">
+                            @Html.DisplayFor(modelItem => item.Apellido)
+                        </td>
+                        <td class="py-3">
+                            @Html.DisplayFor(modelItem => item.Sexo)
+                        </td>
+                        <td class="py-3">
+                            @Html.DisplayFor(modelItem => item.NombrePais)
+                        </td>
+                        <td class="py-3">
+                            <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "text-success" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+***********************************
+Archivo: ListAtletasDisciplina.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Atleta\ListAtletasDisciplina.cshtml
+***********************************
+@using MVC.Models.Disciplina
+@model IEnumerable<MVC.Models.Atleta.AtletaListaVM>
+@{
+    IEnumerable<DisciplinaVM> disciplinas = ViewBag.Disciplinas;
+}
+@{
+        ViewData["Title"] = "Listado de atletas";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar atletas de una disciplina</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+
+        <form method="get" id="formBuscarAtletas" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-center">
+            <div class="col-auto">
+                <h2 class="fs-5">Seleccionar disciplina</h2>
+            </div>
+            <div class="col-auto">
+                <select id="" name="disciplinaId">
+                    <option value="">-- Seleccionar -- </option>
+                    @if (disciplinas != null)
+                    {
+                        foreach (DisciplinaVM disciplina in disciplinas)
+                        {
+                            <option value=@disciplina.Id>@disciplina.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="Buscar" class="btn btn-success text-white pb-2" />
+            </div>
+        </form>
+
+
+        @if (Model != null)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombreCompleto)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.Sexo)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombrePais)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombreCompleto)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.Sexo)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombrePais)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="fs-4 mt-3">Sin atletas</p>
+        }
+    </div>
+</section>
+
+
+
+***********************************
+Archivo: Buscar.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\Buscar.cshtml
+***********************************
+@using MVC.Models.Disciplina
+@model MVC.Models.Disciplina.DisciplinaVM
+@{
+    IEnumerable<DisciplinaVM> disciplinas = ViewBag.Disciplinas;
+}
+@{
+    ViewData["Title"] = "Buscar Disciplina";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar Disciplina</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        <form method="get" id="formBuscarAtletas" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-baseline">
+            <div class="col-auto">
+                <h2 class="fs-5">Seleccionar Tipo de Búsqueda</h2>
+            </div>
+            <div class="col-auto">
+                <select id="tipoBusqueda" name="tipoBusqueda">
+                    <option value="">-- Seleccionar -- </option>
+                    <option value="1">Id</option>
+                    <option value="2">Nombre</option>
+                </select>
+            </div>
+            <div id="divId" class="col-4 d-none">
+                <input id="iId" name="iId" type="number" class="form-control" placeholder="Disciplina Id" />
+            </div>
+            <div id="divNa" class="col-4 d-none">
+                <input id="iNa" name="iNa" type="text" class="form-control" placeholder="Nombre Disciplina" />
+            </div>
+            <div id="divBtn" class="col-auto d-none">
+                <input type="submit" value="Buscar" class="btn btn-success text-white pb-2 align-self-center" />
+            </div>
+        </form>
+
+
+        @if (Model != null)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3 d-none">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.AnioIntegracion)
+                        </th>
+                        <th class="py-3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td class="py-3 d-none">
+                                @Html.DisplayFor(modelItem => modelItem.Id)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => modelItem.Nombre)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => modelItem.AnioIntegracion)
+                            </td>
+                            <td class="py-3">
+                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                    @Html.ActionLink("Detalle", "Details", new { id = Model.Id }, new { @class = "text-success" })
+                                    @Html.ActionLink("Eliminar", "DeleteDesdeBuscar", new { id = Model.Id }, new {@class = "text-success" })
+                                </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        function $(id) {
+            return document.getElementById(id)
+        }
+
+        const divId = $("divId")
+        const divNombre = $("divNa")
+        const inputId = $("iId")
+        const inputNombre = $("iNa")
+        const divBtn = $("divBtn")
+
+        $("tipoBusqueda").addEventListener("change", (e) => {
+            if (e.target.value == null || e.target.value == undefined || e.target.value == "") {
+                divId.classList.add("d-none")
+                divNombre.classList.add("d-none")
+                divBtn.classList.add("d-none")
+                inputId.value = ""
+                inputNombre.value = ""
+            }
+            else if (e.target.value == 1) {
+                divNombre.classList.add("d-none")
+                divId.classList.remove("d-none")
+                divBtn.classList.remove("d-none")
+                inputNombre.value = ""
+            }
+            else {
+                divId.classList.add("d-none")
+                divNombre.classList.remove("d-none")
+                divBtn.classList.remove("d-none")
+                inputId.value = ""
+            }
+        })
+    })
+</script>
+***********************************
+Archivo: Create.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\Create.cshtml
+***********************************
+@model MVC.Models.Disciplina.DisciplinaInsertVM
+
+@{
+    ViewData["Title"] = "Alta Disciplina";
+}
+
+<section class="row mt-5 pb-5">
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+
+        <form asp-action="Create" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Alta Disciplina</h1>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <p class="alert alert-success text-center">@TempData["Message"]</p>
+            }
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label mb-1"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnioIntegracion" class="control-label mb-1"></label>
+                <input asp-for="AnioIntegracion" class="form-control" />
+                <span asp-validation-for="AnioIntegracion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Registrar" class="btn btn-danger w-100" />
+            </div>
+        </form>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+***********************************
+Archivo: Details.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\Details.cshtml
+***********************************
+@model MVC.Models.Disciplina.DisciplinaVM
+
+@{
+    ViewData["Title"] = "Detalles Disciplina";
+}
+
+<section class="row pb-4 mt-5">
+    <div class="col-12">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        <h1>Detalles</h1>
+
+        <div>
+            <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
+            <hr />
+            <dl class="row fs-5">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AnioIntegracion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AnioIntegracion)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @if (Model != null)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
+            }
+            <a asp-action="Index" class="text-success me-2">Lista Disciplinas</a> 
+            <a asp-action="Buscar" class="text-success">Buscar Disciplinas</a>
+        </div>
+    </div>
+  
+</section>
+
+***********************************
+Archivo: DetailsByNombre.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\DetailsByNombre.cshtml
+***********************************
+@model MVC.Models.Disciplina.DisciplinaVM
+
+@{
+    ViewData["Title"] = "Disciplina";
+}
+
+<section class="row pb-4 mt-5">
+    <div class="col-12">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        <h1>Detalles</h1>
+
+        <div>
+            <h3 class="text-danger">@Html.DisplayFor(model => model.Nombre)</h3>
+            <hr />
+            <dl class="row fs-5">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AnioIntegracion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AnioIntegracion)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @if (Model != null)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="text-success me-2">Editar datos</a>
+            }
+            <a asp-action="Index" class="text-success">Lista Disciplinas</a>
+        </div>
+    </div>
+</section>
+
+
+***********************************
+Archivo: Edit.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\Edit.cshtml
+***********************************
+@model MVC.Models.Disciplina.DisciplinaUpdateVM
+
+@{
+    ViewData["Title"] = "Editar disciplina";
+}
+
+
+<section class="row mt-5 pb-5">
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+        <form id="elForm" asp-action="Edit" method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Editar Disciplina</h1>
+
+            <p id="alertMessage" class="alert alert-warning text-center d-none"></p>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p id="errorMessage" class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <p id="message" class="alert alert-success text-center">@TempData["Message"]</p>
+            }
+
+            @if (Model != null) {
+
+                <input type = "hidden" asp-for= "Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label mb-1"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AnioIntegracion" class="control-label mb-1"></label>
+                    <input asp-for="AnioIntegracion" class="form-control" />
+                    <span asp-validation-for="AnioIntegracion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="submit" value="Editar" class="btn btn-danger w-100" />
+                </div>
+            }
+        </form>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center mt-3">
+        <a asp-action="Index" class="text-center text-success">Volver a la lista</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const $ = (id) => document.getElementById(id)
+        let cambio = false
+        const inputNombre = $("Nombre")
+        const inputAnio = $("AnioIntegracion")
+        const inputs = [inputNombre, inputAnio]
+        const elForm = $("elForm")
+        const eMessage = $("alertMessage")
+        function evitarSubmit(e) {
+            e.preventDefault()
+            eMessage.innerText = "No se realizaron cambios"
+            eMessage.classList.remove("d-none")
+
+            const m = $("message")
+            const me = $("errorMessage")
+            if(m != null) {
+                m.classList.add("d-none")
+            }
+            if (me != null) {
+                me.classList.add("d-none")
+            }
+            
+            e.stopImmediatePropagation()
+        }
+
+        if (inputNombre == null || inputAnio == null || elForm == null || eMessage == null) {
+            console.log("Error")
+        }
+
+        elForm.addEventListener("submit", evitarSubmit)
+
+        inputs.forEach(i => {
+            i.addEventListener("change", () => {
+                elForm.removeEventListener("submit", evitarSubmit)
+            })
+        })
+    })
+</script>
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Disciplina\Index.cshtml
+***********************************
+@model IEnumerable<MVC.Models.Disciplina.DisciplinaVM>
+
+@{
+    ViewData["Title"] = "Lista Disciplinas";
+}
+
+<p>
+    @ViewBag.Log
+</p>
+
+<div class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Lista de Disciplinas</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        @{
+            int contador = 0;
+            foreach (var item in Model) contador++;
+            if (contador > 0)
+            {
+                <table class="table mt-4">
+                    <thead class="thead-rojo">
+                        <tr>
+                            <th class="py-3">
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th class="py-3">
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th class="py-3">
+                                @Html.DisplayNameFor(model => model.AnioIntegracion)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.AnioIntegracion)
+                                </td>
+                                <td class="py-3">
+                                    <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                        @Html.ActionLink("Detalles", "Details", "Disciplina", new { id = item.Id }, new { @class = "text-success" })
+                                        @Html.ActionLink("Editar", "Edit", "Disciplina", new { id = item.Id }, new { @class = "text-success" })
+                                        <p data-id="@item.Id"
+                                           data-nombre="@item.Nombre"
+                                           class="link link-success text-decoration-underline btn-modal m-0 p-0"
+                                           data-bs-toggle="modal"
+                                           data-bs-target="#modal-eliminar">
+                                            Eliminar
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><i>Aún no se han agregado disciplinas</i></p>
+            }
+        }
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-eliminar" tabindex="-1" aria-labelledby="usuarioModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar disciplina <span id="item-nombre" class="fw-bold"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-center w-100 gap-3">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        @Html.ActionLink("Confirmar", "Delete", new { }, new { @id = "btn-ed", @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" defer>
+    let id = ""
+    let nombre = ""
+    const spanItemNombre = document.getElementById("item-nombre")
+
+    const liBtnModal = document.querySelectorAll(".btn-modal")
+
+    liBtnModal.forEach(b => b.addEventListener("click", (e) => {
+        id = e.target.getAttribute("data-id")
+        nombre = e.target.getAttribute("data-nombre")
+        spanItemNombre.innerText = nombre
+    }))
+
+    document.getElementById("btn-ed").addEventListener("click", (e) => {
+        document.getElementById("btn-ed").href = `/Disciplina/Delete?id=${id}`
+    })
+</script>
+
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Error\Index.cshtml
+***********************************
+@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="row align-items-center justify-content-center pt-5">
+    <figure class="col-8 col-sm-6 col-md-3 mt-3">
+        <img src="~/images/snorlax.jpg" alt="snorlax" class="w-100 rounded-2" />
+    </figure>
+    <div class="col-12 text-center text-md-start col-md-5">
+        @if (ViewBag.Message != null)
+        {
+            <p class="fs-3">
+                <span class="text-danger">@(ViewBag.Message.code):</span>
+                @ViewBag.Message.message
+            </p>
+        }
+        else
+        {
+            <p class="fs-3">
+                <span class="text-danger">Error 401:</span>
+                Un Snorlax bloquea tu paso
+            </p>
+        }
+        @Html.ActionLink("Volver", "Index", "Home", new { }, new { @class = "link-danger text-decoration-none fs-3" })
+    </div>
+</section>
+***********************************
+Archivo: Busqueda.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Evento\Busqueda.cshtml
+***********************************
+@model IEnumerable<MVC.Models.Evento.EventoListaVM>
+
+@{
+    ViewData["Title"] = "Buscar Eventos";
+}
+
+<div class="row mt-5 mb-3">
+    <h1 class="text-center">Buscar Eventos</h1>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success text-center">@TempData["Message"]</p>
+    }
+
+    <div class="col-12 col-md-10 offset-md-1 d-flex justify-content-center mt-3 mb-5">
+        <form asp-action="Busqueda" method="get" class="w-100 rounded p-4 border border-3 border-danger">
+            <h2 class="text-center mb-1 text-danger">Buscar Por:</h2>
+            <p class="text-center mb-4"><small><i>Puede ingresar una o varias opciones</i></small></p>
+
+            <div class="row">
+                <div class="col-6 form-group mb-1">
+                    <label for="DisciplinaId" class="control-label mb-1">Disciplina ID</label>
+                    <input id="DisciplinaId" name="DisciplinaId" class="form-control" type="number" />
+                </div>
+                <div class="col-6 form-group mb-1">
+                    <label for="NombreEvento" class="control-label mb-1">Nombre del Evento</label>
+                    <input id="NombreEvento" name="NombreEvento" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 form-group mb-1">
+                    <label for="FchInicio" class="control-label mb-1">Fecha de Inicio</label>
+                    <input id="FchInicio" name="FchInicio" class="form-control" type="date" />
+                </div>
+                <div class="col-6 form-group mb-1">
+                    <label for="FchFin" class="control-label mb-1">Fecha de Finalización</label>
+                    <input id="FchFin" name="FchFin" class="form-control" type="date" />
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="my-2"><small><i>Los puntajes van desde 0 a 10</i></small></p>
+
+                <div class="col-6 form-group mb-1">
+                    <label for="PuntajeMin" class="control-label mb-1">Puntaje Mínimo</label>
+                    <input id="PuntajeMin" name="PuntajeMin" class="form-control" type="number" />
+                </div>
+                <div class="col-6 form-group mb-1">
+                    <label for="PuntajeMax" class="control-label mb-1">Puntaje Máximo</label>
+                    <input id="PuntajeMax" name="PuntajeMax" class="form-control" type="number" />
+                </div>
+            </div>
+
+            <div class="form-group mt-3 d-flex justify-content-center">
+                <input type="submit" value="Buscar" class="btn btn-danger w-50" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-12">
+        @if (Model != null)
+        {
+            <h1>Resultados</h1>
+
+            int contador = 0;
+            foreach (var item in Model) contador++;
+            if (contador > 0)
+            {
+                <table class="table mt-4">
+                    <thead class="thead-rojo">
+                        <tr>
+                            <th class="py-3">Id</th>
+                            <th class="py-3">Nombre de la Prueba</th>
+                            <th class="py-3">Fecha Inicio</th>
+                            <th class="py-3">Fecha Finalización</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.EventoId)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.NombrePrueba)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.FchInicio)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.FchFin)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><i>La búsqueda no devolvió resultados</i></p>
+            }
+        }
+    </div>
+
+</div>
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Evento\Index.cshtml
+***********************************
+@model MVC.Models.Disciplina.DisciplinaVM
+
+@{
+    ViewData["Title"] = "Seleccionar Disciplina Evento";
+}
+
+<section class="row mt-5 pb-5">
+    @*     <div class="text-center">
+    <a asp-action="Index" class="link link-success">Volver a la lista</a>
+    </div> *@
+
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-3">
+
+        <form asp-action="Create" method="get" class="w-100 rounded p-4 border border-3 border-danger">
+            <h1 class="text-center mb-4 text-danger">Seleccionar Disciplina</h1>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <p class="alert alert-success text-center">@TempData["Message"]</p>
+            }
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-control mb-2">
+                <label for="idDisciplina" class="form-label">Seleccionar disciplina</label>
+                <select id="idDisciplina" name="idDisciplina" class="form-select">
+                    @foreach (var d in ViewBag.Disciplinas)
+                    {
+                        <option value="@d.Id">@d.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-danger w-100" />
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+***********************************
+Archivo: ListEventosPorFecha.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Evento\ListEventosPorFecha.cshtml
+***********************************
+@model IEnumerable<MVC.Models.Evento.EventoListaVM>
+
+@{
+    ViewData["Title"] = "Listado de eventos";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar Eventos por Fecha</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+
+        <form method="get" id="formBuscarEvento" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-center">
+            <div class="col-auto">
+                <h2 class="fs-5">Seleccionar fecha</h2>
+            </div>
+            <div class="col-auto">
+                <input type="date" name="fecha" id="fecha" class="form-control"
+                       value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="Buscar" class="btn btn-success text-white pb-2" />
+            </div>
+        </form>
+
+
+        @if (Model.Count() != 0)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3 d-none">
+                            @Html.DisplayNameFor(model => model.EventoId)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.NombrePrueba)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.FchInicio)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.FchFin)
+                        </th>
+                        <th class="py-3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-3 d-none">
+                                @Html.DisplayFor(modelItem => item.EventoId)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.NombrePrueba)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.FchInicio)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => item.FchFin)
+                            </td>
+                            <td class="py-3">
+                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                    @Html.ActionLink("Detalle", "Details", new { id = item.EventoId }, new { @class = "text-success" })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="fs-4 mt-3">Sin eventos</p>
+        }
+    </div>
+</section>
+
+***********************************
+Archivo: RealizarBusqueda.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Evento\RealizarBusqueda.cshtml
+***********************************
+@model IEnumerable<MVC.Models.Evento.EventoListaVM>
+
+@{
+    ViewData["Title"] = "Buscar Eventos";
+}
+
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+}
+@if (TempData["Message"] != null)
+{
+    <p class="alert alert-success text-center">@TempData["Message"]</p>
+}
+
+<div class="row mt-5 mb-3">
+    <h1>Buscar Eventos</h1>
+
+
+    <div class="col-12 col-md-10 offset-md-1 d-flex justify-content-center mt-3">
+        <form asp-action="Busqueda" method="get" class="w-100 rounded p-4 border border-3 border-danger">
+            <h2 class="text-center mb-1 text-danger">Buscar Por:</h2>
+            <p class="text-center mb-2"><small><i>Puede ingresar una o varias opciones</i></small></p>
+
+            <div class="row">
+                <div class="col-6 form-group mb-1">
+                    <label for="DisciplinaId" class="control-label mb-1">Disciplina ID</label>
+                    <input id="DisciplinaId" name="DisciplinaId" class="form-control" />
+                </div>
+                <div class="col-6 form-group mb-1">
+                    <label for="NombreEvento" class="control-label mb-1"></label>
+                    <input id="NombreEvento" name="NombreEvento" class="form-control" />
+                </div>
+            </div>
+
+
+            
+
+            <div class="form-group mb-1">
+                <label for="FchInicio" class="control-label mb-1"></label>
+                <input id="FchInicio" name="FchInicio" class="form-control" />
+            </div>
+            <div class="form-group mb-1">
+                <label for="FchFin" class="control-label mb-1"></label>
+                <input id="FchFin" name="FchFin" class="form-control" />
+            </div>
+            
+            <div class="form-group mb-1">
+                <label for="PuntajeMin" class="control-label mb-1"></label>
+                <input id="PuntajeMin" name="PuntajeMin" class="form-control" />
+            </div>
+            <div class="form-group mb-1">
+                <label for="PuntajeMax" class="control-label mb-1"></label>
+                <input id="PuntajeMax" name="PuntajeMax" class="form-control" />
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Buscar" class="btn btn-danger w-100" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-12">
+        <h1>Lista de Eventos</h1>
+
+        @if (Model != null)
+        {
+            int contador = 0;
+            foreach (var item in Model) contador++;
+            if (contador > 0)
+            {
+                <table class="table mt-4">
+                    <thead class="thead-rojo">
+                        <tr>
+                            <th class="py-3">Id</th>
+                            <th class="py-3">Nombre de la Prueba</th>
+                            <th class="py-3">Fecha Inicio</th>
+                            <th class="py-3">Fecha Finalización</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.EventoId)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.NombrePrueba)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.FchInicio)
+                                </td>
+                                <td class="py-3">
+                                    @Html.DisplayFor(modelItem => item.FchFin)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><i>La búsqueda no devolvió resultados</i></p>
+            }
+        }
+    </div>
+
+</div>
+
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Home\Index.cshtml
+***********************************
+<section class="row">
+    <div class="col-12 col-md-10 offset-md-1 py-3">
+        <h1 class="display-2 fw-normal col-12 text-center text-danger my-4">París 2024</h1>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <img src="~/images/heroHome.webp" alt="fondo" class="w-100" />
+            </div>
+        </div>
+    </div>
+</section>
+
+***********************************
+Archivo: Error.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Shared\Error.cshtml
+***********************************
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+    It can result in displaying sensitive information from exceptions to end users.
+    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+    and restarting the app.
+</p>
+
+***********************************
+Archivo: _Layout.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Shared\_Layout.cshtml
+***********************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
+</head>
+<body class="mb-0">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-toggleable-sm bg-danger border-2 border-bottom border-white shadow py-2 px-4">
+            <div class="container-fluid d-sm-flex align-items-baseline">
+                <a class="h4 text-decoration-none link-dark me-3" asp-area="" asp-controller="Home" asp-action="Index">Juegos Olímpicos App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between align-baseline pt-1">
+                    <ul class="navbar-nav flex-grow-1 gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link text-white h5" asp-area="" asp-controller="Atleta" asp-action="ListAtletasDisciplina">Atletas de disciplina</a>
+                        </li>
+                        @if (Context.Session.GetInt32("idLogueado") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white h5" asp-area="" asp-controller="Usuario" asp-action="Index">Iniciar Sesión</a>
+                            </li>
+                        }
+                        else
+                        {
+
+                            if (Context.Session.GetString("rolLogueado") == "Administrador")
+                            {
+
+                            }
+                            else // Caso Usuario Digitador
+                            {
+
+                                <li class="nav-item">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle nav-link text-white h5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Disciplinas
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Disciplina" asp-action="Buscar">Buscar</a></li>
+                                            <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Disciplina" asp-action="Index">Lista</a></li>
+                                            <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Disciplina" asp-action="Create">Registrar Disciplina</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white h5" asp-area="" asp-controller="Evento" asp-action="Busqueda">Buscar Eventos</a>
+                                </li>
+                            }
+
+                            // General a ambos tipos de Usuario
+                            <li class="nav-item">
+                                <a class="nav-link text-white h5" asp-area="" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar Sesión</a>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+***********************************
+Archivo: _ValidationScriptsPartial.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Shared\_ValidationScriptsPartial.cshtml
+***********************************
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+***********************************
+Archivo: Index.cshtml
+Carpeta: C:\Users\cri_1\Downloads\COPIAMVC\MVC\Views\Usuario\Index.cshtml
+***********************************
+<section class="row mt-5">
+    <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3 d-flex justify-content-center mt-4">
+        <form method="post" class="w-100 rounded p-4 border border-3 border-danger">
+            <div class="py-3">
+                <h1 class="text-center mb-4 text-danger">Iniciar Sesión</h1>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <p class="alert alert-danger text-center">@ViewBag.ErrorMessage</p>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <p class="alert alert-danger text-center">@TempData["ErrorMessage"]</p>
+                }
+
+                <input type="email" name="email" id="email" class="form-control" placeholder="email@email.com" />
+                <input type="password" name="password" id="password" class="form-control my-3" placeholder="Contraseña" />
+                <input class="btn btn-danger text-white fw-bolder w-100" type="submit" value="Ingresar" />
+            </div>
+        </form>
+    </div>
+</section>
+

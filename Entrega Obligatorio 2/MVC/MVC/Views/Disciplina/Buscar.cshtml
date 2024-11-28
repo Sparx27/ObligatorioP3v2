@@ -1,0 +1,122 @@
+﻿@using MVC.Models.Disciplina
+@model MVC.Models.Disciplina.DisciplinaVM
+@{
+    IEnumerable<DisciplinaVM> disciplinas = ViewBag.Disciplinas;
+}
+@{
+    ViewData["Title"] = "Buscar Disciplina";
+}
+
+<section class="row mt-5 mb-3">
+    <div class="col-12">
+        <h1>Buscar Disciplina</h1>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="alert alert-warning text-center">@TempData["ErrorMessage"]</p>
+        }
+        @if (TempData["Message"] != null)
+        {
+            <p class="alert alert-success text-center">@TempData["Message"]</p>
+        }
+
+        <form method="get" id="formBuscarAtletas" class="ms-1 row gap-3 mt-4 border border-2 border-success rounded-2 px-2 py-3 align-items-baseline">
+            <div class="col-auto">
+                <h2 class="fs-5">Seleccionar Tipo de Búsqueda</h2>
+            </div>
+            <div class="col-auto">
+                <select id="tipoBusqueda" name="tipoBusqueda">
+                    <option value="">-- Seleccionar -- </option>
+                    <option value="1">Id</option>
+                    <option value="2">Nombre</option>
+                </select>
+            </div>
+            <div id="divId" class="col-4 d-none">
+                <input id="iId" name="iId" type="number" class="form-control" placeholder="Disciplina Id" />
+            </div>
+            <div id="divNa" class="col-4 d-none">
+                <input id="iNa" name="iNa" type="text" class="form-control" placeholder="Nombre Disciplina" />
+            </div>
+            <div id="divBtn" class="col-auto d-none">
+                <input type="submit" value="Buscar" class="btn btn-success text-white pb-2 align-self-center" />
+            </div>
+        </form>
+
+
+        @if (Model != null)
+        {
+            <table class="table mt-4">
+                <thead class="thead-rojo">
+                    <tr>
+                        <th class="py-3 d-none">
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th class="py-3">
+                            @Html.DisplayNameFor(model => model.AnioIntegracion)
+                        </th>
+                        <th class="py-3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td class="py-3 d-none">
+                                @Html.DisplayFor(modelItem => modelItem.Id)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => modelItem.Nombre)
+                            </td>
+                            <td class="py-3">
+                                @Html.DisplayFor(modelItem => modelItem.AnioIntegracion)
+                            </td>
+                            <td class="py-3">
+                                <div class="d-flex flex-column flex-wrap flex-md-row gap-md-2 align-baseline">
+                                    @Html.ActionLink("Detalle", "Details", new { id = Model.Id }, new { @class = "text-success" })
+                                    @Html.ActionLink("Eliminar", "DeleteDesdeBuscar", new { id = Model.Id }, new {@class = "text-success" })
+                                </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        function $(id) {
+            return document.getElementById(id)
+        }
+
+        const divId = $("divId")
+        const divNombre = $("divNa")
+        const inputId = $("iId")
+        const inputNombre = $("iNa")
+        const divBtn = $("divBtn")
+
+        $("tipoBusqueda").addEventListener("change", (e) => {
+            if (e.target.value == null || e.target.value == undefined || e.target.value == "") {
+                divId.classList.add("d-none")
+                divNombre.classList.add("d-none")
+                divBtn.classList.add("d-none")
+                inputId.value = ""
+                inputNombre.value = ""
+            }
+            else if (e.target.value == 1) {
+                divNombre.classList.add("d-none")
+                divId.classList.remove("d-none")
+                divBtn.classList.remove("d-none")
+                inputNombre.value = ""
+            }
+            else {
+                divId.classList.add("d-none")
+                divNombre.classList.remove("d-none")
+                divBtn.classList.remove("d-none")
+                inputId.value = ""
+            }
+        })
+    })
+</script>
