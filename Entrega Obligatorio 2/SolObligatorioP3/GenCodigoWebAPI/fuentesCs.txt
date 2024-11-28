@@ -163,6 +163,7 @@ Carpeta: C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\E
 using Compartido.DTOs.Auditorias;
 using LogicaNegocio.Entidades;
 using LogicaNegocio.Enums;
+using LogicaNegocio.ExcepcionesEntidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -175,10 +176,11 @@ namespace Compartido.Mappers
     {
         public static Auditoria DtoInsertToAuditoria(AuditoriaInsertDTO dto)
         {
-            if (DtoInsertToAuditoria == null) throw new Exception("DTO vacío en Auditoria mapper");
+            if (dto == null) throw new AuditoriaException("DTO vacío en Auditoria mapper");
+
             return new Auditoria
             {
-                Accion = Accion.Create,
+                Accion = dto.Accion,
                 EmailUsuario = dto.EmailUsuario,
                 Entidad = dto.Entidad,
                 EntidadId = dto.EntidadId,
@@ -1673,7 +1675,7 @@ namespace LogicaAccesoDatos.Repositorios
 
             if (fchInicio.HasValue)
             {
-                if (fchInicio == fchFin) eventos = eventos.Where(e => e.FchInicio == fchInicio);
+                if (fchInicio == fchFin) eventos = eventos.Where(e => e.FchInicio == fchInicio || e.FchFin == fchInicio);
                 else eventos = eventos.Where(e => e.FchInicio >= fchInicio && e.FchFin <= fchFin);
             }
 
@@ -1829,6 +1831,7 @@ namespace LogicaAplicacion.Validadores
         public static void Anio(int anio)
         {
             if (anio > DateTime.Now.Year) throw new DisciplinaException("El año no puede ser posterior al actual");
+            if(anio <= 0) throw new DisciplinaException("Año incorrecto");
         }
     }
 }
@@ -2262,6 +2265,26 @@ namespace LogicaNegocio.ExcepcionesEntidades
 }
 
 ***********************************
+Archivo: AuditoriaException.cs
+Carpeta: C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolObligatorioP3\LogicaNegocio\ExcepcionesEntidades\AuditoriaException.cs
+***********************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LogicaNegocio.ExcepcionesEntidades
+{
+    public class AuditoriaException : Exception
+    {
+        public AuditoriaException() { }
+        public AuditoriaException(string message) : base(message) { }
+        public AuditoriaException(string message,  Exception innerException) : base(message, innerException) { }
+    }
+}
+
+***********************************
 Archivo: ConflictException.cs
 Carpeta: C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\Entrega Obligatorio 2\SolObligatorioP3\LogicaNegocio\ExcepcionesEntidades\ConflictException.cs
 ***********************************
@@ -2599,7 +2622,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class DisciplinaController : ControllerBase
     {
-        private readonly IEventosAtleta _eventosAtleta;
+
         private readonly IFindAllDisciplinas _finAllDisciplinas;
         private readonly IInsertDisciplina _altaDisciplina;
         private readonly IDeleteDisciplina _deleteDisciplina;
@@ -2607,7 +2630,7 @@ namespace WebApi.Controllers
         private readonly IDisciplinaSelectById _disciplinaSelectById;
         private readonly IAuditoriaInsert _auditoriaInsert;
         private readonly IDisciplinaSelectByNombre _disciplinaSelectByNombre;
-        public DisciplinaController(IEventosAtleta eventosAtleta,
+        public DisciplinaController(
             IFindAllDisciplinas findAllDisciplinas,
             IInsertDisciplina altaDisciplina,
             IDeleteDisciplina deleteDisciplina,
@@ -2616,7 +2639,7 @@ namespace WebApi.Controllers
             IDisciplinaSelectByNombre disciplinaSelectByNombre,
             IDisciplinaUpdate disciplinaUpdate)
         {
-            _eventosAtleta = eventosAtleta;
+          
             _finAllDisciplinas = findAllDisciplinas;
             _altaDisciplina = altaDisciplina;
             _deleteDisciplina = deleteDisciplina;
@@ -2631,12 +2654,10 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-
         [Authorize(Roles = "Digitador")]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
@@ -2662,7 +2683,6 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="nombre"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -2686,12 +2706,12 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+
         /// <summary>
         /// Permite dar de alta una disciplina
         /// </summary>
         /// <param name="disciplinaInsertDto"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -2703,6 +2723,7 @@ namespace WebApi.Controllers
             try
             {
                 int idDisciplina = _altaDisciplina.Ejecutar(disciplinaInsertDto);
+
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
                     Accion = Accion.Create,
@@ -2722,6 +2743,12 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                // Esto es un tema interno de servidor, si llego hasta _auditoriaInsert.Ejecutar ya hizo la inserción
+                Console.WriteLine(aex.Message);
+                return Created();
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -2729,13 +2756,13 @@ namespace WebApi.Controllers
             }
 
         }
+
         /// <summary>
         /// Permite modificar una disciplina
         /// </summary>
         /// <param name="id"></param>
         /// <param name="disciplinaUpdateDTO"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -2744,9 +2771,10 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] DisciplinaUpdateDTO disciplinaUpdateDTO)
         {
+            DisciplinaDTO disciplinaDTO = new DisciplinaDTO();
             try
             {
-                DisciplinaDTO disciplinaDTO = _disciplinaUpdate.Ejecutar(id, disciplinaUpdateDTO);
+                disciplinaDTO = _disciplinaUpdate.Ejecutar(id, disciplinaUpdateDTO);
 
                 _auditoriaInsert.Ejecutar(new AuditoriaInsertDTO
                 {
@@ -2757,7 +2785,6 @@ namespace WebApi.Controllers
                 });
 
                 return Ok(disciplinaDTO);
-
             }
             catch (ConflictException cex)
             {
@@ -2767,18 +2794,23 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                Console.WriteLine(aex.Message);
+                return Ok(disciplinaDTO);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");
             }
         }
+
         /// <summary>
         /// Permite eliminar una disciplina
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -2807,6 +2839,11 @@ namespace WebApi.Controllers
             {
                 return BadRequest(dex.Message);
             }
+            catch (AuditoriaException aex)
+            {
+                Console.WriteLine(aex.Message);
+                return NoContent();
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -2834,7 +2871,6 @@ namespace WebApi.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Algo no salió correctamente");
             }
-
         }
     }
 }
@@ -3919,6 +3955,7 @@ Carpeta: C:\Users\cri_1\OneDrive\Escritorio\Obligatorio1_Prog3\ObligatorioP3v2\E
 using Compartido.DTOs.Auditorias;
 using Compartido.Mappers;
 using LogicaAplicacion.ICasosDeUso.Auditorias;
+using LogicaNegocio.ExcepcionesEntidades;
 using LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
@@ -3938,7 +3975,7 @@ namespace LogicaAplicacion.CasosDeUso.Auditorias
 
         public void Ejecutar(AuditoriaInsertDTO dto)
         {
-            if (dto == null) throw new Exception("Error al registrar la auditoría");
+            if (dto == null) throw new AuditoriaException("Error al registrar la auditoría");
 
             _repositorioAuditoria.Add(AuditoriaMapper.DtoInsertToAuditoria(dto));
         }
@@ -4099,7 +4136,13 @@ namespace LogicaAplicacion.CasosDeUso.Disciplinas
             Disciplina Existe = _repositorioDisciplina.GetById(id)
                  ?? throw new DisciplinaException("Disciplina no encontrada");
 
-            if (dto.Nombre == Existe.Nombre.Valor) throw new ConflictException("Ya existe una disciplina con ese nombre");
+            Disciplina? ExisteNombre = _repositorioDisciplina.GetByNombre(dto.Nombre);
+
+            if(ExisteNombre != null)
+            {
+                if (dto.Nombre == ExisteNombre.Nombre.Valor && id != ExisteNombre.Id)
+                    throw new ConflictException("Ya existe una disciplina con ese nombre");
+            }
 
             Existe.Nombre = new RDisciplinaNombre( dto.Nombre);
             Existe.AnioIntegracion = dto.AnioIntegracion;
@@ -4405,6 +4448,9 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
         public IEnumerable<EventoListaDTO> Ejecutar(EventoBusquedaDTO busqueda)
         {
             // Validaciones de la búsqueda
+            if(busqueda.DisciplinaId <= 0) 
+                throw new EventoException("Id incorrecto");
+
             if (
                 (busqueda.FchInicio != null && busqueda.FchFin == null) ||
                 (busqueda.FchFin != null && busqueda.FchInicio == null) ||
